@@ -31,4 +31,4 @@ A responsive, multi-page website for **SambFun Park** — a fictional family adv
  In progress — started 15 June 2026
 
 ## Authors
-Group 5 
+Deborah Lenasalon 
