@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — SambFun Park</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">🎢 SambFun Park</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="attractions.html">Attractions</a></li>
+          <li class="nav-item"><a class="nav-link" href="tickets.html">Tickets</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="foods.html">Dining</a></li>
+          <li class="nav-item"><a class="nav-link" href="visit.html">Plan Visit</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contactForm.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero hero-contact">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p class="lead">Questions, bookings, or feedback? We would love to hear from you.</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- CONTACT FORM (Left Column) -->
+        <div class="col-lg-7">
+          <div class="form-box">
+            <h3 class="fw-bold mb-1" style="color:#1B1B2F;">Send Us a Message</h3>
+            <p class="text-muted mb-4">We respond within 24 hours on business days.</p>
+
+            <!--
+              JS VALIDATION — HOW IT WORKS:
+              -----------------------------------------------
+              1. novalidate stops the BROWSER from validating
+                 (we want JS to handle all validation instead)
+
+              2. id="contactForm" is how script.js finds this form
+
+              3. Each field has:
+                 - An id (so JS can read its value)
+                 - A .invalid-feedback div below it
+                   (where JS writes the error message)
+
+              4. When Submit is clicked:
+                 - JS runs checks on every field
+                 - If a check fails → field.classList.add('is-invalid')
+                   Bootstrap automatically shows the red border
+                 - The .invalid-feedback div below shows the error text
+                 - If ALL fields pass → form hides, successMsg shows
+              -----------------------------------------------
+            -->
+            <form id="contactForm" novalidate>
+
+              <!-- Full Name field -->
+              <div class="mb-3">
+                <label for="fullName" class="form-label fw-bold">Full Name *</label>
+                <input type="text"
+                       id="fullName"
+                       class="form-control"
+                       placeholder="e.g. Deborah Lenasalon">
+                <!-- JS fills this div with an error message if name is invalid -->
+                <div class="invalid-feedback"></div>
+              </div>
+
+              <!-- Email field -->
+              <div class="mb-3">
+                <label for="emailAddr" class="form-label fw-bold">Email Address *</label>
+                <input type="email"
+                       id="emailAddr"
+                       class="form-control"
+                       placeholder="you@example.com">
+                <div class="invalid-feedback"></div>
+              </div>
+
+              <!-- Phone field (optional) -->
+              <div class="mb-3">
+                <label for="phoneNum" class="form-label fw-bold">
+                  Phone Number <span class="text-muted fw-normal">(optional)</span>
+                </label>
+                <input type="tel"
+                       id="phoneNum"
+                       class="form-control"
+                       placeholder="+254 700 000 000">
+                <div class="invalid-feedback"></div>
+              </div>
+
+              <!-- Subject dropdown -->
+              <div class="mb-3">
+                <label for="subject" class="form-label fw-bold">Subject *</label>
+                <select id="subject" class="form-select">
+                  <option value="">— Select a subject —</option>
+                  <option value="tickets">Tickets & Booking</option>
+                  <option value="groups">Group & Corporate Visits</option>
+                  <option value="birthday">Birthday Party Packages</option>
+                  <option value="accessibility">Accessibility Requirements</option>
+                  <option value="feedback">General Feedback</option>
+                  <option value="lost">Lost Property</option>
+                  <option value="other">Other Enquiry</option>
+                </select>
+                <div class="invalid-feedback"></div>
+              </div>
+
+              <!-- Message textarea -->
+              <div class="mb-4">
+                <label for="message" class="form-label fw-bold">Message *</label>
+                <textarea id="message"
+                          class="form-control"
+                          rows="5"
+                          placeholder="Describe your enquiry here (minimum 20 characters)..."></textarea>
+                <div class="invalid-feedback"></div>
+              </div>
+
+              <!-- Submit button -->
+              <button type="submit" class="btn-orange w-100">Send Message</button>
+              <p class="text-muted small text-center mt-2">* Required fields</p>
+
+            </form>
+
+            <!--
+              SUCCESS MESSAGE
+              Hidden by default (display:none in CSS).
+              script.js sets form.style.display = 'none'
+              and successMsg.style.display = 'block' after valid submit.
+            -->
+            <div id="successMsg">
+              <div style="font-size:3rem;">✅</div>
+              <h4 class="fw-bold mt-2">Message Sent!</h4>
+              <p class="text-muted">Thank you for reaching out. Our team will get back to you within 24 hours.</p>
+              <a href="index.html" class="btn-orange">Back to Home</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CONTACT INFO (Right Column) -->
+        <div class="col-lg-5">
+          <h3 class="fw-bold mb-4" style="color:#1B1B2F;">Other Ways to Reach Us</h3>
+
+          <div class="card park-card p-3 mb-3">
+            <h6 class="fw-bold">📞 Phone</h6>
+            <p class="mb-0">+254 712 345 678<br>
+            <small class="text-muted">Mon–Fri: 8 AM–6 PM · Sat–Sun: 9 AM–5 PM</small></p>
+          </div>
+
+          <div class="card park-card p-3 mb-3">
+            <h6 class="fw-bold">📧 Email</h6>
+            <p class="mb-0">
+              info@sambfunpark.co.ke<br>
+              <small class="text-muted">General enquiries</small><br>
+              groups@sambfunpark.co.ke<br>
+              <small class="text-muted">Group & corporate bookings</small>
+            </p>
+          </div>
+
+          <div class="card park-card p-3 mb-3">
+            <h6 class="fw-bold">📍 Visit Us</h6>
+            <p class="mb-0">
+              SambFun Park<br>
+              Uhuru Highway, off Lang'ata Road<br>
+              Nairobi, Kenya<br>
+              <small class="text-muted">Guest Services open park hours daily</small>
+            </p>
+          </div>
+
+          <div class="card park-card p-3">
+            <h6 class="fw-bold">🌐 Social Media</h6>
+            <p class="mb-2">Follow us for daily updates and behind-the-scenes content.</p>
+            <div class="d-flex gap-2 flex-wrap">
+              <span class="badge bg-primary p-2">📘 Facebook</span>
+              <span class="badge bg-danger p-2">📸 Instagram</span>
+              <span class="badge bg-dark p-2">🐦 X (Twitter)</span>
+              <span class="badge bg-success p-2">💬 WhatsApp</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5>🎢 SambFun Park</h5>
+          <p>Africa's most exciting family adventure park.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <a href="index.html">Home</a>
+          <a href="attractions.html">Attractions</a>
+          <a href="tickets.html">Tickets</a>
+          <a href="events.html">Events</a>
+          <a href="contactForm.html">Contact Us</a>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact Us</h5>
+          <p>📍 Uhuru Highway, Nairobi, Kenya<br>
+             📞 +254 712 345 678<br>
+             📧 info@sambfunpark.co.ke</p>
+        </div>
+      </div>
+      <hr class="footer-hr">
+      <p class="text-center mb-0" style="font-size:0.85rem; color:rgba(255,255,255,0.4);">
+        &copy; 2026 SambFun Park. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
