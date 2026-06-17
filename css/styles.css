@@ -1,105 +1,455 @@
-/* ============================================
-   SAMBFUN PARK — Custom Stylesheet
-   ============================================ */
+/*
+  SAMBFUN PARK - styles.css
+  This single CSS file styles ALL pages consistently.
+  -------------------------------------------------------
+  HOW CSS WORKS HERE:
+  - We define colour variables at the top (easy to change)
+  - Each section below targets specific parts of the page
+  - Bootstrap handles the grid and layout; we just customise colours
+*/
 
-/* --- Page Layout: Main + Sidebar --- */
+/* ============================================
+   COLOUR VARIABLES
+   Change these values to retheme the whole site
+   ============================================ */
+:root {
+  --orange: #FF6B35;   /* Main brand colour - used for buttons, active links */
+  --dark:   #1B1B2F;   /* Dark navy - used for navbar and footer */
+  --yellow: #FFD23F;   /* Accent yellow - used for brand text in navbar */
+  --light:  #FFF8F0;   /* Warm white - used for alternating section backgrounds */
+  --gray:   #6c757d;   /* Muted gray - used for small descriptive text */
+}
+
+/* ============================================
+   BASE STYLES
+   Applied to the whole page
+   ============================================ */
+body {
+  font-family: Arial, sans-serif; /* Simple readable font */
+  color: #333333;                 /* Dark gray text (softer than black) */
+  background-color: #ffffff;
+}
+
+/* Make images responsive (never overflow their container) */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Default link colour */
+a {
+  color: var(--orange);
+}
+
+/* ============================================
+   NAVBAR
+   Bootstrap provides the structure and collapse behaviour.
+   We only override the colours here.
+   ============================================ */
+.navbar {
+  background-color: var(--dark) !important; /* !important overrides Bootstrap default */
+}
+
+/* Park name on the left of the navbar */
+.navbar-brand {
+  color: var(--yellow) !important;
+  font-weight: bold;
+  font-size: 0.6rem;
+}
+
+/* Navigation links */
+.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 5px;
+  padding: 6px 12px !important;
+  transition: background-color 0.3s; /* Smooth colour change on hover */
+}
+
+/* Highlight the active page link and hover state */
+.nav-link:hover,
+.nav-link.active {
+  background-color: var(--orange);
+  color: #ffffff !important;
+}
+
+/* ============================================
+   HERO SECTIONS
+   Each page has a large colourful banner at the top.
+   .hero sets the shared styles; each page adds its own colour class.
+   ============================================ */
+.hero {
+  padding: 80px 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.hero p.lead {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+/* One unique background colour for each page */
+.hero-home    { background-color: #FF6B35; }
+.hero-about   { background-color: #1B1B2F; }
+.hero-attract { background-color: #7C3AED; }
+.hero-tickets { background-color: #059669; }
+.hero-events  { background-color: #DC2626; }
+.hero-dining  { background-color: #D97706; }
+.hero-visit   { background-color: #0D9488; }
+.hero-contact { background-color: #374151; }
+.hero-faq     { background-color: #1D4ED8; }
+.hero-news    { background-color: #4338CA; }
+
+/* ============================================
+   SECTION SPACING
+   .section         = white background
+   .section-light   = warm off-white background (alternating sections)
+   ============================================ */
+.section {
+  padding: 60px 0;
+}
+
+.section-light {
+  padding: 60px 0;
+  background-color: var(--light);
+}
+
+/* Section heading and sub-text used on every page */
+.section-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.section-sub {
+  color: var(--gray);
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+/* ============================================
+   CARDS
+   Used for rides, food, news, team members, etc.
+   Bootstrap's .card class gives the white box;
+   .park-card adds our shadow and hover effect.
+   ============================================ */
+.park-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s; /* Smooth animation on hover */
+  height: 100%;               /* Makes cards in the same row equal height */
+}
+
+.park-card:hover {
+  transform: translateY(-5px); /* Card rises slightly when hovered */
+}
+
+/* ============================================
+   BUTTONS
+   .btn-orange = our custom filled button
+   ============================================ */
+.btn-orange {
+  background-color: var(--orange);
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;      /* Pill shape */
+  padding: 10px 28px;
+  font-weight: bold;
+  display: inline-block;
+  text-decoration: none;    /* Remove underline when used as a link */
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.btn-orange:hover {
+  background-color: #e55a24; /* Slightly darker on hover */
+  color: #ffffff;
+}
+
+/* ============================================
+   THRILL LEVEL BADGES
+   Small coloured labels on ride cards.
+   Used on attractions.html.
+   ============================================ */
+.badge-mild {
+  background-color: #10B981; /* Green = mild/safe */
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.badge-moderate {
+  background-color: #F59E0B; /* Orange = some thrill */
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.badge-extreme {
+  background-color: #EF4444; /* Red = intense */
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* ============================================
+   RIDE FILTER BUTTONS
+   Used on attractions.html to filter rides.
+   JS adds/removes the .active class when clicked.
+   ============================================ */
+.filter-btn {
+  border: 2px solid #dee2e6;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px 16px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 3px;
+  transition: all 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background-color: var(--orange);
+  color: white;
+  border-color: var(--orange);
+}
+
+/* JS adds this class to hide ride cards that don't match the filter */
+.ride-card.hidden {
+  display: none;
+}
+
+/* Message shown when no rides match the selected filters */
+#no-results {
+  display: none; /* Hidden by default; JS shows it when needed */
+  text-align: center;
+  padding: 40px;
+  color: var(--gray);
+  font-size: 1.1rem;
+}
+
+/* ============================================
+   TICKET CALCULATOR
+   Used on tickets.html.
+   Shows a live price total as the user fills in numbers.
+   ============================================ */
+.calc-box {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid var(--orange); /* Orange accent line at top */
+}
+
+.total-box {
+  background-color: var(--dark);
+  color: white;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.total-amount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--yellow); /* Yellow makes the price stand out */
+}
+
+/* ============================================
+   CONTACT FORM
+   Used on contactForm.html.
+   Bootstrap's .is-invalid adds a red border when JS marks a field wrong.
+   ============================================ */
+.form-box {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Red border - Bootstrap applies this when we add .is-invalid via JS */
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #dc3545;
+}
+
+/* Red helper text below invalid fields */
+.invalid-feedback {
+  font-size: 0.8rem;
+  color: #dc3545;
+  font-weight: 500;
+}
+
+/* Success message - hidden until form is submitted correctly */
+#successMsg {
+  display: none; /* JS changes this to 'block' on success */
+  background: #d1fae5;
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+}
+
+/* ============================================
+   HOMEPAGE SIDEBAR LAYOUT
+   Two-column layout: main content left, sidebar right.
+   Uses CSS Flexbox.
+   ============================================ */
 .page-layout {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
+  display: flex;      /* Put children side by side */
+  gap: 30px;          /* Space between the two columns */
+  align-items: flex-start; /* Align both columns at the top */
 }
 
 .main-content {
-  flex: 1;
-  min-width: 0;
+  flex: 1; /* Takes up all remaining space */
 }
 
 .sidebar {
-  width: 280px;
-  flex-shrink: 0;
+  width: 270px;    /* Fixed width sidebar */
+  flex-shrink: 0;  /* Prevents sidebar from shrinking */
 }
 
-/* --- Sidebar Cards --- */
+/* Individual sidebar boxes */
 .sidebar-card {
-  background-color: #f8f9fa;
+  background: white;
   border: 1px solid #dee2e6;
-  border-radius: 8px;
-  padding: 1.2rem;
-  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.sidebar-heading {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #0d6efd;
-  color: #212529;
+.sidebar-title {
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-bottom: 2px solid var(--orange);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  color: var(--dark);
 }
 
-/* --- Stat List --- */
-.stat-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.stat-list li {
+/* Each row inside the stat list */
+.stat-row {
   display: flex;
-  justify-content: space-between;
-  padding: 0.4rem 0;
-  border-bottom: 1px solid #e9ecef;
+  justify-content: space-between; /* Label left, value right */
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
   font-size: 0.9rem;
 }
 
-.stat-list li:last-child {
+.stat-row:last-child {
   border-bottom: none;
 }
 
-/* --- Open Badge --- */
-.open-badge {
-  margin-top: 0.8rem;
-  background-color: #d1e7dd;
-  color: #0f5132;
-  text-align: center;
-  padding: 0.4rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-/* --- Quick Links --- */
-.quick-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.quick-links a {
+/* Sidebar quick navigation links */
+.quick-link {
   display: block;
-  padding: 0.5rem 0.8rem;
-  background-color: #fff;
+  padding: 8px 12px;
+  background: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 6px;
   text-decoration: none;
-  color: #212529;
+  color: #333;
   font-size: 0.9rem;
-  transition: background-color 0.2s, color 0.2s;
+  margin-bottom: 6px;
+  transition: all 0.3s;
 }
 
-.quick-links a:hover {
-  background-color: #0d6efd;
-  color: #fff;
-  border-color: #0d6efd;
+.quick-link:hover {
+  background-color: var(--orange);
+  color: white;
+  border-color: var(--orange);
 }
 
-/* --- Responsive: stack sidebar below on mobile --- */
+/* ============================================
+   FOOTER
+   Same footer appears on every page.
+   ============================================ */
+.site-footer {
+  background-color: var(--dark);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 40px 0 20px;
+  margin-top: 0;
+}
+
+.site-footer h5 {
+  color: var(--yellow);
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  display: block;
+  line-height: 2.2;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.site-footer a:hover {
+  color: var(--orange);
+}
+
+.site-footer hr {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 20px 0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   Media queries change the layout for smaller screens.
+   Bootstrap handles most of this, but we handle the sidebar here.
+   ============================================ */
+
+/* Tablets and phones (screens smaller than 768px) */
 @media (max-width: 768px) {
+  /* Smaller hero text on mobile */
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero {
+    padding: 50px 0;
+  }
+
+  /* Stack sidebar BELOW main content on small screens */
   .page-layout {
     flex-direction: column;
   }
 
   .sidebar {
-    width: 100%;
+    width: 100%; /* Full width on mobile */
+  }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
   }
 }
