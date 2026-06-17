@@ -33,7 +33,7 @@ body {
 /* Make images responsive (never overflow their container) */
 img {
   max-width: 100%;
-  height: auto;
+  height: 60px;
 }
 
 /* Default link colour */
@@ -327,6 +327,8 @@ a {
 .sidebar {
   width: 270px;    /* Fixed width sidebar */
   flex-shrink: 0;  /* Prevents sidebar from shrinking */
+  height: auto;
+  align-self: flex-start;
 }
 
 /* Individual sidebar boxes */
@@ -334,8 +336,8 @@ a {
   background: white;
   border: 1px solid #dee2e6;
   border-radius: 10px;
-  padding: 18px;
-  margin-bottom: 20px;
+  padding: 5px;
+  margin-bottom: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -390,6 +392,8 @@ a {
   color: rgba(255, 255, 255, 0.8);
   padding: 40px 0 20px;
   margin-top: 0;
+  clear: both;
+  width: 100%;
 }
 
 .site-footer h5 {
