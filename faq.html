@@ -11,25 +11,21 @@
 
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <!-- In your navbar, replace the text brand with the logo -->
-<a class="navbar-brand" href="index.html">
-  <img src="images/sambfun_park_logo.png" alt="SambFun Park" height="40">
-</a>
+      <a class="navbar-brand" href="index.html">
+        <img src="images/sambfun_park_logo.png" alt="SambFun Park" height="40">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="attractions.html">Attractions</a></li>
-          <li class="nav-item"><a class="nav-link" href="tickets.html">Tickets</a></li>
-          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
-          <li class="nav-item"><a class="nav-link" href="foods.html">Dining</a></li>
-          <li class="nav-item"><a class="nav-link" href="visit.html">Plan Visit</a></li>
-          <li class="nav-item"><a class="nav-link" href="contactForm.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link"        href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link"        href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link"        href="attractions.html">Attractions</a></li>
+          <li class="nav-item"><a class="nav-link"        href="tickets.html">Tickets</a></li>
+          <li class="nav-item"><a class="nav-link"        href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link"        href="contactForm.html">Contact</a></li>
           <li class="nav-item"><a class="nav-link active" href="faq.html">FAQ</a></li>
-          <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
         </ul>
       </div>
     </div>
@@ -38,7 +34,7 @@
   <header class="hero hero-faq">
     <div class="container">
       <h1>Frequently Asked Questions</h1>
-      <p class="lead">Can't find your answer? <a href="contactForm.html" style="color:#4919f8;">Send us a message</a>.</p>
+      <p class="lead">Can't find your answer? <a href="contactForm.html" style="color:#FFD23F;">Send us a message</a>.</p>
     </div>
   </header>
 
@@ -48,212 +44,182 @@
         <div class="col-lg-9">
 
           <!--
-            BOOTSTRAP ACCORDION
-            -----------------------------------------------
-            HOW IT WORKS:
-            Bootstrap's accordion component handles all the
-            show/hide behaviour automatically — no extra JS needed!
+            BOOTSTRAP ACCORDION COMPONENT
+            =====================================================
+            Bootstrap handles all the open/close animation
+            automatically — no JavaScript needed for this!
 
             Key attributes:
-            - data-bs-toggle="collapse"  tells Bootstrap this is a toggler
-            - data-bs-target="#t1"       points to which div to show/hide
-            - data-bs-parent="#faqTickets" ensures only one item is open at a time
-            -----------------------------------------------
+            data-bs-toggle="collapse"  tells Bootstrap this button
+                                        controls a collapsible section
+            data-bs-target="#q1"       points to the div to expand/collapse
+            data-bs-parent="#faqA"     ensures only ONE item is open
+                                        at a time within this accordion
+
+            The first item has class="show" to start open by default.
+            Others start with class="collapse" (closed).
+            =====================================================
           -->
 
           <!-- SECTION: Tickets & Pricing -->
-          <h4 class="fw-bold mb-3 mt-2" style="color:#FF6B35;">🎟️ Tickets & Pricing</h4>
+          <h5 class="fw-bold mb-3 mt-2" style="color:var(--primary);">&#127903; Tickets &amp; Pricing</h5>
 
-          <div class="accordion mb-4" id="faqTickets">
+          <div class="accordion mb-4" id="faqA">
 
-            <!-- Question 1 (open by default) -->
-            <div class="accordion-item mb-2 border rounded">
+            <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button fw-bold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#t1"
-                        aria-expanded="true">
+                <button class="accordion-button" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#q1">
                   How much does it cost to enter SambFun Park?
                 </button>
               </h2>
-              <!-- "show" class makes this item open by default -->
-              <div id="t1" class="accordion-collapse collapse show" data-bs-parent="#faqTickets">
+              <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqA">
                 <div class="accordion-body text-muted">
-                  Day pass prices: Adults (18–59) KSh 1,200 · Children (3–17) KSh 800 · Seniors (60+) KSh 600.
-                  Children under 3 enter free. Use our <a href="tickets.html">Ticket Calculator</a> to get your group total instantly.
+                  Day pass prices: Adults (18&ndash;59) KSh 1,200 &middot; Children (3&ndash;17) KSh 800 &middot; Seniors (60+) KSh 600. Children under 3 enter free. Use our <a href="tickets.html">Ticket Calculator</a> to get your total instantly.
                 </div>
               </div>
             </div>
 
-            <!-- Question 2 -->
-            <div class="accordion-item mb-2 border rounded">
+            <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed fw-bold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#t2">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#q2">
                   Can I buy tickets at the gate?
                 </button>
               </h2>
-              <div id="t2" class="accordion-collapse collapse" data-bs-parent="#faqTickets">
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqA">
                 <div class="accordion-body text-muted">
-                  Yes — walk-up tickets are available daily. However, booking online saves you 10% and guarantees entry
-                  on busy weekends and public holidays. We recommend booking ahead for groups of 10 or more.
+                  Yes &mdash; walk-up tickets are available at the gate every day. However, booking online saves you 10% and guarantees entry on busy weekends and public holidays.
                 </div>
               </div>
             </div>
 
-            <!-- Question 3 -->
-            <div class="accordion-item mb-2 border rounded">
+            <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed fw-bold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#t3">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#q3">
                   Is there a family ticket or group discount?
                 </button>
               </h2>
-              <div id="t3" class="accordion-collapse collapse" data-bs-parent="#faqTickets">
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqA">
                 <div class="accordion-body text-muted">
-                  Every Sunday: 2 adults + 2 children for KSh 3,500 (saving KSh 1,100). For groups of 20+,
-                  contact groups@sambfunpark.co.ke — discounts start at 15%.
+                  Every Sunday we offer a Family Fun deal: 2 adults + 2 children for KSh 3,500 (saving KSh 1,100). For groups of 20 or more, contact groups@sambfunpark.co.ke for a custom quote.
                 </div>
               </div>
             </div>
 
-          </div><!-- end faqTickets accordion -->
+          </div>
 
           <!-- SECTION: Rides & Attractions -->
-          <h4 class="fw-bold mb-3 mt-4" style="color:#FF6B35;">🎢 Rides & Attractions</h4>
+          <h5 class="fw-bold mb-3" style="color:var(--primary);">&#127922; Rides &amp; Attractions</h5>
 
-          <div class="accordion mb-4" id="faqRides">
+          <div class="accordion mb-4" id="faqB">
 
-            <div class="accordion-item mb-2 border rounded">
+            <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed fw-bold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#r1">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#r1">
                   How many rides does SambFun Park have?
                 </button>
               </h2>
-              <div id="r1" class="accordion-collapse collapse" data-bs-parent="#faqRides">
+              <div id="r1" class="accordion-collapse collapse" data-bs-parent="#faqB">
                 <div class="accordion-body text-muted">
-                  We operate 50+ rides across 5 zones: Adventure Land, Splash Zone, Kids' Cove, Thrill Hill,
-                  and Main Street. This includes 3 roller coasters, 4 water rides, 12 family rides, and more.
-                  Sky Rocket opens July 2026!
+                  We operate 50+ rides across 5 zones: Adventure Land, Splash Zone, Kids' Cove, Thrill Hill, and Main Street. Sky Rocket &mdash; our newest coaster &mdash; opens July 2026!
                 </div>
               </div>
             </div>
 
-            <div class="accordion-item mb-2 border rounded">
+            <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed fw-bold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#r2">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#r2">
                   What are the height restrictions?
                 </button>
               </h2>
-              <div id="r2" class="accordion-collapse collapse" data-bs-parent="#faqRides">
+              <div id="r2" class="accordion-collapse collapse" data-bs-parent="#faqB">
                 <div class="accordion-body text-muted">
-                  Many rides are open to all heights. Extreme rides like Thunder Loop require 140 cm minimum.
-                  Visit our <a href="visit.html">Plan Your Visit</a> page for the full height chart.
+                  Many rides are open to all heights (Carousel, Mini Train, Bumper Cars as passenger). Thunder Loop and Freefall Drop require 140 cm minimum. Visit <a href="attractions.html">Attractions</a> for the full list.
                 </div>
               </div>
             </div>
 
-          </div><!-- end faqRides accordion -->
+          </div>
 
           <!-- SECTION: Safety & Accessibility -->
-          <h4 class="fw-bold mb-3 mt-4" style="color:#FF6B35;">♿ Safety & Accessibility</h4>
+          <h5 class="fw-bold mb-3" style="color:var(--primary);">&#9855;&#65039; Safety &amp; Accessibility</h5>
 
-          <div class="accordion mb-4" id="faqSafety">
+          <div class="accordion mb-4" id="faqC">
 
-            <div class="accordion-item mb-2 border rounded">
+            <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed fw-bold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#s1">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#s1">
                   Is the park safe for young children?
                 </button>
               </h2>
-              <div id="s1" class="accordion-collapse collapse" data-bs-parent="#faqSafety">
+              <div id="s1" class="accordion-collapse collapse" data-bs-parent="#faqC">
                 <div class="accordion-body text-muted">
-                  All rides pass 42 daily safety checks before opening. Kids' Cove is a dedicated zone for
-                  children under 12 with age-appropriate rides and supervised soft play. Children must be
-                  accompanied by an adult aged 18+.
+                  All rides pass 42 daily safety checks before opening. Kids' Cove is a dedicated zone for children under 12 with age-appropriate rides and supervised soft play.
                 </div>
               </div>
             </div>
 
-            <div class="accordion-item mb-2 border rounded">
+            <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed fw-bold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#s2">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#s2">
                   Do you have facilities for guests with disabilities?
                 </button>
               </h2>
-              <div id="s2" class="accordion-collapse collapse" data-bs-parent="#faqSafety">
+              <div id="s2" class="accordion-collapse collapse" data-bs-parent="#faqC">
                 <div class="accordion-body text-muted">
-                  The entire park is wheelchair accessible. We offer free wheelchair rental, companion tickets at 50% off,
-                  sensory packs at Guest Services, and quiet hours from 9–10 AM daily.
+                  Yes. The entire park is wheelchair accessible. We offer free wheelchair rental, companion tickets at 50% off, sensory packs at Guest Services, and quiet hours from 9&ndash;10 AM daily.
                 </div>
               </div>
             </div>
 
-          </div><!-- end faqSafety accordion -->
+          </div>
 
           <!-- SECTION: Getting Here -->
-          <h4 class="fw-bold mb-3 mt-4" style="color:#FF6B35;">📍 Getting Here</h4>
+          <h5 class="fw-bold mb-3" style="color:var(--primary);">&#128205; Getting Here</h5>
 
-          <div class="accordion mb-5" id="faqTravel">
+          <div class="accordion mb-4" id="faqD">
 
-            <div class="accordion-item mb-2 border rounded">
+            <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed fw-bold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#g1">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#g1">
                   Is there free parking?
                 </button>
               </h2>
-              <div id="g1" class="accordion-collapse collapse" data-bs-parent="#faqTravel">
+              <div id="g1" class="accordion-collapse collapse" data-bs-parent="#faqD">
                 <div class="accordion-body text-muted">
-                  Yes — parking is free and included with every ticket. We have 2,000 spaces on-site,
-                  including 80 accessible bays near the main entrance.
+                  Yes &mdash; parking is free and included with every ticket. We have 2,000 spaces on-site, including 80 designated accessible bays near the main entrance.
                 </div>
               </div>
             </div>
 
-            <div class="accordion-item mb-2 border rounded">
+            <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed fw-bold"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#g2">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#g2">
                   How do I get there by matatu?
                 </button>
               </h2>
-              <div id="g2" class="accordion-collapse collapse" data-bs-parent="#faqTravel">
+              <div id="g2" class="accordion-collapse collapse" data-bs-parent="#faqD">
                 <div class="accordion-body text-muted">
-                  Take Route 34 (CBD → Lang'ata) and alight at the "SambFun Park" stop.
-                  Matatus run every 15 minutes from 7 AM to 10 PM.
+                  Take Route 34 (CBD &rarr; Lang'ata) and alight at the "SambFun Park" stop. Matatus run every 15 minutes from 7 AM to 10 PM.
                 </div>
               </div>
             </div>
 
-          </div><!-- end faqTravel accordion -->
+          </div>
 
           <!-- CTA at bottom -->
-          <div class="text-center p-4 rounded" style="background:#FFF8F0;">
-            <h5 class="fw-bold">Still have questions?</h5>
+          <div class="text-center p-4 rounded" style="background:var(--light-bg);">
+            <h5 class="fw-bold">Still have a question?</h5>
             <p class="text-muted">Our team is happy to help.</p>
-            <a href="contactForm.html" class="btn-orange">Contact Us</a>
+            <a href="contactForm.html" class="btn-park">Contact Us</a>
           </div>
 
         </div>
@@ -264,29 +230,17 @@
   <footer class="site-footer">
     <div class="container">
       <div class="row g-4">
-        <div class="col-md-4">
-          <h5>🎢 SambFun Park</h5>
-          <p>Africa's most exciting family adventure park.</p>
-        </div>
+        <div class="col-md-4"><h5>&#127906; SambFun Park</h5><p>Africa's most exciting family adventure park.</p></div>
         <div class="col-md-4">
           <h5>Quick Links</h5>
-          <a href="index.html">Home</a>
-          <a href="attractions.html">Attractions</a>
-          <a href="tickets.html">Tickets</a>
-          <a href="events.html">Events</a>
-          <a href="contactForm.html">Contact Us</a>
+          <a href="index.html">Home</a><a href="attractions.html">Attractions</a>
+          <a href="tickets.html">Tickets</a><a href="contactForm.html">Contact Us</a>
         </div>
-        <div class="col-md-4">
-          <h5>Contact Us</h5>
-          <p>📍 Uhuru Highway, Nairobi, Kenya<br>
-             📞 +254 712 345 678<br>
-             📧 info@sambfunpark.co.ke</p>
+        <div class="col-md-4"><h5>Contact Us</h5>
+          <p>&#128205; Uhuru Highway, Nairobi, Kenya<br>&#128222; +254 712 345 678<br>&#128231; info@sambfunpark.co.ke</p>
         </div>
       </div>
-      <hr class="footer-hr">
-      <p class="text-center mb-0" style="font-size:0.85rem; color:rgba(255,255,255,0.4);">
-        &copy; 2026 SambFun Park. All rights reserved.
-      </p>
+      <hr><p class="text-center copyright mb-0">&copy; 2026 SambFun Park. All rights reserved.</p>
     </div>
   </footer>
 
