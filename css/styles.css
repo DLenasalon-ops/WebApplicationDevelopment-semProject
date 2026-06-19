@@ -1,82 +1,95 @@
-/*
-  SAMBFUN PARK - styles.css
-  This single CSS file styles ALL pages consistently.
-  -------------------------------------------------------
-  HOW CSS WORKS HERE:
-  - We define colour variables at the top (easy to change)
-  - Each section below targets specific parts of the page
-  - Bootstrap handles the grid and layout; we just customise colours
-*/
+/* ================================================================
+   SAMBFUN PARK — styles.css
+   One file styles every page.
+   Structure:
+     1. Colour variables (change these to retheme the whole site)
+     2. Base / body
+     3. Navbar
+     4. Hero banners (one colour per page)
+     5. Section helpers
+     6. Cards
+     7. Buttons
+     8. Sidebar (homepage only)
+     9. Ride filter (attractions.html)
+    10. Thrill-level badges
+    11. Ticket calculator (tickets.html)
+    12. Contact form & validation (contactForm.html)
+    13. FAQ accordion (faq.html)
+    14. Footer
+    15. Responsive overrides
+   ================================================================ */
 
-/* ============================================
-   COLOUR VARIABLES
-   Change these values to retheme the whole site
-   ============================================ */
+
+/* ── 1. COLOUR VARIABLES ──────────────────────────────────────
+   Change any hex value here and the whole site updates.       */
 :root {
-  --orange: #FF6B35;   /* Main brand colour - used for buttons, active links */
-  --dark:   #1B1B2F;   /* Dark navy - used for navbar and footer */
-  --yellow: #FFD23F;   /* Accent yellow - used for brand text in navbar */
-  --light:  #FFF8F0;   /* Warm white - used for alternating section backgrounds */
-  --gray:   #6c757d;   /* Muted gray - used for small descriptive text */
+  --primary:   #FF6B35;   /* Orange  – main brand colour       */
+  --dark:      #1B1B2F;   /* Navy    – navbar & footer         */
+  --yellow:    #FFD23F;   /* Gold    – accents & highlights    */
+  --light-bg:  #FFF8F0;   /* Cream   – alternate sections      */
+  --text:      #333333;   /* Near-black body copy              */
+  --muted:     #6c757d;   /* Grey    – secondary text          */
+  --border:    #dee2e6;   /* Default border colour             */
+  --radius:    10px;      /* Standard border radius            */
+  --shadow:    0 4px 14px rgba(0,0,0,0.10);  /* Card shadow   */
+  --transition: all 0.3s ease;               /* Hover speed   */
 }
 
-/* ============================================
-   BASE STYLES
-   Applied to the whole page
-   ============================================ */
+
+/* ── 2. BASE / BODY ───────────────────────────────────────── */
 body {
-  font-family: Arial, sans-serif; /* Simple readable font */
-  color: #333333;                 /* Dark gray text (softer than black) */
+  font-family: Arial, sans-serif;
+  color: var(--text);
   background-color: #ffffff;
+  line-height: 1.7;
 }
 
-/* Make images responsive (never overflow their container) */
 img {
   max-width: 100%;
-  height: 60px;
+  height: auto;
 }
 
-/* Default link colour */
 a {
-  color: var(--orange);
+  color: var(--primary);
+  transition: var(--transition);
 }
 
-/* ============================================
-   NAVBAR
-   Bootstrap provides the structure and collapse behaviour.
-   We only override the colours here.
-   ============================================ */
+
+/* ── 3. NAVBAR ────────────────────────────────────────────────
+   Bootstrap sets the structure; we only change colours here.  */
 .navbar {
-  background-color: var(--dark) !important; /* !important overrides Bootstrap default */
+  background-color: var(--dark) !important;
+  padding: 0.75rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
 }
 
-/* Park name on the left of the navbar */
-.navbar-brand {
+/* Brand / logo text */
+.navbar .navbar-brand {
   color: var(--yellow) !important;
-  font-weight: bold;
-  font-size: 0.6rem;
+  font-weight: 700;
+  font-size: 1.25rem;
 }
 
 /* Navigation links */
-.nav-link {
-  color: rgba(255, 255, 255, 0.8) !important;
-  border-radius: 5px;
-  padding: 6px 12px !important;
-  transition: background-color 0.3s; /* Smooth colour change on hover */
+.navbar .nav-link {
+  color: rgba(255,255,255,0.80) !important;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem !important;
+  transition: var(--transition);
 }
 
-/* Highlight the active page link and hover state */
-.nav-link:hover,
-.nav-link.active {
-  background-color: var(--orange);
+/* Highlight hovered or current-page link */
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  background-color: var(--primary);
   color: #ffffff !important;
 }
 
-/* ============================================
-   HERO SECTIONS
-   Each page has a large colourful banner at the top.
-   .hero sets the shared styles; each page adds its own colour class.
-   ============================================ */
+
+/* ── 4. HERO BANNERS ─────────────────────────────────────────
+   Every page has a full-width banner at the top.
+   .hero sets the shared styles.
+   .hero-home, .hero-about … etc set the unique background.    */
 .hero {
   padding: 80px 0;
   text-align: center;
@@ -96,364 +109,408 @@ a {
   margin: 0 auto 20px;
 }
 
-/* One unique background colour for each page */
-.hero-home    { background-color: #FF6B35; }
-.hero-about   { background-color: #1B1B2F; }
-.hero-attract { background-color: #7C3AED; }
-.hero-tickets { background-color: #059669; }
-.hero-events  { background-color: #DC2626; }
-.hero-dining  { background-color: #D97706; }
-.hero-visit   { background-color: #0D9488; }
-.hero-contact { background-color: #374151; }
-.hero-faq     { background-color: #1D4ED8; }
-.hero-news    { background-color: #4338CA; }
+/* Per-page hero background colours */
+.hero-home      { background-color: #FF6B35; }   /* Orange  */
+.hero-about     { background-color: #1B1B2F; }   /* Navy    */
+.hero-attract   { background-color: #6D28D9; }   /* Purple  */
+.hero-tickets   { background-color: #047857; }   /* Green   */
+.hero-events    { background-color: #B91C1C; }   /* Red     */
+.hero-contact   { background-color: #374151; }   /* Slate   */
+.hero-faq       { background-color: #1D4ED8; }   /* Blue    */
 
-/* ============================================
-   SECTION SPACING
-   .section         = white background
-   .section-light   = warm off-white background (alternating sections)
-   ============================================ */
+
+/* ── 5. SECTION HELPERS ──────────────────────────────────────*/
 .section {
   padding: 60px 0;
 }
 
-.section-light {
+/* Alternate sections get the warm cream background */
+.section-alt {
   padding: 60px 0;
-  background-color: var(--light);
+  background-color: var(--light-bg);
 }
 
-/* Section heading and sub-text used on every page */
 .section-title {
   font-size: 1.9rem;
   font-weight: 800;
   color: var(--dark);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .section-sub {
-  color: var(--gray);
+  color: var(--muted);
   margin-bottom: 30px;
-  font-size: 1rem;
 }
 
-/* ============================================
-   CARDS
-   Used for rides, food, news, team members, etc.
-   Bootstrap's .card class gives the white box;
-   .park-card adds our shadow and hover effect.
-   ============================================ */
+
+/* ── 6. CARDS ────────────────────────────────────────────────
+   Used on rides, events, food, team members, etc.
+   Bootstrap's .card gives the white box.
+   .park-card adds our shadow and hover lift.                  */
 .park-card {
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s; /* Smooth animation on hover */
-  height: 100%;               /* Makes cards in the same row equal height */
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  height: 100%;          /* Makes cards in the same row equal height */
+  background-color: #fff;
 }
 
 .park-card:hover {
-  transform: translateY(-5px); /* Card rises slightly when hovered */
+  transform: translateY(-5px);    /* Card lifts when hovered  */
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
 }
 
-/* ============================================
-   BUTTONS
-   .btn-orange = our custom filled button
-   ============================================ */
-.btn-orange {
-  background-color: var(--orange);
+
+/* ── 7. BUTTONS ──────────────────────────────────────────────*/
+/* Filled orange button */
+.btn-park {
+  background-color: var(--primary);
   color: #ffffff;
   border: none;
-  border-radius: 25px;      /* Pill shape */
+  border-radius: 25px;
   padding: 10px 28px;
-  font-weight: bold;
+  font-weight: 700;
   display: inline-block;
-  text-decoration: none;    /* Remove underline when used as a link */
-  transition: background-color 0.3s;
+  text-decoration: none;
+  transition: var(--transition);
   cursor: pointer;
 }
 
-.btn-orange:hover {
-  background-color: #e55a24; /* Slightly darker on hover */
+.btn-park:hover {
+  background-color: #e55a24;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Outline orange button */
+.btn-park-outline {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  border-radius: 25px;
+  padding: 9px 26px;
+  font-weight: 700;
+  background: transparent;
+  display: inline-block;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-park-outline:hover {
+  background-color: var(--primary);
   color: #ffffff;
 }
 
-/* ============================================
-   THRILL LEVEL BADGES
-   Small coloured labels on ride cards.
-   Used on attractions.html.
-   ============================================ */
-.badge-mild {
-  background-color: #10B981; /* Green = mild/safe */
-  color: white;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: bold;
-}
 
-.badge-moderate {
-  background-color: #F59E0B; /* Orange = some thrill */
-  color: white;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: bold;
-}
-
-.badge-extreme {
-  background-color: #EF4444; /* Red = intense */
-  color: white;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: bold;
-}
-
-/* ============================================
-   RIDE FILTER BUTTONS
-   Used on attractions.html to filter rides.
-   JS adds/removes the .active class when clicked.
-   ============================================ */
-.filter-btn {
-  border: 2px solid #dee2e6;
-  background-color: white;
-  border-radius: 20px;
-  padding: 5px 16px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 3px;
-  transition: all 0.3s;
-}
-
-.filter-btn.active,
-.filter-btn:hover {
-  background-color: var(--orange);
-  color: white;
-  border-color: var(--orange);
-}
-
-/* JS adds this class to hide ride cards that don't match the filter */
-.ride-card.hidden {
-  display: none;
-}
-
-/* Message shown when no rides match the selected filters */
-#no-results {
-  display: none; /* Hidden by default; JS shows it when needed */
-  text-align: center;
-  padding: 40px;
-  color: var(--gray);
-  font-size: 1.1rem;
-}
-
-/* ============================================
-   TICKET CALCULATOR
-   Used on tickets.html.
-   Shows a live price total as the user fills in numbers.
-   ============================================ */
-.calc-box {
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border-top: 4px solid var(--orange); /* Orange accent line at top */
-}
-
-.total-box {
-  background-color: var(--dark);
-  color: white;
-  border-radius: 12px;
-  padding: 25px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.total-amount {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--yellow); /* Yellow makes the price stand out */
-}
-
-/* ============================================
-   CONTACT FORM
-   Used on contactForm.html.
-   Bootstrap's .is-invalid adds a red border when JS marks a field wrong.
-   ============================================ */
-.form-box {
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Red border - Bootstrap applies this when we add .is-invalid via JS */
-.form-control.is-invalid,
-.form-select.is-invalid {
-  border-color: #dc3545;
-}
-
-/* Red helper text below invalid fields */
-.invalid-feedback {
-  font-size: 0.8rem;
-  color: #dc3545;
-  font-weight: 500;
-}
-
-/* Success message - hidden until form is submitted correctly */
-#successMsg {
-  display: none; /* JS changes this to 'block' on success */
-  background: #d1fae5;
-  border: 2px solid #10b981;
-  border-radius: 12px;
-  padding: 30px;
-  text-align: center;
-}
-
-/* ============================================
-   HOMEPAGE SIDEBAR LAYOUT
-   Two-column layout: main content left, sidebar right.
-   Uses CSS Flexbox.
-   ============================================ */
+/* ── 8. SIDEBAR (Homepage only) ──────────────────────────────
+   Flexbox two-column layout: main content left, sidebar right.
+   On mobile the sidebar stacks below (see responsive section). */
 .page-layout {
-  display: flex;      /* Put children side by side */
-  gap: 30px;          /* Space between the two columns */
-  align-items: flex-start; /* Align both columns at the top */
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
 }
 
 .main-content {
-  flex: 1; /* Takes up all remaining space */
+  flex: 1;       /* Takes up all remaining space */
+  min-width: 0;  /* Prevents overflow in flex children */
 }
 
 .sidebar {
-  width: 270px;    /* Fixed width sidebar */
-  flex-shrink: 0;  /* Prevents sidebar from shrinking */
-  height: auto;
-  align-self: flex-start;
+  width: 270px;
+  flex-shrink: 0;   /* Sidebar won't shrink when space is tight */
 }
 
 /* Individual sidebar boxes */
 .sidebar-card {
-  background: white;
-  border: 1px solid #dee2e6;
-  border-radius: 10px;
-  padding: 5px;
-  margin-bottom: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
 }
 
-.sidebar-title {
-  font-weight: bold;
-  font-size: 0.9rem;
-  border-bottom: 2px solid var(--orange);
+/* Sidebar card heading with orange underline */
+.sidebar-heading {
+  font-weight: 700;
+  font-size: 0.92rem;
+  border-bottom: 2px solid var(--primary);
   padding-bottom: 8px;
   margin-bottom: 12px;
   color: var(--dark);
 }
 
-/* Each row inside the stat list */
+/* Each row in the stats list */
 .stat-row {
   display: flex;
-  justify-content: space-between; /* Label left, value right */
+  justify-content: space-between;   /* Label left, value right */
   padding: 6px 0;
   border-bottom: 1px solid #f0f0f0;
   font-size: 0.9rem;
 }
-
 .stat-row:last-child {
   border-bottom: none;
 }
 
-/* Sidebar quick navigation links */
+/* Open/closed badge inside sidebar */
+.open-badge {
+  margin-top: 10px;
+  background-color: #d1fae5;
+  color: #065f46;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* Quick link buttons in sidebar */
 .quick-link {
   display: block;
   padding: 8px 12px;
   background: #f8f9fa;
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--border);
   border-radius: 6px;
   text-decoration: none;
-  color: #333;
+  color: var(--text);
   font-size: 0.9rem;
   margin-bottom: 6px;
-  transition: all 0.3s;
+  transition: var(--transition);
 }
-
 .quick-link:hover {
-  background-color: var(--orange);
-  color: white;
-  border-color: var(--orange);
+  background-color: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
 }
 
-/* ============================================
-   FOOTER
-   Same footer appears on every page.
-   ============================================ */
+
+/* ── 9. RIDE FILTER (attractions.html) ───────────────────────
+   The filter bar contains groups of buttons.
+   JS adds/removes .active when a button is clicked.
+   .hidden on a ride card means display:none.                  */
+.filter-bar {
+  background-color: var(--light-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+}
+
+.filter-label {
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--dark);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.filter-btn {
+  border: 2px solid var(--border);
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 5px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 3px;
+  transition: var(--transition);
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+/* JS toggles this class to hide non-matching ride cards */
+.ride-card.hidden {
+  display: none;
+}
+
+/* Shown by JS when no rides match the selected filters */
+#no-results {
+  display: none;
+  text-align: center;
+  padding: 40px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+
+/* ── 10. THRILL-LEVEL BADGES ─────────────────────────────────
+   Small coloured pills shown on each ride card.              */
+.badge-mild {
+  background-color: #10B981;
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.badge-moderate {
+  background-color: #F59E0B;
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.badge-extreme {
+  background-color: #EF4444;
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+
+/* ── 11. TICKET CALCULATOR (tickets.html) ───────────────────
+   A white box with an orange top border holds the inputs.
+   The running total sits in a dark box below.               */
+.calc-box {
+  background: #ffffff;
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--primary);
+}
+
+.total-box {
+  background-color: var(--dark);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 22px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* The big price number in the total box */
+.total-amount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--yellow);
+}
+
+
+/* ── 12. CONTACT FORM (contactForm.html) ────────────────────
+   Bootstrap adds red borders via .is-invalid.
+   We hide/show the success message with JS.                 */
+.form-box {
+  background: #ffffff;
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--shadow);
+}
+
+/* Override Bootstrap's focus glow to match our orange brand */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(255,107,53,0.20);
+}
+
+/* Error text shown below invalid fields */
+.invalid-feedback {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Success message – hidden until JS reveals it */
+#successMsg {
+  display: none;
+  background: #d1fae5;
+  border: 2px solid #10b981;
+  border-radius: var(--radius);
+  padding: 30px;
+  text-align: center;
+}
+
+
+/* ── 13. FAQ ACCORDION (faq.html) ───────────────────────────
+   Bootstrap handles the expand/collapse behaviour.
+   We override colours to match our brand.                   */
+.accordion-button {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* The open/expanded state */
+.accordion-button:not(.collapsed) {
+  color: var(--primary);
+  background-color: #fff5f0;
+  box-shadow: none;
+}
+
+.accordion-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius) !important;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+
+/* ── 14. FOOTER ──────────────────────────────────────────────*/
 .site-footer {
   background-color: var(--dark);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255,255,255,0.80);
   padding: 40px 0 20px;
-  margin-top: 0;
-  clear: both;
-  width: 100%;
 }
 
 .site-footer h5 {
   color: var(--yellow);
-  font-weight: bold;
-  margin-bottom: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
 .site-footer a {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255,255,255,0.60);
   text-decoration: none;
   display: block;
   line-height: 2.2;
   font-size: 0.9rem;
-  transition: color 0.3s;
+  transition: var(--transition);
 }
-
 .site-footer a:hover {
-  color: var(--orange);
+  color: var(--primary);
 }
 
 .site-footer hr {
-  border-color: rgba(255, 255, 255, 0.1);
-  margin: 20px 0;
+  border-color: rgba(255,255,255,0.10);
+  margin: 18px 0;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   Media queries change the layout for smaller screens.
-   Bootstrap handles most of this, but we handle the sidebar here.
-   ============================================ */
+.site-footer .copyright {
+  color: rgba(255,255,255,0.40);
+  font-size: 0.82rem;
+}
 
-/* Tablets and phones (screens smaller than 768px) */
-@media (max-width: 768px) {
-  /* Smaller hero text on mobile */
-  .hero h1 {
-    font-size: 1.8rem;
-  }
 
-  .hero {
-    padding: 50px 0;
-  }
+/* ── 15. RESPONSIVE OVERRIDES ────────────────────────────────
+   Bootstrap handles most responsiveness via its grid.
+   We handle the sidebar and hero text here.                 */
 
-  /* Stack sidebar BELOW main content on small screens */
-  .page-layout {
-    flex-direction: column;
-  }
-
+/* Tablet and below (≤ 992px) */
+@media (max-width: 992px) {
   .sidebar {
-    width: 100%; /* Full width on mobile */
+    width: 100%;    /* Sidebar becomes full width */
+  }
+  .page-layout {
+    flex-direction: column;   /* Stack sidebar below content */
   }
 }
 
-/* Very small phones */
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 1.5rem;
-  }
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  .hero h1   { font-size: 1.9rem; }
+  .hero       { padding: 50px 0;  }
+  .section-title { font-size: 1.6rem; }
+}
 
-  .section-title {
-    font-size: 1.5rem;
-  }
+/* Small phones (≤ 480px) */
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.6rem; }
 }
