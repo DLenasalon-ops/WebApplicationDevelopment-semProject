@@ -152,8 +152,12 @@ a {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   transition: var(--transition);
-  height: 100%;          /* Makes cards in the same row equal height */
   background-color: #fff;
+}
+
+/* Only apply equal-height when cards are inside a Bootstrap row */
+.row .park-card {
+  height: 100%;
 }
 
 .park-card:hover {
