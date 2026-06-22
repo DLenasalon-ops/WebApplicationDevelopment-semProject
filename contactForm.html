@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us — SambFun Park</title>
+  <title>Contact Us - SambFun Park</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -11,19 +11,21 @@
 
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">&#127906; SambFun Park</a>
+      <a class="navbar-brand" href="index.html">SambFun Park
+        <img src="images/sambfun_park_logo.png" alt="" height="">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link"        href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link"        href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link"        href="attractions.html">Attractions</a></li>
-          <li class="nav-item"><a class="nav-link"        href="tickets.html">Tickets</a></li>
-          <li class="nav-item"><a class="nav-link"        href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="attractions.html">Attractions</a></li>
+          <li class="nav-item"><a class="nav-link" href="tickets.html">Tickets</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
           <li class="nav-item"><a class="nav-link active" href="contactForm.html">Contact</a></li>
-          <li class="nav-item"><a class="nav-link"        href="faq.html">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
         </ul>
       </div>
     </div>
@@ -40,66 +42,37 @@
     <div class="container">
       <div class="row g-5">
 
-        <!-- Contact Form (left column) -->
         <div class="col-lg-7">
           <div class="form-box">
             <h3 class="fw-bold mb-1">Send Us a Message</h3>
             <p class="text-muted mb-4">We respond within 24 hours on business days.</p>
 
-            <!--
-              JS FEATURE 3: FORM VALIDATION
-              =====================================================
-              novalidate  = stops the browser's own validation
-                            so our JS handles everything instead.
-
-              id="contactForm" = how script.js finds this form.
-
-              Each field has:
-                - An id (so JS can read its value)
-                - A .invalid-feedback div directly below it
-                  (JS writes the error message into this div)
-
-              On submit:
-                - JS checks every field
-                - If invalid: adds .is-invalid → Bootstrap shows red border
-                - If all valid: hides form, shows #successMsg
-              =====================================================
-            -->
             <form id="contactForm" novalidate>
 
-              <!-- Full Name -->
               <div class="mb-3">
                 <label for="fullName" class="form-label fw-bold">Full Name *</label>
-                <input type="text" id="fullName" class="form-control"
-                       placeholder="e.g. Deborah Lenasalon">
+                <input type="text" id="fullName" class="form-control" placeholder="e.g. Deborah Lenasalon">
                 <div class="invalid-feedback"></div>
               </div>
 
-              <!-- Email -->
               <div class="mb-3">
                 <label for="emailAddr" class="form-label fw-bold">Email Address *</label>
-                <input type="email" id="emailAddr" class="form-control"
-                       placeholder="you@example.com">
+                <input type="email" id="emailAddr" class="form-control" placeholder="you@example.com">
                 <div class="invalid-feedback"></div>
               </div>
 
-              <!-- Phone (optional) -->
               <div class="mb-3">
-                <label for="phoneNum" class="form-label fw-bold">
-                  Phone Number <span class="text-muted fw-normal">(optional)</span>
-                </label>
-                <input type="tel" id="phoneNum" class="form-control"
-                       placeholder="+254 700 000 000">
+                <label for="phoneNum" class="form-label fw-bold">Phone Number (optional)</label>
+                <input type="tel" id="phoneNum" class="form-control" placeholder="+254 700 000 000">
                 <div class="invalid-feedback"></div>
               </div>
 
-              <!-- Subject dropdown -->
               <div class="mb-3">
                 <label for="subject" class="form-label fw-bold">Subject *</label>
                 <select id="subject" class="form-select">
-                  <option value="">&#8212; Select a subject &#8212;</option>
-                  <option value="tickets">Tickets &amp; Booking</option>
-                  <option value="groups">Group &amp; Corporate Visits</option>
+                  <option value="">Select a subject</option>
+                  <option value="tickets">Tickets and Booking</option>
+                  <option value="groups">Group and Corporate Visits</option>
                   <option value="birthday">Birthday Party Packages</option>
                   <option value="accessibility">Accessibility Requirements</option>
                   <option value="feedback">General Feedback</option>
@@ -109,11 +82,9 @@
                 <div class="invalid-feedback"></div>
               </div>
 
-              <!-- Message -->
               <div class="mb-4">
                 <label for="message" class="form-label fw-bold">Message *</label>
-                <textarea id="message" class="form-control" rows="5"
-                          placeholder="Describe your enquiry here (minimum 20 characters)..."></textarea>
+                <textarea id="message" class="form-control" rows="5" placeholder="Describe your enquiry here (minimum 20 characters)..."></textarea>
                 <div class="invalid-feedback"></div>
               </div>
 
@@ -122,75 +93,107 @@
 
             </form>
 
-            <!--
-              SUCCESS MESSAGE
-              Hidden by default (CSS: display:none).
-              JS shows this and hides the form when validation passes.
-            -->
             <div id="successMsg">
-              <div style="font-size:3rem;">&#9989;</div>
+              <div style="font-size:3rem;">Done!</div>
               <h4 class="fw-bold mt-2">Message Sent!</h4>
               <p class="text-muted">Thank you for reaching out. Our team will reply within 24 hours.</p>
               <a href="index.html" class="btn-park">Back to Home</a>
             </div>
 
+
           </div>
         </div>
 
-        <!-- Contact Info (right column) -->
-        <div class="col-lg-5">
-          <h3 class="fw-bold mb-4">Other Ways to Reach Us</h3>
+      <div class="col-lg-5">
 
-          <div class="park-card p-3 mb-3">
-            <h6 class="fw-bold">&#128222; Phone</h6>
-            <p class="mb-0">+254 712 345 678<br>
-            <small class="text-muted">Mon&ndash;Fri: 8 AM&ndash;6 PM &middot; Sat&ndash;Sun: 9 AM&ndash;5 PM</small></p>
+          <!-- 5 Things to Know Before Visiting -->
+          <div class="park-card p-4">
+            <p class="text-uppercase fw-bold mb-1" style="color:var(--primary); font-size:0.8rem; letter-spacing:1px;">Before You Visit</p>
+            <h4 class="fw-bold mb-4">5 Things to Know</h4>
+
+            <!-- Item 1 -->
+            <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
+              <div class="text-center fw-bold flex-shrink-0"
+                   style="background:var(--primary); color:white; width:36px; height:36px; border-radius:50%; line-height:36px;">1</div>
+              <div>
+                <h6 class="fw-bold mb-1">Check Height Requirements</h6>
+                <p class="text-muted small mb-0">Thunder Loop and Freefall Drop require a minimum height of 140 cm. Most family rides start at 110 cm. View the full chart on the Attractions page.</p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
+              <div class="text-center fw-bold flex-shrink-0"
+                   style="background:var(--primary); color:white; width:36px; height:36px; border-radius:50%; line-height:36px;">2</div>
+              <div>
+                <h6 class="fw-bold mb-1">Book Online to Save 10%</h6>
+                <p class="text-muted small mb-0">Booking your tickets in advance saves you 10% and guarantees entry on busy weekends and public holidays.</p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
+              <div class="text-center fw-bold flex-shrink-0"
+                   style="background:var(--primary); color:white; width:36px; height:36px; border-radius:50%; line-height:36px;">3</div>
+              <div>
+                <h6 class="fw-bold mb-1">What to Bring</h6>
+                <p class="text-muted small mb-0">Comfortable shoes, sunscreen, water bottle, and a change of clothes for water rides. Lockers are available at the entrance for KSh 100.</p>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
+              <div class="text-center fw-bold flex-shrink-0"
+                   style="background:var(--primary); color:white; width:36px; height:36px; border-radius:50%; line-height:36px;">4</div>
+              <div>
+                <h6 class="fw-bold mb-1">Arrive Early</h6>
+                <p class="text-muted small mb-0">The park opens at 9 AM on weekends. Arriving in the first hour means shorter queues for popular rides like Thunder Loop and Splash Canyon.</p>
+              </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="d-flex gap-3">
+              <div class="text-center fw-bold flex-shrink-0"
+                   style="background:var(--primary); color:white; width:36px; height:36px; border-radius:50%; line-height:36px;">5</div>
+              <div>
+                <h6 class="fw-bold mb-1">Free Parking & Easy Access</h6>
+                <p class="text-muted small mb-0">Free parking for 2,000 vehicles on-site. Matatu Route 34 stops directly at our gates every 15 minutes from 7 AM to 10 PM.</p>
+              </div>
+            </div>
+
           </div>
 
-          <div class="park-card p-3 mb-3">
-            <h6 class="fw-bold">&#128231; Email</h6>
-            <p class="mb-0">info@sambfunpark.co.ke<br>
-            <small class="text-muted">General enquiries</small><br>
-            groups@sambfunpark.co.ke<br>
-            <small class="text-muted">Group &amp; corporate bookings</small></p>
-          </div>
 
-          <div class="park-card p-3 mb-3">
-            <h6 class="fw-bold">&#128205; Visit Us</h6>
-            <p class="mb-0">SambFun Park<br>
-            Uhuru Highway, off Lang'ata Road<br>
-            Nairobi, Kenya<br>
-            <small class="text-muted">Guest Services open park hours daily</small></p>
+        </div>    
+            
           </div>
-
-          <div class="park-card p-3">
-            <h6 class="fw-bold">&#127758; Social Media</h6>
-            <p class="mb-2">Follow us for updates and behind-the-scenes content.</p>
-            <span class="badge bg-primary p-2 me-1">Facebook</span>
-            <span class="badge bg-danger p-2 me-1">Instagram</span>
-            <span class="badge bg-dark p-2 me-1">X (Twitter)</span>
-            <span class="badge bg-success p-2">WhatsApp</span>
           </div>
-        </div>
-
-      </div>
-    </div>
+  
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="row g-4">
-        <div class="col-md-4"><h5>&#127906; SambFun Park</h5><p>Africa's most exciting family adventure park.</p></div>
+        <div class="col-md-4">
+          <h5>SambFun Park</h5>
+          <p>Africa's most exciting family adventure park.</p>
+        </div>
         <div class="col-md-4">
           <h5>Quick Links</h5>
-          <a href="index.html">Home</a><a href="attractions.html">Attractions</a>
-          <a href="tickets.html">Tickets</a><a href="contactForm.html">Contact Us</a>
+          <a href="index.html">Home</a>
+          <a href="attractions.html">Attractions</a>
+          <a href="tickets.html">Tickets</a>
+          <a href="contactForm.html">Contact Us</a>
         </div>
-        <div class="col-md-4"><h5>Contact Us</h5>
-          <p>&#128205; Uhuru Highway, Nairobi, Kenya<br>&#128222; +254 712 345 678<br>&#128231; info@sambfunpark.co.ke</p>
+        <div class="col-md-4">
+          <h5>Contact Us</h5>
+          <p>Uhuru Highway, Nairobi, Kenya<br>
+          +254 712 345 678<br>
+          info@sambfunpark.co.ke</p>
         </div>
       </div>
-      <hr><p class="text-center copyright mb-0">&copy; 2026 SambFun Park. All rights reserved.</p>
+      <hr>
+      <p class="text-center copyright mb-0">&copy; 2026 SambFun Park. All rights reserved.</p>
     </div>
   </footer>
 
