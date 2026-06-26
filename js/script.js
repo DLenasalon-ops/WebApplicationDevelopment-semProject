@@ -114,101 +114,302 @@ function initRideFilter() {
    - The total is shown live without reloading the page
    ============================================================ */
 
-function initTicketCalculator() {
+/* ──────────────────────────────────────────────────────────────
+   FEATURE 2: AGE-BASED TICKET CALCULATOR  (tickets.html)
+   ──────────────────────────────────────────────────────────────
 
-  // Check if the calculator exists on this page
-  const calculator = document.getElementById('ticketCalculator');
-  if (!calculator) return; // Stop if we're not on tickets.html
+   HOW IT WORKS:
+   ─────────────────────────────────────────────────────────────
+   STEP 1: User enters how many people are in their group
+   STEP 2: JS creates that many age input fields automatically
+   STEP 3: User types each person's age
+   STEP 4: JS automatically categorises each age:
+            - 0 to 2:   FREE
+            - 3 to 17:  Child  (KSh 800)
+            - 18 to 59: Adult  (KSh 1,200)
+            - 60+:      Senior (KSh 600)
+   STEP 5: Total updates live as ages are entered
 
-  // Price list (in Kenyan Shillings)
-  const ADULT_PRICE    = 1200;
-  const CHILD_PRICE    = 800;
-  const SENIOR_PRICE   = 600;
-  const FASTPASS_PRICE = 500; // per person add-on
-  const DINING_PRICE   = 800; // per person add-on
+   VALIDATION RULES:
+   ─────────────────────────────────────────────────────────────
+   - Group size must be between 0 and 20
+   - Each age must be a number between 0 and 120
+   - Negative numbers are rejected
+   - Empty fields show "—" (not counted yet)
+   - Invalid ages show a red border + error message
+   - If ANY age is invalid, the total resets to KSh 0
+   ────────────────────────────────────────────────────────────── */
 
-  // This function runs every time an input changes
-  function calculateTotal() {
+function initTicketCalc() {
 
-    // Read number inputs (|| 0 means "use 0 if the field is empty")
-    const numAdults  = parseInt(document.getElementById('numAdults').value)   || 0;
-    const numChildren= parseInt(document.getElementById('numChildren').value) || 0;
-    const numSeniors = parseInt(document.getElementById('numSeniors').value)  || 0;
+  // Find the calculator on the page. If not present, this isn't tickets.html — exit.
+  var calcForm = document.getElementById('ticketCalculator');
+  if (!calcForm) return;
 
-    // Read checkboxes (.checked is true or false)
-    const wantsFastPass = document.getElementById('addFastPass').checked;
-    const wantsDining   = document.getElementById('addDining').checked;
+  // ──────────────────────────────────────────────
+  // PRICE CONSTANTS (KSh)
+  // ──────────────────────────────────────────────
+  var PRICES = {
+    child:    800,    // ages 3 to 17
+    adult:   1200,    // ages 18 to 59
+    senior:   600,    // age 60+
+    fastpass: 500,    // optional add-on, per person
+    dining:   800     // optional add-on, per person
+  };
 
-    // Total number of people (for calculating add-ons per person)
-    const totalPeople = numAdults + numChildren + numSeniors;
+  // Maximum number of people allowed in one booking
+  var MAX_GROUP_SIZE = 20;
 
-    // Calculate base ticket cost
-    let total = (numAdults   * ADULT_PRICE)
-              + (numChildren * CHILD_PRICE)
-              + (numSeniors  * SENIOR_PRICE);
+  // Grab references to the two key elements we'll work with
+  var groupSizeInput = document.getElementById('groupSize');
+  var ageInputsBox   = document.getElementById('ageInputs');
 
-    // Add optional extras if ticked
-    if (wantsFastPass) total += totalPeople * FASTPASS_PRICE;
-    if (wantsDining)   total += totalPeople * DINING_PRICE;
 
-    // Update the total shown on screen
-    // toLocaleString() formats numbers with commas: 1200 → "1,200"
-    document.getElementById('totalAmount').textContent = 'KSh ' + total.toLocaleString();
+  // ──────────────────────────────────────────────
+  // FUNCTION 1: Build age input fields
+  // ──────────────────────────────────────────────
+  // Runs when the user changes the "group size" number.
+  // It clears any old age fields and creates new ones.
+  function buildAgeInputs() {
 
-    // Build a line-by-line breakdown
-    let breakdown = '';
+    var size = parseInt(groupSizeInput.value) || 0;
 
-    if (numAdults > 0) {
-      breakdown += '<div class="d-flex justify-content-between py-1 border-bottom">'
-                 + '<span>' + numAdults + ' Adult(s)</span>'
-                 + '<span>KSh ' + (numAdults * ADULT_PRICE).toLocaleString() + '</span>'
-                 + '</div>';
+    // Clear any previous error on the group size field
+    clearError(groupSizeInput);
+
+    // VALIDATION: group size cannot be negative
+    if (size < 0) {
+      showError(groupSizeInput, 'Group size cannot be negative.');
+      ageInputsBox.innerHTML = '';
+      updateTotal();
+      return;
     }
 
-    if (numChildren > 0) {
-      breakdown += '<div class="d-flex justify-content-between py-1 border-bottom">'
-                 + '<span>' + numChildren + ' Child(ren)</span>'
-                 + '<span>KSh ' + (numChildren * CHILD_PRICE).toLocaleString() + '</span>'
-                 + '</div>';
+    // VALIDATION: group size cannot exceed the maximum
+    if (size > MAX_GROUP_SIZE) {
+      showError(groupSizeInput,
+        'Maximum ' + MAX_GROUP_SIZE + ' people per booking. ' +
+        'For larger groups, please use the Contact page.');
+      ageInputsBox.innerHTML = '';
+      updateTotal();
+      return;
     }
 
-    if (numSeniors > 0) {
-      breakdown += '<div class="d-flex justify-content-between py-1 border-bottom">'
-                 + '<span>' + numSeniors + ' Senior(s)</span>'
-                 + '<span>KSh ' + (numSeniors * SENIOR_PRICE).toLocaleString() + '</span>'
-                 + '</div>';
+    // Build the HTML for the age input fields
+    // We use string concatenation here so it's easy to read
+    var html = '';
+    if (size > 0) {
+      html += '<p class="fw-bold mb-2 mt-3">Enter each person\'s age:</p>';
+
+      // Loop from 1 to size — create one input row per person
+      for (var i = 1; i <= size; i++) {
+        html += '<div class="mb-2">';
+        html +=   '<div class="input-group">';
+        html +=     '<span class="input-group-text" style="min-width:90px;">Person ' + i + '</span>';
+        html +=     '<input type="number" class="form-control age-input" ';
+        html +=            'data-person="' + i + '" min="0" max="120" placeholder="Age">';
+        html +=     '<span class="input-group-text ticket-type" id="ticketType' + i + '">—</span>';
+        html +=   '</div>';
+        html +=   '<div class="invalid-feedback person-error" id="error' + i + '"></div>';
+        html += '</div>';
+      }
     }
 
-    if (wantsFastPass && totalPeople > 0) {
-      breakdown += '<div class="d-flex justify-content-between py-1 border-bottom text-warning">'
-                 + '<span>Fast Pass (' + totalPeople + ' person)</span>'
-                 + '<span>KSh ' + (totalPeople * FASTPASS_PRICE).toLocaleString() + '</span>'
-                 + '</div>';
-    }
+    // Insert the new HTML into the page
+    ageInputsBox.innerHTML = html;
 
-    if (wantsDining && totalPeople > 0) {
-      breakdown += '<div class="d-flex justify-content-between py-1 border-bottom text-warning">'
-                 + '<span>Dining Package (' + totalPeople + ' person)</span>'
-                 + '<span>KSh ' + (totalPeople * DINING_PRICE).toLocaleString() + '</span>'
-                 + '</div>';
-    }
+    // Attach an "input" event listener to each age field
+    // so the total updates as soon as the user types
+    var ageInputs = document.querySelectorAll('.age-input');
+    ageInputs.forEach(function(input) {
+      input.addEventListener('input', updateTotal);
+    });
 
-    // If nothing entered yet, show a placeholder message
-    if (breakdown === '') {
-      breakdown = '<p class="text-muted text-center mb-0">Enter guest numbers above to see breakdown.</p>';
-    }
-
-    document.getElementById('priceBreakdown').innerHTML = breakdown;
+    // Recalculate the total (everything is empty for now, but call it anyway)
+    updateTotal();
   }
 
-  // Run calculateTotal whenever ANY input inside the calculator changes
-  calculator.addEventListener('input',  calculateTotal);
-  calculator.addEventListener('change', calculateTotal);
 
-  // Run once on page load so the display starts correctly
-  calculateTotal();
+  // ──────────────────────────────────────────────
+  // FUNCTION 2: Categorise an age into a ticket type
+  // ──────────────────────────────────────────────
+  // Given an age number, return an object describing the ticket
+  function categorise(age) {
+    if (age < 3) {
+      return { type: 'free',   label: 'Free (under 3)', price: 0 };
+    }
+    if (age <= 17) {
+      return { type: 'child',  label: 'Child',          price: PRICES.child };
+    }
+    if (age <= 59) {
+      return { type: 'adult',  label: 'Adult',          price: PRICES.adult };
+    }
+    return     { type: 'senior', label: 'Senior',         price: PRICES.senior };
+  }
 
-} // end initTicketCalculator
+
+  // ──────────────────────────────────────────────
+  // FUNCTION 3: Calculate the total and update display
+  // ──────────────────────────────────────────────
+  // Runs every time any age input or checkbox changes
+  function updateTotal() {
+
+    // Get all the age input fields currently on the page
+    var ageInputs = document.querySelectorAll('.age-input');
+
+    // Track how many of each ticket type we have
+    var counts = { free: 0, child: 0, adult: 0, senior: 0 };
+    var subtotal = 0;       // running total of base ticket prices
+    var totalPeople = 0;    // total people (excluding empty fields)
+    var hasError = false;   // becomes true if any age is invalid
+
+    // Loop through every age input
+    ageInputs.forEach(function(input) {
+      var personNum  = input.getAttribute('data-person');
+      var ageStr     = input.value;
+
+      // Get the badge that shows the ticket type and the error message div
+      var typeBadge  = document.getElementById('ticketType' + personNum);
+      var errorDiv   = document.getElementById('error' + personNum);
+
+      // Reset any previous error state on this field
+      input.classList.remove('is-invalid');
+      if (errorDiv) errorDiv.textContent = '';
+
+      // Empty field — skip it, but no error
+      if (ageStr === '') {
+        if (typeBadge) {
+          typeBadge.textContent = '—';
+          typeBadge.style.background = '';
+        }
+        return;
+      }
+
+      // Convert the text to a number
+      var age = parseInt(ageStr);
+
+      // VALIDATION: age must be a valid number between 0 and 120
+      if (isNaN(age) || age < 0 || age > 120) {
+        input.classList.add('is-invalid');
+        if (errorDiv) errorDiv.textContent = 'Please enter a valid age (0–120).';
+        if (typeBadge) {
+          typeBadge.textContent = 'Invalid';
+          typeBadge.style.background = '#fee2e2';
+        }
+        hasError = true;
+        return;
+      }
+
+      // VALID AGE — categorise it
+      var cat = categorise(age);
+
+      // Add to the count of this ticket type
+      counts[cat.type]++;
+
+      // Add the price to the subtotal
+      subtotal += cat.price;
+
+      // Count this person
+      totalPeople++;
+
+      // Show the ticket type label next to the age input
+      if (typeBadge) {
+        typeBadge.textContent = cat.label;
+
+        // Colour-code the badge by ticket type for visual feedback
+        if (cat.type === 'free')   typeBadge.style.background = '#d1fae5';
+        if (cat.type === 'child')  typeBadge.style.background = '#dbeafe';
+        if (cat.type === 'adult')  typeBadge.style.background = '#fed7aa';
+        if (cat.type === 'senior') typeBadge.style.background = '#e0e7ff';
+      }
+    });
+
+    // Read the optional add-on checkboxes
+    var fastPass = document.getElementById('addFastPass').checked;
+    var dining   = document.getElementById('addDining').checked;
+
+    // Calculate the final total (subtotal + any add-ons)
+    var total = subtotal;
+    if (fastPass) total += totalPeople * PRICES.fastpass;
+    if (dining)   total += totalPeople * PRICES.dining;
+
+    // If ANY age was invalid, refuse to show a total
+    if (hasError) {
+      document.getElementById('totalAmount').textContent = 'KSh 0';
+      document.getElementById('priceBreakdown').innerHTML =
+        '<p class="text-danger text-center mb-0">' +
+        '<strong>Please correct the invalid ages above.</strong></p>';
+      return;
+    }
+
+    // Build the breakdown HTML (line-by-line cost details)
+    var breakdown = '';
+    if (counts.adult  > 0) breakdown += makeRow(counts.adult  + ' Adult(s)',          counts.adult  * PRICES.adult);
+    if (counts.child  > 0) breakdown += makeRow(counts.child  + ' Child(ren) (3–17)', counts.child  * PRICES.child);
+    if (counts.senior > 0) breakdown += makeRow(counts.senior + ' Senior(s) (60+)',   counts.senior * PRICES.senior);
+    if (counts.free   > 0) breakdown += makeRow(counts.free   + ' Free (under 3)',    0);
+    if (fastPass && totalPeople > 0) {
+      breakdown += makeRow('Fast Pass (' + totalPeople + ' person)', totalPeople * PRICES.fastpass);
+    }
+    if (dining && totalPeople > 0) {
+      breakdown += makeRow('Dining Package (' + totalPeople + ' person)', totalPeople * PRICES.dining);
+    }
+
+    // If nothing has been entered yet, show a helpful prompt
+    if (breakdown === '') {
+      breakdown = '<p class="text-muted text-center mb-0">Enter ages above to see your total.</p>';
+    }
+
+    // Update the display
+    document.getElementById('priceBreakdown').innerHTML = breakdown;
+    document.getElementById('totalAmount').textContent  = 'KSh ' + total.toLocaleString();
+  }
+
+
+  // ──────────────────────────────────────────────
+  // HELPER: Build one row of the price breakdown
+  // ──────────────────────────────────────────────
+  function makeRow(label, amount) {
+    return '<div class="d-flex justify-content-between py-1 border-bottom">' +
+             '<span>' + label + '</span>' +
+             '<strong>KSh ' + amount.toLocaleString() + '</strong>' +
+           '</div>';
+  }
+
+
+  // ──────────────────────────────────────────────
+  // HELPER: Show an error message on a field
+  // ──────────────────────────────────────────────
+  function showError(field, message) {
+    field.classList.add('is-invalid');
+    var errorDiv = field.parentElement.querySelector('.invalid-feedback');
+    if (errorDiv) errorDiv.textContent = message;
+  }
+
+
+  // ──────────────────────────────────────────────
+  // HELPER: Clear any error from a field
+  // ──────────────────────────────────────────────
+  function clearError(field) {
+    field.classList.remove('is-invalid');
+    var errorDiv = field.parentElement.querySelector('.invalid-feedback');
+    if (errorDiv) errorDiv.textContent = '';
+  }
+
+
+  // ──────────────────────────────────────────────
+  // ATTACH EVENT LISTENERS
+  // ──────────────────────────────────────────────
+  // When group size changes, rebuild the age inputs
+  groupSizeInput.addEventListener('input', buildAgeInputs);
+
+  // When checkboxes are clicked, recalculate the total
+  document.getElementById('addFastPass').addEventListener('change', updateTotal);
+  document.getElementById('addDining').addEventListener('change', updateTotal);
+
+  // Run once at page load to set up the initial state
+  buildAgeInputs();
+}
 
 
 /* ============================================================
