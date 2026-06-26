@@ -14,11 +14,10 @@ A responsive, multi-page website for **SambFun Park** — a fictional family adv
 3. **Attractions** — filterable ride gallery with thrill levels
 4. **Tickets & Passes** — pricing tiers with interactive calculator
 5. **Events** — seasonal events and live shows
-6. **Food & Dining** — restaurants and snack spots
 7. **Plan Your Visit** — hours, map, accessibility info
 8. **ContactForm** — contact form with validation, location, social links
 9. **FAQ (Bootstrap accordion)**
-10. **News/Blog**
+
 
 
 ##  Interactive Features
