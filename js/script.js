@@ -28,68 +28,99 @@
    ============================================================ */
 
 // This function runs only if filter buttons exist on the page
+/* ──────────────────────────────────────────────────────────────
+   FEATURE 1: RIDE FILTER  (attractions.html)
+   ──────────────────────────────────────────────────────────────
+
+   WHAT IT DOES:
+   When a user clicks a filter button like "Mild" or "Water",
+   the page instantly hides all ride cards that don't match,
+   and shows only the ones that do.
+
+   HOW IT WORKS:
+   1. Each filter BUTTON has two data attributes:
+        data-group="thrill"    → which filter group (thrill or type)
+        data-value="mild"      → what value to filter for
+
+   2. Each ride CARD div has two data attributes:
+        data-thrill="mild"     → the ride's thrill level
+        data-type="family"     → the ride's type
+
+   3. When a button is clicked:
+      a. That button becomes "active" in its group
+      b. JS reads the selected value for BOTH groups
+      c. JS loops through every ride card
+      d. If the card matches BOTH filters → show it
+      e. If it doesn't match → hide it (add class "hidden")
+
+   4. If no cards match at all, a "no results" message appears
+   ────────────────────────────────────────────────────────────── */
+
 function RideFilter() {
 
-  // Get all filter buttons
-  const filterButtons = document.querySelectorAll('.filter-btn');
+  // Find all filter buttons on the page
+  var filterButtons = document.querySelectorAll('.filter-btn');
 
-  // If there are no filter buttons, stop here (we're not on attractions.html)
+  // If there are no filter buttons, this isn't the attractions page — exit
   if (filterButtons.length === 0) return;
 
-  // Get all ride cards
-  const rideCards = document.querySelectorAll('.ride-card');
+  // Find all ride cards
+  var rideCards = document.querySelectorAll('.ride-card');
 
-  // Track which filters are currently active
-  let selectedThrill = 'all'; // 'all' means show everything
-  let selectedType   = 'all';
+  // Track the currently selected filter for each group
+  // "all" means no filter is active (show everything)
+  var selectedThrill = 'all';
+  var selectedType   = 'all';
 
-  // Loop through each filter button and add a click listener
-  filterButtons.forEach(function(button) {
+  // Add a click event listener to EVERY filter button
+  filterButtons.forEach(function(btn) {
 
-    button.addEventListener('click', function() {
+    btn.addEventListener('click', function() {
 
-      // Find out which group this button belongs to (thrill or type)
-      const group = button.getAttribute('data-group');
-      // Find out what value this button filters for
-      const value = button.getAttribute('data-value');
+      // Read which group and value this button represents
+      var group = btn.getAttribute('data-group');
+      var value = btn.getAttribute('data-value');
 
-      // Remove 'active' from all buttons in the same group
-      document.querySelectorAll('.filter-btn[data-group="' + group + '"]').forEach(function(btn) {
-        btn.classList.remove('active');
+      // ── Step 1: Update the "active" button in this group ──
+      // Remove "active" from ALL buttons in the same group
+      var groupButtons = document.querySelectorAll('.filter-btn[data-group="' + group + '"]');
+      groupButtons.forEach(function(b) {
+        b.classList.remove('active');
       });
 
-      // Mark THIS button as active
-      button.classList.add('active');
+      // Add "active" to the clicked button
+      btn.classList.add('active');
 
-      // Update our tracking variables
+      // ── Step 2: Update our tracking variable ──
       if (group === 'thrill') selectedThrill = value;
       if (group === 'type')   selectedType   = value;
 
-      // Now show/hide each ride card based on the selected filters
-      let visibleCount = 0;
+      // ── Step 3: Show or hide each ride card ──
+      var visibleCount = 0;
 
       rideCards.forEach(function(card) {
 
         // Read this card's thrill level and type from its data attributes
-        const cardThrill = card.getAttribute('data-thrill');
-        const cardType   = card.getAttribute('data-type');
+        var cardThrill = card.getAttribute('data-thrill');
+        var cardType   = card.getAttribute('data-type');
 
-        // Check if this card matches both active filters
-        const thrillMatch = (selectedThrill === 'all' || cardThrill === selectedThrill);
-        const typeMatch   = (selectedType   === 'all' || cardType   === selectedType);
+        // Check if this card matches BOTH selected filters
+        var matchesThrill = (selectedThrill === 'all' || cardThrill === selectedThrill);
+        var matchesType   = (selectedType   === 'all' || cardType   === selectedType);
 
-        if (thrillMatch && typeMatch) {
-          // Show this card
+        if (matchesThrill && matchesType) {
+          // Card matches — make sure it's visible
           card.classList.remove('hidden');
           visibleCount++;
         } else {
-          // Hide this card
+          // Card doesn't match — hide it
           card.classList.add('hidden');
         }
+
       });
 
-      // If no cards are visible, show the "no results" message
-      const noResults = document.getElementById('no-results');
+      // ── Step 4: Show "no results" if everything is hidden ──
+      var noResults = document.getElementById('no-results');
       if (noResults) {
         if (visibleCount === 0) {
           noResults.style.display = 'block';
@@ -98,10 +129,11 @@ function RideFilter() {
         }
       }
 
-    }); // end click event
-  }); // end forEach
-} // end initRideFilter
+    }); // end click listener
 
+  }); // end forEach on buttons
+
+}
 
 /* ============================================================
    FEATURE 2: TICKET PRICE CALCULATOR

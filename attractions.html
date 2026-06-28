@@ -4,11 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Attractions — SambFun Park</title>
-
-  <!-- Bootstrap 5 (kept only for navbar collapse) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- All custom styling lives here -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -50,16 +46,40 @@
   <!-- MAIN CONTENT -->
   <main class="page-wrapper">
 
-    <!--
-      JS FEATURE 1: RIDE FILTER
-      Each filter button has data-group and data-value.
-      Each ride card has data-thrill and data-type.
-      When a button is clicked, script.js hides cards that don't match.
-    -->
+    <!-- PAGE DESCRIPTION -->
+    <div class="attract-intro">
+      <h2 class="section-title">Explore Our Rides</h2>
+      <p class="section-sub">SambFun Park features over 50 rides and attractions across 5 themed zones. Whether you are a thrill-seeker chasing the ultimate adrenaline rush, a family looking for a fun day out with the kids, or just want to cool off on a hot day — we have something for everyone.</p>
+
+      <div class="zone-grid">
+        <div class="zone-card zone-card-adventure">
+          <h6 class="zone-title">Adventure Land</h6>
+          <p class="zone-text">Home to our biggest coasters and thrill rides including Thunder Loop and the upcoming Sky Rocket.</p>
+        </div>
+        <div class="zone-card zone-card-splash">
+          <h6 class="zone-title">Splash Zone</h6>
+          <p class="zone-text">Water rides, wave pools, and river rapids. Bring a change of clothes — you will get wet!</p>
+        </div>
+        <div class="zone-card zone-card-kids">
+          <h6 class="zone-title">Kids' Cove</h6>
+          <p class="zone-text">A safe, supervised zone designed for children under 12 with age-appropriate rides and soft play.</p>
+        </div>
+        <div class="zone-card zone-card-thrill">
+          <h6 class="zone-title">Thrill Hill</h6>
+          <p class="zone-text">Dark rides, haunted houses, and the Freefall Drop. For those who like their fun with a side of fear.</p>
+        </div>
+        <div class="zone-card zone-card-main">
+          <h6 class="zone-title">Main Street</h6>
+          <p class="zone-text">The Safari Mini Train, restaurants, gift shops, and the starting point for all park parades.</p>
+        </div>
+      </div>
+
+      <p class="filter-instruction">Use the filters below to find the perfect ride for you:</p>
+    </div>
+
 
     <!-- FILTER BAR -->
     <div class="filter-bar">
-
       <div class="filter-group">
         <span class="filter-label">Filter by Thrill Level</span>
         <div class="filter-buttons">
@@ -69,7 +89,6 @@
           <button class="filter-btn"        data-group="thrill" data-value="extreme">Extreme</button>
         </div>
       </div>
-
       <div class="filter-group">
         <span class="filter-label">Filter by Ride Type</span>
         <div class="filter-buttons">
@@ -80,10 +99,9 @@
           <button class="filter-btn"        data-group="type" data-value="thrill">Thrill</button>
         </div>
       </div>
-
     </div>
 
-    <!-- No results message (shown by JS when no cards match) -->
+    <!-- No results message -->
     <div id="no-results">
       <p>No rides match your selected filters. Try a different combination!</p>
     </div>
@@ -206,6 +224,125 @@
         </article>
       </div>
 
-      <!-- SAFARI MINI TRAIN -->
+      <!-- SAFARI MINI TRAIN (this was the broken one) -->
       <div class="ride-card" data-thrill="mild" data-type="family">
-        <article class="park-card
+        <article class="park-card attraction-card">
+          <img src="images/safari_miniTrain.jpg" alt="Safari Mini Train" class="attraction-img">
+          <div class="attraction-body">
+            <h5 class="attraction-title">Safari Mini Train</h5>
+            <div class="attraction-badges">
+              <span class="badge-mild">Mild</span>
+              <span class="badge-type badge-type-family">Family</span>
+            </div>
+            <p class="attraction-text">A scenic train that loops the whole park. Spot animatronic wildlife and enjoy live commentary.</p>
+            <div class="attraction-info">
+              <span>All heights welcome</span>
+              <span>Main Street</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- HAUNTED MANSION -->
+      <div class="ride-card" data-thrill="moderate" data-type="thrill">
+        <article class="park-card attraction-card">
+          <img src="images/HauntedHouse.jpg" alt="Haunted Mansion dark ride" class="attraction-img">
+          <div class="attraction-body">
+            <h5 class="attraction-title">Haunted Mansion</h5>
+            <div class="attraction-badges">
+              <span class="badge-moderate">Moderate</span>
+              <span class="badge-type badge-type-thrill">Thrill</span>
+            </div>
+            <p class="attraction-text">Dark ride through a haunted estate with special effects, jump scares, and animatronic ghosts.</p>
+            <div class="attraction-info">
+              <span>Min height: 110 cm</span>
+              <span>Thrill Hill</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- BUMPER CARS -->
+      <div class="ride-card" data-thrill="mild" data-type="family">
+        <article class="park-card attraction-card">
+          <img src="images/bumber cars.jpg" alt="Bumper Cars" class="attraction-img">
+          <div class="attraction-body">
+            <h5 class="attraction-title">Bumper Cars</h5>
+            <div class="attraction-badges">
+              <span class="badge-mild">Mild</span>
+              <span class="badge-type badge-type-family">Family</span>
+            </div>
+            <p class="attraction-text">Classic electric bumper cars on a padded arena. Ram your friends and laugh until your sides ache!</p>
+            <div class="attraction-info">
+              <span>Min height: 100 cm (driver)</span>
+              <span>Kids' Cove</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- SKY ROCKET (COMING SOON) -->
+      <div class="ride-card" data-thrill="extreme" data-type="coaster">
+        <article class="park-card attraction-card attraction-coming-soon">
+          <img src="images/SkyRocket.jpg" alt="Sky Rocket coaster coming soon" class="attraction-img">
+          <div class="coming-soon-ribbon">Opening July 2026</div>
+          <div class="attraction-body">
+            <h5 class="attraction-title">Sky Rocket</h5>
+            <div class="attraction-badges">
+              <span class="badge-extreme">Extreme</span>
+              <span class="badge-type badge-type-coaster">Coaster</span>
+            </div>
+            <p class="attraction-text">0 to 130 km/h in 2.8 seconds — soaring 80 metres above the park. Our tallest ride ever!</p>
+            <div class="attraction-info">
+              <span>Min height: 150 cm</span>
+              <span>Adventure Land</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <!-- Call to action -->
+    <div class="cta-block">
+      <p class="cta-text">Ready for the thrills?</p>
+      <a href="tickets.html" class="btn-park">Book Your Tickets</a>
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5 class="footer-heading">SambFun Park</h5>
+          <p class="footer-text">Africa's most exciting family adventure park.</p>
+        </div>
+        <div class="footer-col">
+          <h5 class="footer-heading">Quick Links</h5>
+          <a href="index.html"       class="footer-link">Home</a>
+          <a href="attractions.html" class="footer-link">Attractions</a>
+          <a href="tickets.html"     class="footer-link">Tickets</a>
+          <a href="events.html"      class="footer-link">Events</a>
+          <a href="contactForm.html" class="footer-link">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h5 class="footer-heading">Contact Us</h5>
+          <p class="footer-text">
+            South-Horr, Samburu, Kenya<br>
+            +254 712 345 678<br>
+            info@sambfunpark.co.ke
+          </p>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <p class="footer-copyright">&copy; 2026 SambFun Park. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1018,7 +1018,6 @@ a {
   margin: 0;
 }
 
-/* css for attractions
 /* ================================================================
    ATTRACTIONS PAGE — Custom classes
    ================================================================ */
@@ -1158,4 +1157,99 @@ a {
   color: var(--muted);
   margin-bottom: 8px;
 }
+/* ================================================================
+   ATTRACTIONS PAGE — Intro & Zone Cards
+   ================================================================ */
 
+/* ── Intro section at the top of attractions page ─────────── */
+.attract-intro {
+  margin-bottom: 35px;
+}
+
+.attract-intro .section-sub {
+  text-align: left;                          /* paragraph reads better left-aligned */
+  max-width: 800px;
+  line-height: 1.8;
+}
+
+/* Instruction text above the filter bar */
+.filter-instruction {
+  color: var(--dark);
+  font-weight: 700;
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+
+
+/* ── Zone cards grid (the 5 themed areas) ─────────────────── */
+.zone-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);     /* 5 equal columns */
+  gap: 12px;
+  margin-top: 25px;
+}
+
+/* Stack on tablets (2-3 columns) */
+@media (max-width: 992px) {
+  .zone-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Stack on phones (1 column) */
+@media (max-width: 576px) {
+  .zone-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Individual zone card */
+.zone-card {
+  padding: 16px;
+  border-radius: var(--radius);
+  border-left: 4px solid transparent;        /* coloured left border */
+}
+
+.zone-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.zone-text {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Each zone gets its own colour scheme */
+.zone-card-adventure {
+  background-color: #fef3c7;                /* warm amber tint */
+  border-left-color: #f59e0b;
+}
+.zone-card-adventure .zone-title { color: #b45309; }
+
+.zone-card-splash {
+  background-color: #dbeafe;                /* cool blue tint */
+  border-left-color: #3b82f6;
+}
+.zone-card-splash .zone-title { color: #1d4ed8; }
+
+.zone-card-kids {
+  background-color: #d1fae5;                /* soft green tint */
+  border-left-color: #10b981;
+}
+.zone-card-kids .zone-title { color: #047857; }
+
+.zone-card-thrill {
+  background-color: #fee2e2;                /* light red tint */
+  border-left-color: #ef4444;
+}
+.zone-card-thrill .zone-title { color: #b91c1c; }
+
+.zone-card-main {
+  background-color: #f3e8ff;                /* light purple tint */
+  border-left-color: #8b5cf6;
+}
+.zone-card-main .zone-title { color: #6d28d9; }
