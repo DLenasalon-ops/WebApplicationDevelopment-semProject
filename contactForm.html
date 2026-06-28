@@ -31,140 +31,131 @@
     </div>
   </nav>
 
-  <header class="hero hero-contact">
-    <div class="container">
-      <h1>Contact Us</h1>
-      <p class="lead">Questions, bookings, or feedback? We would love to hear from you.</p>
-    </div>
-  </header>
+  <header class="contactHeader">
+  <div class="container">
+    <h1 class="contactHeader-title">Contact Us</h1>
+    <p class="contactHeader-subtitle">Questions, bookings, or feedback? We would love to hear from you.</p>
+  </div>
+</header>
+
 
   <main class="section">
     <div class="container">
       <div class="row g-5">
 
         <div class="col-lg-7">
-          <div class="form-box">
-            <h3 class="fw-bold mb-1">Send Us a Message</h3>
-            <p class="text-muted mb-4">We respond within 24 hours on business days.</p>
+  <div class="form-box">
+    <h3 class="section-title">Send Us a Message</h3>
+    <p class="section-sub">We respond within 24 hours on business days.</p>
 
-            <form id="contactForm" novalidate>
+    <form id="contactForm" novalidate>
 
-              <div class="mb-3">
-                <label for="fullName" class="form-label fw-bold">Full Name *</label>
-                <input type="text" id="fullName" class="form-control" placeholder="e.g. Deborah Lenasalon">
-                <div class="invalid-feedback"></div>
-              </div>
+      <div class="form-group">
+        <label for="fullName" class="form-label">Full Name *</label>
+        <input type="text" id="fullName" class="input-field" placeholder="e.g. Deborah Lenasalon">
+        <div class="invalid-feedback"></div>
+      </div>
 
-              <div class="mb-3">
-                <label for="emailAddr" class="form-label fw-bold">Email Address *</label>
-                <input type="email" id="emailAddr" class="form-control" placeholder="you@example.com">
-                <div class="invalid-feedback"></div>
-              </div>
+      <div class="form-group">
+        <label for="emailAddr" class="form-label">Email Address *</label>
+        <input type="email" id="emailAddr" class="input-field" placeholder="you@example.com">
+        <div class="invalid-feedback"></div>
+      </div>
 
-              <div class="mb-3">
-                <label for="phoneNum" class="form-label fw-bold">Phone Number (optional)</label>
-                <input type="tel" id="phoneNum" class="form-control" placeholder="+254 700 000 000">
-                <div class="invalid-feedback"></div>
-              </div>
+      <div class="form-group">
+        <label for="phoneNum" class="form-label">Phone Number (optional)</label>
+        <input type="tel" id="phoneNum" class="input-field" placeholder="+254 700 000 000">
+        <div class="invalid-feedback"></div>
+      </div>
 
-              <div class="mb-3">
-                <label for="subject" class="form-label fw-bold">Subject *</label>
-                <select id="subject" class="form-select">
-                  <option value="">Select a subject</option>
-                  <option value="tickets">Tickets and Booking</option>
-                  <option value="groups">Group and Corporate Visits</option>
-                  <option value="birthday">Birthday Party Packages</option>
-                  <option value="accessibility">Accessibility Requirements</option>
-                  <option value="feedback">General Feedback</option>
-                  <option value="lost">Lost Property</option>
-                  <option value="other">Other Enquiry</option>
-                </select>
-                <div class="invalid-feedback"></div>
-              </div>
+      <div class="form-group">
+        <label for="subject" class="form-label">Subject *</label>
+        <select id="subject" class="select-field">
+          <option value="">Select a subject</option>
+          <option value="tickets">Tickets and Booking</option>
+          <option value="groups">Group and Corporate Visits</option>
+          <option value="birthday">Birthday Party Packages</option>
+          <option value="accessibility">Accessibility Requirements</option>
+          <option value="feedback">General Feedback</option>
+          <option value="lost">Lost Property</option>
+          <option value="other">Other Enquiry</option>
+        </select>
+        <div class="invalid-feedback"></div>
+      </div>
 
-              <div class="mb-4">
-                <label for="message" class="form-label fw-bold">Message *</label>
-                <textarea id="message" class="form-control" rows="5" placeholder="Describe your enquiry here (minimum 20 characters)..."></textarea>
-                <div class="invalid-feedback"></div>
-              </div>
+      <div class="form-group">
+        <label for="message" class="form-label">Message *</label>
+        <textarea id="message" class="textarea-field" rows="5" placeholder="Describe your enquiry here (minimum 20 characters)..."></textarea>
+        <div class="invalid-feedback"></div>
+      </div>
 
-              <button type="submit" class="btn-park w-100">Send Message</button>
-              <p class="text-muted small text-center mt-2">* Required fields</p>
+      <button type="submit" class="btn-park full-width">Send Message</button>
+      <p class="muted-text text-center">* Required fields</p>
 
-            </form>
+    </form>
 
-            <div id="successMsg">
-              <div style="font-size:3rem;">Done!</div>
-              <h4 class="fw-bold mt-2">Message Sent!</h4>
-              <p class="text-muted">Thank you for reaching out. Our team will reply within 24 hours.</p>
-              <a href="index.html" class="btn-park">Back to Home</a>
-            </div>
-
-
-          </div>
-        </div>
-
-      <div class="col-lg-5">
-
-          <!-- 5 Things to Know Before Visiting -->
-          <div class="park-card p-4">
-            <p class="text-uppercase fw-bold mb-1" style="color:var(--primary); font-size:0.8rem; letter-spacing:1px;">Before You Visit</p>
-            <h4 class="fw-bold mb-4">5 Things to Know</h4>
-
-            <!-- Item 1 -->
-            <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
-              <div class="text-center fw-bold flex-shrink-0"
-                   style="background:var(--primary); color:white; width:36px; height:36px; border-radius:50%; line-height:36px;">1</div>
-              <div>
-                <h6 class="fw-bold mb-1">Check Height Requirements</h6>
-                <p class="text-muted small mb-0">Thunder Loop and Freefall Drop require a minimum height of 140 cm. Most family rides start at 110 cm. View the full chart on the Attractions page.</p>
-              </div>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
-              <div class="text-center fw-bold flex-shrink-0"
-                   style="background:var(--primary); color:white; width:36px; height:36px; border-radius:50%; line-height:36px;">2</div>
-              <div>
-                <h6 class="fw-bold mb-1">Book Online to Save 10%</h6>
-                <p class="text-muted small mb-0">Booking your tickets in advance saves you 10% and guarantees entry on busy weekends and public holidays.</p>
-              </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
-              <div class="text-center fw-bold flex-shrink-0"
-                   style="background:var(--primary); color:white; width:36px; height:36px; border-radius:50%; line-height:36px;">3</div>
-              <div>
-                <h6 class="fw-bold mb-1">What to Bring</h6>
-                <p class="text-muted small mb-0">Comfortable shoes, sunscreen, water bottle, and a change of clothes for water rides. Lockers are available at the entrance for KSh 100.</p>
-              </div>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
-              <div class="text-center fw-bold flex-shrink-0"
-                   style="background:var(--primary); color:white; width:36px; height:36px; border-radius:50%; line-height:36px;">4</div>
-              <div>
-                <h6 class="fw-bold mb-1">Arrive Early</h6>
-                <p class="text-muted small mb-0">The park opens at 9 AM on weekends. Arriving in the first hour means shorter queues for popular rides like Thunder Loop and Splash Canyon.</p>
-              </div>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="d-flex gap-3">
-              <div class="text-center fw-bold flex-shrink-0"
-                   style="background:var(--primary); color:white; width:36px; height:36px; border-radius:50%; line-height:36px;">5</div>
-              <div>
-                <h6 class="fw-bold mb-1">Free Parking & Easy Access</h6>
-                <p class="text-muted small mb-0">Free parking for 2,000 vehicles on-site. Matatu Route 34 stops directly at our gates every 15 minutes from 7 AM to 10 PM.</p>
-              </div>
-            </div>
-
-          </div>
+    <div id="successMsg">
+      <div style="font-size:3rem;">Done!</div>
+      <h4 class="section-title">Message Sent!</h4>
+      <p class="muted-text">Thank you for reaching out. Our team will reply within 24 hours.</p>
+      <a href="index.html" class="btn-park">Back to Home</a>
+    </div>
+  </div>
+</div>
 
 
-        </div>    
+<div class="sidebar">
+  <!-- 5 Things to Know Before Visiting -->
+  <div class="sidebar-box">
+    <p class="sidebar-title">Before You Visit</p>
+    <h4 class="sidebar-heading">5 Things to Know</h4>
+
+    <!-- Item 1 -->
+    <div class="sidebar-item">
+      <div class="sidebar-number">1</div>
+      <div>
+        <h6 class="sidebar-item-title">Check Height Requirements</h6>
+        <p class="sidebar-text">Thunder Loop and Freefall Drop require a minimum height of 140 cm. Most family rides start at 110 cm. View the full chart on the Attractions page.</p>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="sidebar-item">
+      <div class="sidebar-number">2</div>
+      <div>
+        <h6 class="sidebar-item-title">Book Online to Save 10%</h6>
+        <p class="sidebar-text">Booking your tickets in advance saves you 10% and guarantees entry on busy weekends and public holidays.</p>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="sidebar-item">
+      <div class="sidebar-number">3</div>
+      <div>
+        <h6 class="sidebar-item-title">What to Bring</h6>
+        <p class="sidebar-text">Comfortable shoes, sunscreen, water bottle, and a change of clothes for water rides. Lockers are available at the entrance for KSh 100.</p>
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="sidebar-item">
+      <div class="sidebar-number">4</div>
+      <div>
+        <h6 class="sidebar-item-title">Arrive Early</h6>
+        <p class="sidebar-text">The park opens at 9 AM on weekends. Arriving in the first hour means shorter queues for popular rides like Thunder Loop and Splash Canyon.</p>
+      </div>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="sidebar-item">
+      <div class="sidebar-number">5</div>
+      <div>
+        <h6 class="sidebar-item-title">Free Parking & Easy Access</h6>
+        <p class="sidebar-text">Free parking for 2,000 vehicles on-site. Matatu Route 34 stops directly at our gates every 15 minutes from 7 AM to 10 PM.</p>
+      </div>
+    </div>
+  </div>
+</div>
             
           </div>
           </div>

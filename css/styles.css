@@ -518,3 +518,146 @@ a {
 @media (max-width: 480px) {
   .hero h1 { font-size: 1.6rem; }
 }
+/* /*this is the newer and a simpler version of css For contactForm. */
+/* Simplified form helpers */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--dark);
+}
+
+.input-field,
+.select-field,
+.textarea-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.input-field:focus,
+.select-field:focus,
+.textarea-field:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(255,107,53,0.20);
+  outline: none;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.section-sub {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.muted-text {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+/* Sidebar container (replaces col-lg-5) */
+.sidebar {
+  width: 100%;
+  max-width: 400px;   /* adjust as needed */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sidebar box styling */
+.sidebar-box {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+/* Sidebar section title */
+.sidebar-title {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+/* Sidebar heading */
+.sidebar-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--dark);
+}
+
+/* Each item row */
+.sidebar-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-item:last-child {
+  border-bottom: none;
+}
+
+/* Number circle */
+.sidebar-number {
+  background: var(--primary);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 36px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Item title */
+.sidebar-item-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* Item text */
+.sidebar-text {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+/* Contact page header */
+.contactHeader {
+  padding: 50px 0;              /* smaller vertical spacing */
+  text-align: center;
+  background-color: #374151;    /* slate background */
+  color: #ffffff;
+}
+
+/* Header title */
+.contactHeader-title {
+  font-size: 1.8rem;            /* smaller than original 2.8rem */
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Header subtitle */
+.contactHeader-subtitle {
+  font-size: 0.95rem;           /* slightly smaller text */
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 12px;
+}
