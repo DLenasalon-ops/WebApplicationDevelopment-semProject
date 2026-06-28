@@ -28,7 +28,7 @@
    ============================================================ */
 
 // This function runs only if filter buttons exist on the page
-function initRideFilter() {
+function RideFilter() {
 
   // Get all filter buttons
   const filterButtons = document.querySelectorAll('.filter-btn');
@@ -140,7 +140,7 @@ function initRideFilter() {
    - If ANY age is invalid, the total resets to KSh 0
    ────────────────────────────────────────────────────────────── */
 
-function initTicketCalc() {
+function TicketCalc() {
 
   // Find the calculator on the page. If not present, this isn't tickets.html — exit.
   var calcForm = document.getElementById('ticketCalculator');
@@ -425,10 +425,10 @@ function initTicketCalc() {
    - If all fields pass: the form hides and a success message appears
    ============================================================ */
 
-function initContactForm() {
+function ContactForm() {
 
   // Check if the form exists on this page
-  const form = document.getElementById('contactForm');
+  const form = document.getElementById("contactForm");
   if (!form) return; // Stop if we're not on contactForm.html
 
   // Listen for the form submit event
@@ -436,6 +436,7 @@ function initContactForm() {
 
     // IMPORTANT: Stop the page from reloading (default form behaviour)
     e.preventDefault();
+    console.log("Form submit intercepted!");
 
     // Track whether all fields pass validation
     let allValid = true;
@@ -454,10 +455,15 @@ function initContactForm() {
       // Field is empty
       showError(nameField, 'Please enter your full name.');
       allValid = false;
-    } else if (nameField.value.trim().length < 3) {
-      // Too short
+    } else if (nameField.value.trim().length < 8 ) {
+      // Too short 
       showError(nameField, 'Name must be at least 3 characters long.');
       allValid = false;
+    }
+    else if(nameField.value.trim().length>15){
+      //too long 
+      showError(nameField, 'Name must be less than 15 characters long.');
+      allValid=false;
     }
 
     // ------ VALIDATE: Email ------
@@ -543,8 +549,8 @@ function highlightCurrentPage() {
       link.classList.remove('active'); // Remove highlight from others
     }
   });
-}
 
+}
 
 /* ============================================================
    START EVERYTHING
@@ -553,7 +559,7 @@ function highlightCurrentPage() {
    ============================================================ */
 document.addEventListener('DOMContentLoaded', function() {
   highlightCurrentPage();  // Works on all pages
-  initRideFilter();        // Only does something on attractions.html
-  initTicketCalculator();  // Only does something on tickets.html
-  initContactForm();       // Only does something on contactForm.html
+  RideFilter();        // Only does something on attractions.html
+  TicketCalc();  // Only does something on tickets.html
+  ContactForm();       // Only does something on contactForm.html
 });
