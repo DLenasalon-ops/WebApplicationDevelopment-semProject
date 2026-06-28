@@ -9,10 +9,14 @@
 </head>
 <body>
 
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">SambFun Park</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/sambfun_park_logo.png" alt="SambFun Park Logo" class="brand-logo">
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
@@ -29,229 +33,239 @@
     </div>
   </nav>
 
+
+  <!-- HERO BANNER -->
   <header class="hero hero-tickets">
-    <div class="container">
-      <h1>Tickets &amp; Passes</h1>
-      <p class="lead">Flexible options for every group. Book online and save 10%.</p>
+    <div class="hero-content">
+      <h1 class="hero-title">Tickets &amp; Passes</h1>
+      <p class="hero-subtitle">Flexible options for every group. Book online and save 10%.</p>
     </div>
   </header>
 
-  <main>
 
-    <!-- PRICING CARDS -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title text-center">Day Pass Prices</h2>
-        <p class="section-sub text-center">All prices per person. Children under 3 enter free.</p>
+  <!-- MAIN CONTENT -->
+  <main class="page-wrapper">
 
-        <div class="row g-4 justify-content-center">
+    <!-- ========== PRICING CARDS ========== -->
+    <section class="tickets-section">
+      <h2 class="section-title">Day Pass Prices</h2>
+      <p class="section-sub">All prices per person. Children under 3 enter free.</p>
 
-          <div class="col-sm-6 col-lg-3">
-            <div class="park-card text-center">
-              <div class="p-4" style="background:#1B1B2F; color:white; border-radius:10px 10px 0 0;">
-                <div style="font-size:2rem;">Child</div>
-                <small style="opacity:0.7;">Ages 3 – 17</small>
-              </div>
-              <div class="p-4">
-                <h2 class="fw-bold" style="color:var(--primary);">KSh 800</h2>
-                <p class="text-muted small">per day</p>
-                <ul class="list-unstyled text-start small">
-                  <li class="py-1 border-bottom">Full park access</li>
-                  <li class="py-1 border-bottom">Kids' Cove priority</li>
-                  <li class="py-1">Unlimited re-rides</li>
-                </ul>
-              </div>
-            </div>
+      <div class="pricing-grid">
+
+        <!-- Child ticket -->
+        <div class="pricing-card">
+          <div class="pricing-header pricing-header-dark">
+            <span class="pricing-icon">Child</span>
+            <span class="pricing-age">Ages 3 - 17</span>
           </div>
-
-          <div class="col-sm-6 col-lg-3">
-            <div class="park-card text-center" style="border:2px solid var(--primary);">
-              <div class="p-4" style="background:var(--primary); color:white; border-radius:8px 8px 0 0;">
-                <div style="font-size:2rem;">Adult</div>
-                <small style="opacity:0.9;">Ages 18 – 59</small>
-                <br>
-                <span class="badge bg-warning text-dark mt-1">Most Popular</span>
-              </div>
-              <div class="p-4">
-                <h2 class="fw-bold" style="color:var(--primary);">KSh 1,200</h2>
-                <p class="text-muted small">per day</p>
-                <ul class="list-unstyled text-start small">
-                  <li class="py-1 border-bottom">Full park access</li>
-                  <li class="py-1 border-bottom">All ride zones</li>
-                  <li class="py-1 border-bottom">Unlimited re-rides</li>
-                  <li class="py-1">Parking included</li>
-                </ul>
-              </div>
-            </div>
+          <div class="pricing-body">
+            <div class="pricing-amount">KSh 800</div>
+            <span class="pricing-period">per day</span>
+            <ul class="pricing-features">
+              <li class="pricing-feature">Full park access</li>
+              <li class="pricing-feature">Kids' Cove priority</li>
+              <li class="pricing-feature">Unlimited re-rides</li>
+            </ul>
+            <a href="#ticketCalculator" class="btn-park pricing-cta">Select</a>
           </div>
+        </div>
 
-          <div class="col-sm-6 col-lg-3">
-            <div class="park-card text-center">
-              <div class="p-4" style="background:#1B1B2F; color:white; border-radius:10px 10px 0 0;">
-                <div style="font-size:2rem;">Senior</div>
-                <small style="opacity:0.7;">Ages 60+</small>
-              </div>
-              <div class="p-4">
-                <h2 class="fw-bold" style="color:var(--primary);">KSh 600</h2>
-                <p class="text-muted small">per day</p>
-                <ul class="list-unstyled text-start small">
-                  <li class="py-1 border-bottom">Full park access</li>
-                  <li class="py-1 border-bottom">Dedicated seating</li>
-                  <li class="py-1">Companion assist</li>
-                </ul>
-              </div>
-            </div>
+        <!-- Adult ticket (highlighted) -->
+        <div class="pricing-card pricing-card-featured">
+          <div class="pricing-ribbon">Most Popular</div>
+          <div class="pricing-header pricing-header-orange">
+            <span class="pricing-icon">Adult</span>
+            <span class="pricing-age">Ages 18 - 59</span>
           </div>
-
-          <div class="col-sm-6 col-lg-3">
-            <div class="park-card text-center">
-              <div class="p-4" style="background:#1B1B2F; color:white; border-radius:10px 10px 0 0;">
-                <div style="font-size:2rem;">Season Pass</div>
-                <small style="opacity:0.7;">Unlimited 2026</small>
-              </div>
-              <div class="p-4">
-                <h2 class="fw-bold" style="color:var(--primary);">KSh 8,000</h2>
-                <p class="text-muted small">per year</p>
-                <ul class="list-unstyled text-start small">
-                  <li class="py-1 border-bottom">Unlimited visits</li>
-                  <li class="py-1 border-bottom">10% dining discount</li>
-                  <li class="py-1">2 free guest passes</li>
-                </ul>
-              </div>
-            </div>
+          <div class="pricing-body">
+            <div class="pricing-amount">KSh 1,200</div>
+            <span class="pricing-period">per day</span>
+            <ul class="pricing-features">
+              <li class="pricing-feature">Full park access</li>
+              <li class="pricing-feature">All ride zones</li>
+              <li class="pricing-feature">Unlimited re-rides</li>
+              <li class="pricing-feature">Parking included</li>
+            </ul>
+            <a href="#ticketCalculator" class="btn-park pricing-cta">Select</a>
           </div>
+        </div>
 
+        <!-- Senior ticket -->
+        <div class="pricing-card">
+          <div class="pricing-header pricing-header-dark">
+            <span class="pricing-icon">Senior</span>
+            <span class="pricing-age">Ages 60+</span>
+          </div>
+          <div class="pricing-body">
+            <div class="pricing-amount">KSh 600</div>
+            <span class="pricing-period">per day</span>
+            <ul class="pricing-features">
+              <li class="pricing-feature">Full park access</li>
+              <li class="pricing-feature">Dedicated seating</li>
+              <li class="pricing-feature">Companion assist</li>
+            </ul>
+            <a href="#ticketCalculator" class="btn-park pricing-cta">Select</a>
+          </div>
+        </div>
+
+        <!-- Season Pass -->
+        <div class="pricing-card">
+          <div class="pricing-header pricing-header-dark">
+            <span class="pricing-icon">Season Pass</span>
+            <span class="pricing-age">Unlimited 2026</span>
+          </div>
+          <div class="pricing-body">
+            <div class="pricing-amount">KSh 8,000</div>
+            <span class="pricing-period">per year</span>
+            <ul class="pricing-features">
+              <li class="pricing-feature">Unlimited visits</li>
+              <li class="pricing-feature">10% dining discount</li>
+              <li class="pricing-feature">2 free guest passes</li>
+            </ul>
+            <a href="contactForm.html" class="btn-park pricing-cta">Enquire</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========== TICKET PERKS (why book with us) ========== -->
+    <section class="tickets-section">
+      <h2 class="section-title">Why Book With Us</h2>
+      <div class="perks-grid">
+        <div class="perk-card">
+          <div class="perk-icon">10%</div>
+          <h6 class="perk-title">Online Discount</h6>
+          <p class="perk-text">Book online and save 10% on every ticket.</p>
+        </div>
+        <div class="perk-card">
+          <div class="perk-icon">0-2</div>
+          <h6 class="perk-title">Free Entry</h6>
+          <p class="perk-text">Children under 3 enter the park completely free.</p>
+        </div>
+        <div class="perk-card">
+          <div class="perk-icon">P</div>
+          <h6 class="perk-title">Free Parking</h6>
+          <p class="perk-text">2,000 spaces on-site. No extra charge for parking.</p>
+        </div>
+        <div class="perk-card">
+          <div class="perk-icon">24h</div>
+          <h6 class="perk-title">Easy Refunds</h6>
+          <p class="perk-text">Cancel up to 24 hours before for a full refund.</p>
         </div>
       </div>
     </section>
 
-    <!--
-      AGE-BASED TICKET CALCULATOR — JS FEATURE #2
 
-      HOW IT WORKS (this is the smart part):
-      1. User types how many people are in their group
-      2. JavaScript automatically creates that many AGE input fields
-      3. User enters each person's age
-      4. JS reads each age and decides:
-           - Under 3:  FREE
-           - 3 to 17:  Child  (KSh 800)
-           - 18 to 59: Adult  (KSh 1,200)
-           - 60+:      Senior (KSh 600)
-      5. The total updates live as ages are typed
+    <!-- ========== AGE-BASED TICKET CALCULATOR ========== -->
+    <section class="tickets-section tickets-section-alt" id="ticketCalculator">
+      <h2 class="section-title">Price Calculator</h2>
+      <p class="section-sub">Enter each person's age and we'll work out the right ticket price automatically.</p>
 
-      This prevents a user from entering a child's age in the adult field
-      because there are no separate adult/child fields any more.
-      The age itself decides the category.
-    -->
-    <section class="section-alt">
-      <div class="container">
-        <h2 class="section-title text-center">Price Calculator</h2>
-        <p class="section-sub text-center">Enter each person's age and we'll work out the right ticket price for them.</p>
+      <div class="calc-layout">
 
-        <div class="row g-4">
+        <!-- INPUT SIDE -->
+        <div class="calc-input-side">
+          <div class="calc-box">
+            <h4 class="calc-heading">Your Group</h4>
 
-          <!-- INPUT SIDE -->
-          <div class="col-lg-6">
-            <div class="calc-box">
-              <h4 class="fw-bold mb-4">Your Group</h4>
+            <div id="ticketCalculator">
 
-              <div id="ticketCalculator">
-
-                <!-- Step 1: How many people are in the group -->
-                <div class="mb-4">
-                  <label for="groupSize" class="form-label fw-bold">
-                    How many people are in your group?
-                  </label>
-                  <input type="number" id="groupSize" class="form-control"
-                         value="0" min="0" max="20" placeholder="e.g. 4">
-                  <small class="text-muted">Maximum 20 people per booking.</small>
-                  <div class="invalid-feedback"></div>
-                </div>
-
-                <!-- Step 2: Age inputs (filled by JavaScript) -->
-                <div id="ageInputs"></div>
-
-                <hr>
-                <p class="fw-bold mb-2">Optional Add-ons</p>
-
-                <div class="form-check mb-2">
-                  <input class="form-check-input" type="checkbox" id="addFastPass">
-                  <label class="form-check-label" for="addFastPass">
-                    Fast Pass — <strong>KSh 500 per person</strong> (skip the queues)
-                  </label>
-                </div>
-
-                <div class="form-check mb-3">
-                  <input class="form-check-input" type="checkbox" id="addDining">
-                  <label class="form-check-label" for="addDining">
-                    Dining Package — <strong>KSh 800 per person</strong> (lunch + 2 snacks)
-                  </label>
-                </div>
-
-                <!-- Pricing reminder for the user -->
-                <div class="alert alert-info py-2 small mb-0">
-                  <strong>Pricing by age:</strong><br>
-                  Under 3: <strong>FREE</strong> &middot;
-                  3–17: KSh 800 &middot;
-                  18–59: KSh 1,200 &middot;
-                  60+: KSh 600
-                </div>
-
+              <div class="calc-field">
+                <label for="groupSize" class="calc-label">How many people are in your group?</label>
+                <input type="number" id="groupSize" class="form-control"
+                       value="0" min="0" max="20" placeholder="e.g. 4">
+                <span class="calc-hint">Maximum 20 people per booking.</span>
+                <div class="invalid-feedback"></div>
               </div>
+
+              <div id="ageInputs"></div>
+
+              <hr class="calc-divider">
+              <p class="calc-addon-title">Optional Add-ons</p>
+
+              <div class="calc-checkbox">
+                <input type="checkbox" id="addFastPass" class="form-check-input">
+                <label for="addFastPass" class="calc-checkbox-label">
+                  Fast Pass — <strong>KSh 500 per person</strong> (skip the queues)
+                </label>
+              </div>
+
+              <div class="calc-checkbox">
+                <input type="checkbox" id="addDining" class="form-check-input">
+                <label for="addDining" class="calc-checkbox-label">
+                  Dining Package — <strong>KSh 800 per person</strong> (lunch + 2 snacks)
+                </label>
+              </div>
+
+              <div class="calc-pricing-note">
+                <strong>Pricing by age:</strong><br>
+                Under 3: <strong>FREE</strong> |
+                3 - 17: KSh 800 |
+                18 - 59: KSh 1,200 |
+                60+: KSh 600
+              </div>
+
             </div>
           </div>
-
-          <!-- TOTAL SIDE -->
-          <div class="col-lg-6">
-            <div class="calc-box">
-              <h4 class="fw-bold mb-3">Your Price Breakdown</h4>
-
-              <div id="priceBreakdown">
-                <p class="text-muted text-center">Enter your group size to begin.</p>
-              </div>
-
-              <div class="total-box">
-                <p class="mb-1" style="opacity:0.7; font-size:0.85rem; text-transform:uppercase;">Estimated Total</p>
-                <div class="total-amount" id="totalAmount">KSh 0</div>
-                <p class="mb-0 mt-1" style="opacity:0.7; font-size:0.8rem;">Online booking saves 10%</p>
-              </div>
-
-              <div class="text-center mt-3">
-                <a href="contactForm.html" class="btn-park">Book Now</a>
-              </div>
-            </div>
-          </div>
-
         </div>
+
+        <!-- TOTAL SIDE -->
+        <div class="calc-total-side">
+          <div class="calc-box">
+            <h4 class="calc-heading">Your Price Breakdown</h4>
+
+            <div id="priceBreakdown">
+              <p class="calc-empty-msg">Enter your group size to begin.</p>
+            </div>
+
+            <div class="total-box">
+              <span class="total-label">Estimated Total</span>
+              <div class="total-amount" id="totalAmount">KSh 0</div>
+              <span class="total-note">Online booking saves 10%</span>
+            </div>
+
+            <div class="cta-block">
+              <a href="contactForm.html" class="btn-park">Book Now</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
   </main>
 
+
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-4">
-          <h5>SambFun Park</h5>
-          <p>Africa's most exciting family adventure park.</p>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5 class="footer-heading">SambFun Park</h5>
+          <p class="footer-text">Africa's most exciting family adventure park.</p>
         </div>
-        <div class="col-md-4">
-          <h5>Quick Links</h5>
-          <a href="index.html">Home</a>
-          <a href="attractions.html">Attractions</a>
-          <a href="tickets.html">Tickets</a>
-          <a href="events.html">Events</a>
-          <a href="contactForm.html">Contact Us</a>
+        <div class="footer-col">
+          <h5 class="footer-heading">Quick Links</h5>
+          <a href="index.html"       class="footer-link">Home</a>
+          <a href="attractions.html" class="footer-link">Attractions</a>
+          <a href="tickets.html"     class="footer-link">Tickets</a>
+          <a href="events.html"      class="footer-link">Events</a>
+          <a href="contactForm.html" class="footer-link">Contact Us</a>
         </div>
-        <div class="col-md-4">
-          <h5>Contact Us</h5>
-          <p>Uhuru Highway, Nairobi, Kenya<br>
-             +254 712 345 678<br>
-             info@sambfunpark.co.ke</p>
+        <div class="footer-col">
+          <h5 class="footer-heading">Contact Us</h5>
+          <p class="footer-text">
+            South-Horr, Samburu, Kenya<br>
+            +254 712 345 678<br>
+            info@sambfunpark.co.ke
+          </p>
         </div>
       </div>
-      <hr>
-      <p class="text-center copyright mb-0">&copy; 2026 SambFun Park. All rights reserved.</p>
+      <hr class="footer-divider">
+      <p class="footer-copyright">&copy; 2026 SambFun Park. All rights reserved.</p>
     </div>
   </footer>
 

@@ -583,6 +583,68 @@ function highlightCurrentPage() {
   });
 
 }
+/* ──────────────────────────────────────────────────────────────
+   FEATURE 4: EVENT COUNTDOWN TIMER  (events.html)
+   ──────────────────────────────────────────────────────────────
+
+   HOW IT WORKS:
+   1. We define the next upcoming event date
+   2. Every second, JS calculates the time remaining
+   3. It splits the difference into days, hours, minutes, seconds
+   4. It updates the four number displays on the page
+   5. When the event arrives, it shows "Event is LIVE!"
+   ────────────────────────────────────────────────────────────── */
+
+function initCountdown() {
+
+  // Only run on the events page
+  var timerElement = document.getElementById('countdownTimer');
+  if (!timerElement) return;
+
+  // Set the next event date (change this to your actual next event)
+  // Format: Year, Month (0-based, so 5 = June), Day, Hour, Minute
+  var nextEvent = new Date(2026, 6, 4, 19, 0, 0);
+var eventName = 'Night Parade Spectacular';
+
+  // Update the event name display
+  var nameDisplay = document.getElementById('countdownName');
+  if (nameDisplay) nameDisplay.textContent = eventName;
+
+  function updateTimer() {
+
+    // Get the current time
+    var now = new Date();
+
+    // Calculate the difference in milliseconds
+    var diff = nextEvent - now;
+
+    // If the event has passed, show "LIVE" message
+    if (diff <= 0) {
+      document.getElementById('countDays').textContent  = '00';
+      document.getElementById('countHours').textContent = '00';
+      document.getElementById('countMins').textContent  = '00';
+      document.getElementById('countSecs').textContent  = '00';
+      if (nameDisplay) nameDisplay.textContent = eventName + ' is LIVE NOW!';
+      return;
+    }
+
+    // Convert milliseconds to days, hours, minutes, seconds
+    var days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    var mins  = Math.floor((diff / (1000 * 60)) % 60);
+    var secs  = Math.floor((diff / 1000) % 60);
+
+    // Update the display (padStart adds a leading 0 so "5" becomes "05")
+    document.getElementById('countDays').textContent  = String(days).padStart(2, '0');
+    document.getElementById('countHours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('countMins').textContent  = String(mins).padStart(2, '0');
+    document.getElementById('countSecs').textContent  = String(secs).padStart(2, '0');
+  }
+
+  // Run immediately, then every second
+  updateTimer();
+  setInterval(updateTimer, 1000);
+}
 
 /* ============================================================
    START EVERYTHING
@@ -594,4 +656,5 @@ document.addEventListener('DOMContentLoaded', function() {
   RideFilter();        // Only does something on attractions.html
   TicketCalc();  // Only does something on tickets.html
   ContactForm();       // Only does something on contactForm.html
+  initCountdown(); 
 });

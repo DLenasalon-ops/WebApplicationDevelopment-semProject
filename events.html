@@ -8,127 +8,246 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">🎢 SambFun Park</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/sambfun_park_logo.png" alt="SambFun Park Logo" class="brand-logo">
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="attractions.html">Attractions</a></li>
-          <li class="nav-item"><a class="nav-link" href="tickets.html">Tickets</a></li>
+          <li class="nav-item"><a class="nav-link"        href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link"        href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link"        href="attractions.html">Attractions</a></li>
+          <li class="nav-item"><a class="nav-link"        href="tickets.html">Tickets</a></li>
           <li class="nav-item"><a class="nav-link active" href="events.html">Events</a></li>
-          <li class="nav-item"><a class="nav-link" href="visit.html">Plan Visit</a></li>
-          <li class="nav-item"><a class="nav-link" href="contactForm.html">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link"        href="contactForm.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link"        href="faq.html">FAQ</a></li>
         </ul>
       </div>
     </div>
   </nav>
+
+
+  <!-- HERO BANNER -->
   <header class="hero hero-events">
-    <div class="container">
-      <h1>Events &amp; Shows</h1>
-      <p class="lead">Something exciting is always happening at SambFun Park.</p>
+    <div class="hero-content">
+      <h1 class="hero-title">Events &amp; Shows</h1>
+      <p class="hero-subtitle">Something exciting is always happening at SambFun Park.</p>
     </div>
   </header>
-  <main class="section">
-    <div class="container">
-      <h2 class="section-title">Upcoming Events &mdash; June &amp; July 2026</h2>
-      <p class="section-sub">All events are included in your day ticket unless stated.</p>
-      <div class="row g-4">
-        <div class="col-12">
-          <div class="card park-card">
-            <div class="card-body">
-              <div class="d-flex gap-3 align-items-start">
-                <div class="text-center rounded p-3 text-white flex-shrink-0" style="background:#FF6B35;min-width:70px;">
-                  <div style="font-size:1.8rem;font-weight:800;line-height:1;">21</div>
-                  <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;">Jun</div>
-                </div>
-                <div>
-                  <span class="badge bg-danger mb-1">This Weekend</span>
-                  <h4 class="fw-bold mb-1">Summer Splash Festival</h4>
-                  <p class="text-muted small mb-2">21&ndash;22 June 2026 &middot; All day &middot; Splash Zone</p>
-                  <p>Live DJ sets by the wave pool, water ride marathons with prizes, and free ice cream for all visitors under 12. Extended hours: 8 AM&ndash;10 PM both days.</p>
-                  <a href="tickets.html" class="btn-orange">Get Tickets</a>
-                </div>
-              </div>
-            </div>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="page-wrapper">
+
+    <!-- ========== COUNTDOWN TIMER ========== -->
+    <div class="countdown-bar" id="countdownBar">
+      <div class="countdown-label">Next Event Starts In:</div>
+      <div class="countdown-timer" id="countdownTimer">
+        <div class="countdown-unit">
+          <span class="countdown-number" id="countDays">00</span>
+          <span class="countdown-text">Days</span>
+        </div>
+        <div class="countdown-separator">:</div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="countHours">00</span>
+          <span class="countdown-text">Hours</span>
+        </div>
+        <div class="countdown-separator">:</div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="countMins">00</span>
+          <span class="countdown-text">Mins</span>
+        </div>
+        <div class="countdown-separator">:</div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="countSecs">00</span>
+          <span class="countdown-text">Secs</span>
+        </div>
+      </div>
+     <div class="countdown-event-name" id="countdownName">Night Parade Spectacular</div>
+    </div>
+
+
+    <!-- ========== CALENDAR STRIP ========== -->
+    <div class="calendar-strip">
+      <h3 class="calendar-strip-title">June &amp; July 2026 at a Glance</h3>
+      <div class="calendar-months">
+
+        <div class="calendar-month">
+          <div class="calendar-month-label">June</div>
+          <div class="calendar-days">
+            <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div>
+            <div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div>
+            <div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div>
+            <div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div>
+            <div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div>
+            <div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div>
+            <div class="cal-day">19</div><div class="cal-day">20</div>
+            <div class="cal-day cal-day-event cal-day-orange" title="Summer Splash Festival">21</div>
+            <div class="cal-day cal-day-event cal-day-orange" title="Summer Splash Festival">22</div>
+            <div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div>
+            <div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day">28</div>
+            <div class="cal-day cal-day-event cal-day-green" title="Family Fun Sunday">29</div>
+            <div class="cal-day">30</div>
           </div>
         </div>
-        <div class="col-12">
-          <div class="card park-card">
-            <div class="card-body">
-              <div class="d-flex gap-3 align-items-start">
-                <div class="text-center rounded p-3 text-white flex-shrink-0" style="background:#7C3AED;min-width:70px;">
-                  <div style="font-size:1.8rem;font-weight:800;line-height:1;">04</div>
-                  <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;">Jul</div>
-                </div>
-                <div>
-                  <span class="badge bg-warning text-dark mb-1">Special Event</span>
-                  <h4 class="fw-bold mb-1">Night Parade Spectacular</h4>
-                  <p class="text-muted small mb-2">4 July 2026 &middot; 7 PM&ndash;10 PM &middot; Main Street</p>
-                  <p>A glowing parade with 20 illuminated floats, acrobats, fire dancers, and a grand fireworks finale over the lake. Advance booking recommended.</p>
-                  <a href="tickets.html" class="btn-orange">Reserve Seats</a>
-                </div>
-              </div>
-            </div>
+
+        <div class="calendar-month">
+          <div class="calendar-month-label">July</div>
+          <div class="calendar-days">
+            <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div>
+            <div class="cal-day cal-day-event cal-day-purple" title="Night Parade Spectacular">4</div>
+            <div class="cal-day">5</div>
+            <div class="cal-day cal-day-event cal-day-green" title="Family Fun Sunday">6</div>
+            <div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div>
+            <div class="cal-day">10</div><div class="cal-day">11</div>
+            <div class="cal-day cal-day-event cal-day-teal" title="Junior Thrillseekers Day">12</div>
+            <div class="cal-day cal-day-event cal-day-green" title="Family Fun Sunday">13</div>
+            <div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div>
+            <div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div>
+            <div class="cal-day cal-day-event cal-day-green" title="Family Fun Sunday">20</div>
+            <div class="cal-day">21</div><div class="cal-day">22</div><div class="cal-day">23</div>
+            <div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div>
+            <div class="cal-day cal-day-event cal-day-green" title="Family Fun Sunday">27</div>
+            <div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div>
+            <div class="cal-day">31</div>
           </div>
         </div>
-        <div class="col-12">
-          <div class="card park-card">
-            <div class="card-body">
-              <div class="d-flex gap-3 align-items-start">
-                <div class="text-center rounded p-3 text-white flex-shrink-0" style="background:#059669;min-width:70px;">
-                  <div style="font-size:1.4rem;font-weight:800;line-height:1;">Sun</div>
-                  <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;">Weekly</div>
-                </div>
-                <div>
-                  <span class="badge bg-success mb-1">Every Sunday</span>
-                  <h4 class="fw-bold mb-1">Family Fun Sundays</h4>
-                  <p class="text-muted small mb-2">Every Sunday &middot; 9 AM&ndash;9 PM</p>
-                  <p>Discounted family tickets (2 adults + 2 children for KSh 3,500), kids craft workshops from 10 AM, and meet-and-greet with mascots Sambi and Funzi at noon.</p>
-                  <a href="tickets.html" class="btn-orange">Family Tickets</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="card park-card">
-            <div class="card-body">
-              <div class="d-flex gap-3 align-items-start">
-                <div class="text-center rounded p-3 text-white flex-shrink-0" style="background:#0D9488;min-width:70px;">
-                  <div style="font-size:1.8rem;font-weight:800;line-height:1;">12</div>
-                  <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;">Jul</div>
-                </div>
-                <div>
-                  <span class="badge bg-info mb-1">School Holiday</span>
-                  <h4 class="fw-bold mb-1">Junior Thrillseekers Day</h4>
-                  <p class="text-muted small mb-2">12 July 2026 &middot; 9 AM&ndash;6 PM &middot; Kids Cove</p>
-                  <p>Treasure hunts, ride competitions, face painting, balloon modelling, and mascot meet-and-greets. Children aged 3&ndash;12 get a free activity wristband.</p>
-                  <a href="tickets.html" class="btn-orange">Book Tickets</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+      </div>
+
+      <!-- Calendar legend -->
+      <div class="calendar-legend">
+        <div class="legend-item"><span class="legend-dot legend-dot-orange"></span> Splash Festival</div>
+        <div class="legend-item"><span class="legend-dot legend-dot-purple"></span> Night Parade</div>
+        <div class="legend-item"><span class="legend-dot legend-dot-teal"></span> Junior Day</div>
+        <div class="legend-item"><span class="legend-dot legend-dot-green"></span> Family Sunday</div>
       </div>
     </div>
-  </main>
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-4"><h5>🎢 SambFun Park</h5><p>Africa's most exciting family adventure park.</p></div>
-        <div class="col-md-4"><h5>Quick Links</h5><a href="index.html">Home</a><a href="attractions.html">Attractions</a><a href="tickets.html">Tickets</a><a href="contactForm.html">Contact Us</a></div>
-        <div class="col-md-4"><h5>Contact Us</h5><p>📍 South-Horr, Samburu, Kenya<br>📞 +254 712 345 678<br>📧 info@sambfunpark.co.ke</p></div>
+
+
+    <!-- ========== FEATURED EVENT (big banner card) ========== -->
+    <h2 class="section-title">Featured Event</h2>
+
+    <article class="featured-event">
+      <img src="images/summerSplash.jpg" alt="Summer Splash Festival" class="featured-event-img">
+      <div class="featured-event-overlay">
+        <span class="event-tag event-tag-weekend">This Weekend</span>
+        <h3 class="featured-event-title">Summer Splash Festival</h3>
+        <p class="featured-event-meta">21 - 22 June 2026 | All Day | Splash Zone</p>
+        <p class="featured-event-text">Live DJ sets by the wave pool, water ride marathons with prizes, and free ice cream for all visitors under 12. Splash Zone operates extended hours: 8 AM - 10 PM both days.</p>
+        <a href="tickets.html" class="btn-park">Get Tickets</a>
       </div>
-      <hr class="footer-hr">
-      <p class="text-center mb-0" style="font-size:0.85rem;color:rgba(255,255,255,0.4);">&copy; 2026 SambFun Park. All rights reserved.</p>
+    </article>
+
+
+    <!-- ========== MORE EVENTS ========== -->
+    <h2 class="section-title section-title-spaced">More Events</h2>
+
+    <div class="events-grid">
+
+      <!-- Night Parade Spectacular -->
+      <article class="event-card-img">
+        <img src="images/nightParade.jpg" alt="Night Parade Spectacular" class="event-card-image">
+        <div class="event-card-content">
+          <div class="event-date event-date-purple">
+            <div class="event-day">04</div>
+            <div class="event-month">Jul</div>
+          </div>
+          <div class="event-details">
+            <span class="event-tag event-tag-special">Special Event</span>
+            <h4 class="event-title">Night Parade Spectacular</h4>
+            <p class="event-meta">4 July 2026 | 7 PM - 10 PM | Main Street</p>
+            <p class="event-description">A glowing parade with 20 illuminated floats, acrobats, fire dancers, and a grand fireworks finale over the lake.</p>
+            <a href="tickets.html" class="btn-park">Reserve Seats</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Junior Thrillseekers Day -->
+      <article class="event-card-img">
+        <img src="images/juniorThrillSeekers.jpg" alt="Junior Thrillseekers Day" class="event-card-image">
+        <div class="event-card-content">
+          <div class="event-date event-date-teal">
+            <div class="event-day">12</div>
+            <div class="event-month">Jul</div>
+          </div>
+          <div class="event-details">
+            <span class="event-tag event-tag-school">School Holiday</span>
+            <h4 class="event-title">Junior Thrillseekers Day</h4>
+            <p class="event-meta">12 July 2026 | 9 AM - 6 PM | Kids' Cove</p>
+            <p class="event-description">Treasure hunts, ride competitions, face painting, balloon modelling, and mascot meet-and-greets. Free activity wristband for ages 3 - 12.</p>
+            <a href="tickets.html" class="btn-park">Book Tickets</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Family Fun Sundays -->
+      <article class="event-card-img">
+        <img src="images/FamilyFunSundays.jpg" alt="Family Fun Sundays" class="event-card-image">
+        <div class="event-card-content">
+          <div class="event-date event-date-green">
+            <div class="event-day">Sun</div>
+            <div class="event-month">Weekly</div>
+          </div>
+          <div class="event-details">
+            <span class="event-tag event-tag-weekly">Every Sunday</span>
+            <h4 class="event-title">Family Fun Sundays</h4>
+            <p class="event-meta">Every Sunday | 9 AM - 9 PM | Whole Park</p>
+            <p class="event-description">Discounted family tickets (2 adults + 2 children for KSh 3,500), kids' craft workshops, and mascot meet-and-greets at noon.</p>
+            <a href="tickets.html" class="btn-park">Family Tickets</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+
+    <!-- Info note -->
+    <div class="events-note">
+      <h5 class="events-note-title">Planning a group visit?</h5>
+      <p class="events-note-text">We offer special rates for school trips, corporate team days, and birthday parties during events. Contact our events team for a custom quote.</p>
+      <a href="contactForm.html" class="btn-park-outline">Contact Events Team</a>
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5 class="footer-heading">SambFun Park</h5>
+          <p class="footer-text">Africa's most exciting family adventure park.</p>
+        </div>
+        <div class="footer-col">
+          <h5 class="footer-heading">Quick Links</h5>
+          <a href="attractions.html" class="footer-link">Attractions</a>
+          <a href="tickets.html"     class="footer-link">Tickets</a>
+          <a href="events.html"      class="footer-link">Events</a>
+          <a href="contactForm.html" class="footer-link">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h5 class="footer-heading">Contact Us</h5>
+          <p class="footer-text">
+            South-Horr, Samburu, Kenya<br>
+            +254 712 345 678<br>
+            info@sambfunpark.co.ke
+          </p>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <p class="footer-copyright">&copy; 2026 SambFun Park. All rights reserved.</p>
     </div>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>

@@ -1253,3 +1253,635 @@ a {
   border-left-color: #8b5cf6;
 }
 .zone-card-main .zone-title { color: #6d28d9; }
+
+/* ── Smooth filter animation ─────────────────────────────── */
+/* Cards fade in smoothly instead of just appearing */
+.ride-card {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* When JS adds .hidden, the card fades out then disappears */
+.ride-card.hidden {
+  display: none;
+}
+
+/* ================================================================
+   EVENTS PAGE — Visual Upgrades
+   ================================================================ */
+
+
+/* ── COUNTDOWN TIMER BAR ──────────────────────────────────── */
+.countdown-bar {
+  background-color: var(--dark);
+  border-radius: var(--radius);
+  padding: 25px;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.countdown-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.countdown-unit {
+  text-align: center;
+}
+
+.countdown-number {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--primary);
+  background-color: rgba(255, 107, 53, 0.12);
+  border-radius: 8px;
+  padding: 8px 16px;
+  min-width: 65px;
+}
+
+.countdown-separator {
+  font-size: 2rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.3);
+  padding-bottom: 18px;
+}
+
+.countdown-text {
+  display: block;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 6px;
+}
+
+.countdown-event-name {
+  color: var(--yellow);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 14px;
+}
+
+@media (max-width: 480px) {
+  .countdown-number {
+    font-size: 1.6rem;
+    padding: 6px 10px;
+    min-width: 50px;
+  }
+  .countdown-separator {
+    font-size: 1.4rem;
+  }
+}
+
+
+/* ── CALENDAR STRIP ───────────────────────────────────────── */
+.calendar-strip {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow);
+}
+
+.calendar-strip-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.calendar-months {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 576px) {
+  .calendar-months {
+    flex-direction: column;
+  }
+}
+
+.calendar-month {
+  flex: 1;
+}
+
+.calendar-month-label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--dark);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.calendar-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.cal-day {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  color: var(--muted);
+  border-radius: 50%;
+}
+
+.cal-day-event {
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.cal-day-event:hover {
+  transform: scale(1.25);
+}
+
+.cal-day-orange { background-color: #FF6B35; }
+.cal-day-purple { background-color: #7C3AED; }
+.cal-day-teal   { background-color: #0D9488; }
+.cal-day-green  { background-color: #059669; }
+
+/* Calendar legend */
+.calendar-legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend-dot-orange { background-color: #FF6B35; }
+.legend-dot-purple { background-color: #7C3AED; }
+.legend-dot-teal   { background-color: #0D9488; }
+.legend-dot-green  { background-color: #059669; }
+
+
+/* ── FEATURED EVENT (big banner card) ─────────────────────── */
+.featured-event {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow);
+}
+
+.featured-event-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+.featured-event-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  color: white;
+}
+
+.featured-event-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 8px 0;
+}
+
+.featured-event-meta {
+  font-size: 0.88rem;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.featured-event-text {
+  font-size: 0.92rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 600px;
+}
+
+@media (max-width: 576px) {
+  .featured-event-img {
+    height: 260px;
+  }
+  .featured-event-overlay {
+    padding: 20px;
+  }
+  .featured-event-title {
+    font-size: 1.3rem;
+  }
+}
+
+
+/* ── EVENTS GRID (the 3 remaining events with images) ─────── */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 992px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.event-card-img {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card-img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.event-card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.event-card-content {
+  padding: 16px;
+}
+
+/* Date badge inside the card content */
+.event-card-content .event-date {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.event-card-content .event-day {
+  font-size: 1.3rem;
+}
+
+.event-card-content .event-details {
+  flex: 1;
+}
+
+.event-card-content .event-title {
+  font-size: 1.05rem;
+}
+
+.event-card-content .event-description {
+  font-size: 0.85rem;
+}
+/* ================================================================
+   TICKETS PAGE — Custom classes
+   ================================================================ */
+
+
+/* ── Tickets section spacing ──────────────────────────────── */
+.tickets-section {
+  margin-bottom: 50px;
+}
+
+.tickets-section-alt {
+  background-color: var(--light-bg);
+  padding: 40px 25px;
+  border-radius: var(--radius);
+}
+
+
+/* ── PRICING GRID (replaces Bootstrap row + col) ──────────── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 10px;
+}
+
+@media (max-width: 992px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ── Individual pricing card ──────────────────────────────── */
+.pricing-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  text-align: center;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Featured card (Adult — highlighted with orange border) */
+.pricing-card-featured {
+  border: 2px solid var(--primary);
+}
+
+
+/* ── "Most Popular" ribbon ────────────────────────────────── */
+.pricing-ribbon {
+  position: absolute;
+  top: 12px;
+  right: -28px;
+  background-color: var(--yellow);
+  color: var(--dark);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 35px;
+  transform: rotate(35deg);
+}
+
+
+/* ── Card header (coloured top section) ───────────────────── */
+.pricing-header {
+  padding: 24px 16px;
+  text-align: center;
+  color: white;
+}
+
+.pricing-header-dark {
+  background-color: var(--dark);
+}
+
+.pricing-header-orange {
+  background-color: var(--primary);
+}
+
+.pricing-icon {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.pricing-age {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+
+/* ── Card body (price and features) ───────────────────────── */
+.pricing-body {
+  padding: 20px 16px 24px;
+}
+
+.pricing-amount {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+
+.pricing-period {
+  font-size: 0.82rem;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* Features list */
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  text-align: left;
+}
+
+.pricing-feature {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text);
+  padding-left: 20px;
+  position: relative;
+}
+
+/* Green checkmark before each feature */
+.pricing-feature::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: 700;
+}
+
+.pricing-feature:last-child {
+  border-bottom: none;
+}
+
+/* Select button at bottom of card */
+.pricing-cta {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+
+/* ── PERKS GRID (why book with us) ────────────────────────── */
+.perks-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .perks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .perks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.perk-card {
+  text-align: center;
+  padding: 24px 16px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+
+.perk-card:hover {
+  transform: translateY(-3px);
+}
+
+.perk-icon {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 800;
+  font-size: 1rem;
+  margin: 0 auto 12px;
+}
+
+.perk-title {
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+}
+
+.perk-text {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+/* ── CALCULATOR LAYOUT (replaces Bootstrap row + col-lg-6) ── */
+.calc-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 992px) {
+  .calc-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-heading {
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+
+.calc-field {
+  margin-bottom: 20px;
+}
+
+.calc-label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+}
+
+.calc-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.calc-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+.calc-addon-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.calc-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.calc-checkbox-label {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* The blue pricing-by-age note box */
+.calc-pricing-note {
+  background-color: #dbeafe;
+  border: 1px solid #93c5fd;
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  color: #1e40af;
+  margin-top: 16px;
+  line-height: 1.7;
+}
+
+.calc-empty-msg {
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Total box */
+.total-label {
+  display: block;
+  opacity: 0.7;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.total-note {
+  display: block;
+  opacity: 0.7;
+  font-size: 0.78rem;
+  margin-top: 4px;
+}
