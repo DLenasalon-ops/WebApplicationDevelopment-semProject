@@ -1,130 +1,171 @@
 /* ================================================================
-   SAMBFUN PARK — styles.css
-   One file styles every page.
+   SAMBFUN PARK — styles.css (cleaned & organized)
+   
    Structure:
-     1. Colour variables (change these to retheme the whole site)
-     2. Base / body
-     3. Navbar
-     4. Hero banners (one colour per page)
-     5. Section helpers
-     6. Cards
-     7. Buttons
-     8. Sidebar (homepage only)
-     9. Ride filter (attractions.html)
-    10. Thrill-level badges
-    11. Ticket calculator (tickets.html)
-    12. Contact form & validation (contactForm.html)
-    13. FAQ accordion (faq.html)
-    14. Footer
-    15. Responsive overrides
+     1.  Colour variables
+     2.  Global reset & body
+     3.  Images
+     4.  Links
+     5.  Navbar
+     6.  Hero banners
+     7.  Page wrapper & layout
+     8.  Section helpers
+     9.  Cards (shared)
+    10.  Buttons
+    11.  Sidebar (homepage)
+    12.  Ride grid (homepage)
+    13.  Event cards (homepage + events page)
+    14.  Filter bar (attractions)
+    15.  Thrill-level badges
+    16.  Attraction cards (attractions page)
+    17.  Zone cards (attractions page)
+    18.  Countdown timer (events page)
+    19.  Calendar strip (events page)
+    20.  Featured event (events page)
+    21.  Events grid (events page)
+    22.  Pricing cards (tickets page)
+    23.  Perks grid (tickets page)
+    24.  Calculator (tickets page)
+    25.  About page
+    26.  Contact form (contactForm page)
+    27.  FAQ accordion (faq page)
+    28.  Footer
+    29.  Responsive overrides
    ================================================================ */
 
 
-/* ── 1. COLOUR VARIABLES ──────────────────────────────────────
-   Change any hex value here and the whole site updates.       */
+/* ── 1. COLOUR VARIABLES ──────────────────────────────────── */
 :root {
-  --primary:   #FF6B35;   /* Orange  – main brand colour       */
-  --dark:      #1B1B2F;   /* Navy    – navbar & footer         */
-  --yellow:    #FFD23F;   /* Gold    – accents & highlights    */
-  --light-bg:  #FFF8F0;   /* Cream   – alternate sections      */
-  --text:      #333333;   /* Near-black body copy              */
-  --muted:     #6c757d;   /* Grey    – secondary text          */
-  --border:    #dee2e6;   /* Default border colour             */
-  --radius:    10px;      /* Standard border radius            */
-  --shadow:    0 4px 14px rgba(0,0,0,0.10);  /* Card shadow   */
-  --transition: all 0.3s ease;               /* Hover speed   */
+  --primary:    #FF6B35;
+  --dark:       #1B1B2F;
+  --yellow:     #FFD23F;
+  --light-bg:   #f0f9ff;
+  --text:       #333333;
+  --muted:      #6c757d;
+  --border:     #bfdbfe;
+  --radius:     10px;
+  --shadow:     0 4px 14px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
 }
 
 
-/* ── 2. BASE / BODY ───────────────────────────────────────── */
+/* ── 2. GLOBAL RESET & BODY ───────────────────────────────── */
 body {
   font-family: Arial, sans-serif;
   color: var(--text);
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #e0f2fe, #f0f9ff, #e8f4fd, #dbeafe);
+  background-attachment: fixed;
+  min-height: 100vh;
   line-height: 1.7;
 }
 
+
+/* ── 3. IMAGES ────────────────────────────────────────────── */
 img {
   max-width: 100%;
-  height: 60px;
+  height: auto;
 }
 
+
+/* ── 4. LINKS ─────────────────────────────────────────────── */
 a {
   color: var(--primary);
   transition: var(--transition);
 }
 
 
-/* ── 3. NAVBAR ────────────────────────────────────────────────
-   Bootstrap sets the structure; we only change colours here.  */
+/* ── 5. NAVBAR ────────────────────────────────────────────── */
 .navbar {
   background-color: var(--dark) !important;
   padding: 0.75rem 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* Brand / logo text */
 .navbar .navbar-brand {
   color: var(--yellow) !important;
   font-weight: 700;
   font-size: 1.25rem;
 }
 
-/* Navigation links */
 .navbar .nav-link {
-  color: rgba(255,255,255,0.80) !important;
+  color: rgba(255, 255, 255, 0.80) !important;
   border-radius: 6px;
   padding: 0.4rem 0.75rem !important;
   transition: var(--transition);
 }
 
-/* Highlight hovered or current-page link */
 .navbar .nav-link:hover,
 .navbar .nav-link.active {
   background-color: var(--primary);
   color: #ffffff !important;
 }
 
+.brand-logo {
+  height: 40px;
+  width: auto;
+}
 
-/* ── 4. HERO BANNERS ─────────────────────────────────────────
-   Every page has a full-width banner at the top.
-   .hero sets the shared styles.
-   .hero-home, .hero-about … etc set the unique background.    */
+
+/* ── 6. HERO BANNERS ──────────────────────────────────────── */
 .hero {
   padding: 80px 0;
   text-align: center;
   color: #ffffff;
 }
 
-.hero h1 {
+.hero-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-title {
   font-size: 2.8rem;
   font-weight: 800;
   margin-bottom: 15px;
 }
 
-.hero p.lead {
+.hero-subtitle {
   font-size: 1.1rem;
   opacity: 0.9;
   max-width: 600px;
-  margin: 0 auto 20px;
+  margin: 0 auto 25px;
 }
 
-/* Per-page hero background colours */
-.hero-home      { background-color: #FF6B35; }   /* Orange  */
-.hero-about     { background-color: #1B1B2F; }   /* Navy    */
-.hero-attract   { background-color: #6D28D9; }   /* Purple  */
-.hero-tickets   { background-color: #047857; }   /* Green   */
-.hero-events    { background-color: #B91C1C; }   /* Red     */
-.hero-contact   { background-color: #374151; }   /* Slate   */
-.hero-faq       { background-color: #1D4ED8; }   /* Blue    */
+/* Per-page hero colours */
+.hero-home    { background-color: #FF6B35; }
+.hero-about   { background-color: #0d0d7c; }
+.hero-attract { background-color: #6D28D9; }
+.hero-tickets { background-color: #047857; }
+.hero-events  { background-color: #B91C1C; }
+.hero-contact { background-color: #374151; }
+.hero-faq     { background-color: #1D4ED8; }
 
 
-/* ── 5. SECTION HELPERS ──────────────────────────────────────*/
+/* ── 7. PAGE WRAPPER & LAYOUT ─────────────────────────────── */
+.page-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.page-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+
+/* ── 8. SECTION HELPERS ───────────────────────────────────── */
 .section {
   padding: 60px 0;
 }
 
-/* Alternate sections get the warm cream background */
 .section-alt {
   padding: 60px 0;
   background-color: var(--light-bg);
@@ -137,16 +178,17 @@ a {
   margin-bottom: 6px;
 }
 
+.section-title-spaced {
+  margin-top: 50px;
+}
+
 .section-sub {
   color: var(--muted);
   margin-bottom: 30px;
 }
 
 
-/* ── 6. CARDS ────────────────────────────────────────────────
-   Used on rides, events, food, team members, etc.
-   Bootstrap's .card gives the white box.
-   .park-card adds our shadow and hover lift.                  */
+/* ── 9. CARDS (shared base) ───────────────────────────────── */
 .park-card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -155,19 +197,13 @@ a {
   background-color: #fff;
 }
 
-/* Only apply equal-height when cards are inside a Bootstrap row */
-.row .park-card {
-  height: 100%;
-}
-
 .park-card:hover {
-  transform: translateY(-5px);    /* Card lifts when hovered  */
-  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
 }
 
 
-/* ── 7. BUTTONS ──────────────────────────────────────────────*/
-/* Filled orange button */
+/* ── 10. BUTTONS ──────────────────────────────────────────── */
 .btn-park {
   background-color: var(--primary);
   color: #ffffff;
@@ -187,7 +223,6 @@ a {
   transform: translateY(-2px);
 }
 
-/* Outline orange button */
 .btn-park-outline {
   border: 2px solid var(--primary);
   color: var(--primary);
@@ -205,27 +240,42 @@ a {
   color: #ffffff;
 }
 
-
-/* ── 8. SIDEBAR (Homepage only) ──────────────────────────────
-   Flexbox two-column layout: main content left, sidebar right.
-   On mobile the sidebar stacks below (see responsive section). */
-.page-layout {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
+.btn-learn-more {
+  display: block;
+  margin: 0 16px 16px;
+  padding: 8px 12px;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
 }
 
-.main-content {
-  flex: 1;       /* Takes up all remaining space */
-  min-width: 0;  /* Prevents overflow in flex children */
+.btn-learn-more:hover {
+  background-color: var(--primary);
+  color: white;
 }
 
+.cta-block {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.cta-text {
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+
+/* ── 11. SIDEBAR ──────────────────────────────────────────── */
 .sidebar {
   width: 270px;
-  flex-shrink: 0;   /* Sidebar won't shrink when space is tight */
+  flex-shrink: 0;
 }
 
-/* Individual sidebar boxes */
 .sidebar-card {
   background: #ffffff;
   border: 1px solid var(--border);
@@ -235,7 +285,6 @@ a {
   box-shadow: var(--shadow);
 }
 
-/* Sidebar card heading with orange underline */
 .sidebar-heading {
   font-weight: 700;
   font-size: 0.92rem;
@@ -245,19 +294,18 @@ a {
   color: var(--dark);
 }
 
-/* Each row in the stats list */
 .stat-row {
   display: flex;
-  justify-content: space-between;   /* Label left, value right */
+  justify-content: space-between;
   padding: 6px 0;
   border-bottom: 1px solid #f0f0f0;
   font-size: 0.9rem;
 }
+
 .stat-row:last-child {
   border-bottom: none;
 }
 
-/* Open/closed badge inside sidebar */
 .open-badge {
   margin-top: 10px;
   background-color: #d1fae5;
@@ -269,7 +317,6 @@ a {
   font-weight: 700;
 }
 
-/* Quick link buttons in sidebar */
 .quick-link {
   display: block;
   padding: 8px 12px;
@@ -282,302 +329,14 @@ a {
   margin-bottom: 6px;
   transition: var(--transition);
 }
+
 .quick-link:hover {
   background-color: var(--primary);
   color: #ffffff;
   border-color: var(--primary);
 }
 
-
-/* ── 9. RIDE FILTER (attractions.html) ───────────────────────
-   The filter bar contains groups of buttons.
-   JS adds/removes .active when a button is clicked.
-   .hidden on a ride card means display:none.                  */
-.filter-bar {
-  background-color: var(--light-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px 24px;
-  margin-bottom: 28px;
-}
-
-.filter-label {
-  font-weight: 700;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--dark);
-  display: block;
-  margin-bottom: 8px;
-}
-
-.filter-btn {
-  border: 2px solid var(--border);
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 5px 16px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  margin: 3px;
-  transition: var(--transition);
-}
-.filter-btn:hover,
-.filter-btn.active {
-  background-color: var(--primary);
-  color: #ffffff;
-  border-color: var(--primary);
-}
-
-/* JS toggles this class to hide non-matching ride cards */
-.ride-card.hidden {
-  display: none;
-}
-
-/* Shown by JS when no rides match the selected filters */
-#no-results {
-  display: none;
-  text-align: center;
-  padding: 40px;
-  color: var(--muted);
-  font-size: 1.1rem;
-}
-
-
-/* ── 10. THRILL-LEVEL BADGES ─────────────────────────────────
-   Small coloured pills shown on each ride card.              */
-.badge-mild {
-  background-color: #10B981;
-  color: #ffffff;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-.badge-moderate {
-  background-color: #F59E0B;
-  color: #ffffff;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-.badge-extreme {
-  background-color: #EF4444;
-  color: #ffffff;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-
-/* ── 11. TICKET CALCULATOR (tickets.html) ───────────────────
-   A white box with an orange top border holds the inputs.
-   The running total sits in a dark box below.               */
-.calc-box {
-  background: #ffffff;
-  border-radius: var(--radius);
-  padding: 28px;
-  box-shadow: var(--shadow);
-  border-top: 4px solid var(--primary);
-}
-
-.total-box {
-  background-color: var(--dark);
-  color: #ffffff;
-  border-radius: var(--radius);
-  padding: 22px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-/* The big price number in the total box */
-.total-amount {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--yellow);
-}
-
-
-/* ── 12. CONTACT FORM (contactForm.html) ────────────────────
-   Bootstrap adds red borders via .is-invalid.
-   We hide/show the success message with JS.                 */
-.form-box {
-  background: #ffffff;
-  border-radius: var(--radius);
-  padding: 30px;
-  box-shadow: var(--shadow);
-}
-
-/* Override Bootstrap's focus glow to match our orange brand */
-.form-control:focus,
-.form-select:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 0.2rem rgba(255,107,53,0.20);
-}
-
-/* Error text shown below invalid fields */
-.invalid-feedback {
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-/* Success message – hidden until JS reveals it */
-#successMsg {
-  display: none;
-  background: #d1fae5;
-  border: 2px solid #10b981;
-  border-radius: var(--radius);
-  padding: 30px;
-  text-align: center;
-}
-
-
-/* ── 13. FAQ ACCORDION (faq.html) ───────────────────────────
-   Bootstrap handles the expand/collapse behaviour.
-   We override colours to match our brand.                   */
-.accordion-button {
-  font-weight: 600;
-  color: var(--dark);
-}
-
-/* The open/expanded state */
-.accordion-button:not(.collapsed) {
-  color: var(--primary);
-  background-color: #fff5f0;
-  box-shadow: none;
-}
-
-.accordion-item {
-  border: 1px solid var(--border);
-  border-radius: var(--radius) !important;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-
-
-/* ── 14. FOOTER ──────────────────────────────────────────────*/
-.site-footer {
-  background-color: var(--dark);
-  color: rgba(255,255,255,0.80);
-  padding: 40px 0 20px;
-}
-
-.site-footer h5 {
-  color: var(--yellow);
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-
-.site-footer a {
-  color: rgba(255,255,255,0.60);
-  text-decoration: none;
-  display: block;
-  line-height: 2.2;
-  font-size: 0.9rem;
-  transition: var(--transition);
-}
-.site-footer a:hover {
-  color: var(--primary);
-}
-
-.site-footer hr {
-  border-color: rgba(255,255,255,0.10);
-  margin: 18px 0;
-}
-
-.site-footer .copyright {
-  color: rgba(255,255,255,0.40);
-  font-size: 0.82rem;
-}
-
-
-/* ── 15. RESPONSIVE OVERRIDES ────────────────────────────────
-   Bootstrap handles most responsiveness via its grid.
-   We handle the sidebar and hero text here.                 */
-
-/* Tablet and below (≤ 992px) */
-@media (max-width: 992px) {
-  .sidebar {
-    width: 100%;    /* Sidebar becomes full width */
-  }
-  .page-layout {
-    flex-direction: column;   /* Stack sidebar below content */
-  }
-}
-
-/* Mobile (≤ 768px) */
-@media (max-width: 768px) {
-  .hero h1   { font-size: 1.9rem; }
-  .hero       { padding: 50px 0;  }
-  .section-title { font-size: 1.6rem; }
-}
-
-/* Small phones (≤ 480px) */
-@media (max-width: 480px) {
-  .hero h1 { font-size: 1.6rem; }
-}
-/* /*this is the newer and a simpler version of css For contactForm. */
-/* Simplified form helpers */
-.form-group {
-  margin-bottom: 1.2rem;
-}
-
-.form-label {
-  font-weight: 600;
-  display: block;
-  margin-bottom: 0.4rem;
-  color: var(--dark);
-}
-
-.input-field,
-.select-field,
-.textarea-field {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  font-size: 1rem;
-  transition: var(--transition);
-}
-
-.input-field:focus,
-.select-field:focus,
-.textarea-field:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 0.2rem rgba(255,107,53,0.20);
-  outline: none;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.section-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.section-sub {
-  color: var(--muted);
-  margin-bottom: 1.5rem;
-}
-
-.muted-text {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-/* Sidebar container (replaces col-lg-5) */
-.sidebar {
-  width: 100%;
-  max-width: 400px;   /* adjust as needed */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Sidebar box styling */
+/* Sidebar for contact page (5 things to know) */
 .sidebar-box {
   background: #fff;
   border: 1px solid var(--border);
@@ -586,7 +345,6 @@ a {
   box-shadow: var(--shadow);
 }
 
-/* Sidebar section title */
 .sidebar-title {
   text-transform: uppercase;
   font-weight: 700;
@@ -596,26 +354,17 @@ a {
   margin-bottom: 8px;
 }
 
-/* Sidebar heading */
-.sidebar-heading {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: var(--dark);
-}
-
-/* Each item row */
 .sidebar-item {
   display: flex;
   gap: 12px;
   padding: 12px 0;
   border-bottom: 1px solid var(--border);
 }
+
 .sidebar-item:last-child {
   border-bottom: none;
 }
 
-/* Number circle */
 .sidebar-number {
   background: var(--primary);
   color: #fff;
@@ -628,179 +377,40 @@ a {
   flex-shrink: 0;
 }
 
-/* Item title */
 .sidebar-item-title {
   font-weight: 600;
   margin-bottom: 4px;
 }
 
-/* Item text */
 .sidebar-text {
   color: var(--muted);
   font-size: 0.9rem;
 }
-/* Contact page header */
-.contactHeader {
-  padding: 50px 0;              /* smaller vertical spacing */
-  text-align: center;
-  background-color: #374151;    /* slate background */
-  color: #ffffff;
-}
-
-/* Header title */
-.contactHeader-title {
-  font-size: 1.8rem;            /* smaller than original 2.8rem */
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-/* Header subtitle */
-.contactHeader-subtitle {
-  font-size: 0.95rem;           /* slightly smaller text */
-  opacity: 0.9;
-  max-width: 600px;
-  margin: 0 auto 12px;
-}
-/*simpler version of about us css*/
-.aboutHeader {
-  padding: 50px 0;
-  text-align: center;
-  background-color: #0d0d7c; /* navy tone */
-  color: #fff;
-}
-
-.aboutHeader-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.aboutHeader-subtitle {
-  font-size: 1rem;
-  opacity: 0.9;
-  max-width: 600px;
-  margin: 0 auto 12px;
-}
-.logo {
-  height: 40px;   /* adjust size */
-  width: auto;
-}
-/* Mission, Vision, Values boxes */
-.aboutBox {
-  background-color: #e0f2fe;   /* light blue background */
-  border: 1px solid #0361cc;   /* soft blue border */
-  border-radius: var(--radius);
-  padding: 24px;
-  text-align: center;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.aboutBox:hover {
-  transform: translateY(-6px);   /* lift up slightly */
-  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
-}
-
-.aboutBox-img {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 12px;
-}
-
-.aboutBox-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1B1B2F;   /* dark navy text */
-  margin-top: 10px;
-}
-
-.aboutBox-text {
-  color: var(--dark);
-  font-size: 0.95rem;
-}
-/*index page css*/
-/* ================================================================
-   CUSTOM HOMEPAGE CLASSES
-   Replaces Bootstrap utility classes and inline styles
-   ================================================================ */
 
 
-/* ── Brand logo in navbar ─────────────────────────────────── */
-.brand-logo {
-  height: 40px;                      /* controls the logo size */
-  width: auto;                       /* keeps the aspect ratio */
-}
-
-
-/* ── Hero content wrapper ─────────────────────────────────── */
-.hero-content {
-  max-width: 1100px;                 /* limits width on big screens */
-  margin: 0 auto;                    /* centres it */
-  padding: 0 20px;
-}
-
-.hero-title {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin-bottom: 15px;
-}
-
-.hero-subtitle {
-  font-size: 1.1rem;
-  opacity: 0.9;
-  max-width: 600px;
-  margin: 0 auto 25px;
-}
-
-
-/* ── Page wrapper ─────────────────────────────────────────── */
-.page-wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 60px 20px;
-}
-
-
-/* ── Section title with extra top space ───────────────────── */
-.section-title-spaced {
-  margin-top: 50px;
-}
-
-
-/* ── Ride grid (replaces Bootstrap row + col-md-6) ────────── */
+/* ── 12. RIDE GRID (homepage) ─────────────────────────────── */
 .ride-grid {
-  display: grid;                             /* CSS Grid layout */
-  grid-template-columns: repeat(2, 1fr);     /* 2 equal columns */
-  gap: 20px;                                 /* space between cards */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
-@media (max-width: 768px) {
-  .ride-grid {
-    grid-template-columns: 1fr;              /* 1 column on mobile */
-  }
-}
-
-
-/* ── Ride card styling ────────────────────────────────────── */
 .ride-card-home {
-  padding: 0;                                /* image goes edge-to-edge */
-  overflow: hidden;                          /* clips image to card radius */
+  padding: 0;
+  overflow: hidden;
   text-align: center;
 }
 
-/* The ride illustration image */
 .ride-img {
-  width: 100%;                               /* fills the card width */
-  height: 180px;                             /* fixed height for consistency */
-  object-fit: cover;                         /* crops to fill without stretching */
-  display: block;                            /* removes gap below image */
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
 }
 
-/* Text content below the image needs padding */
 .ride-card-home .ride-title,
 .ride-card-home .ride-description,
 .ride-card-home .ride-meta,
-.ride-card-home .btn-learn-more,
 .ride-card-home .badge-mild,
 .ride-card-home .badge-moderate,
 .ride-card-home .badge-extreme {
@@ -830,67 +440,47 @@ a {
 }
 
 
-/* ── "Learn More" button ──────────────────────────────────── */
-.btn-learn-more {
-  display: block;
-  margin: 0 16px 16px;                      /* matches card padding */
-  padding: 8px 12px;
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  text-align: center;
-  text-decoration: none;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: background 0.3s, color 0.3s;
+/* ── 13. EVENT CARDS ──────────────────────────────────────── */
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.btn-learn-more:hover {
-  background-color: var(--primary);
-  color: white;
-}
-
-
-/* ── CTA block (centres the button below sections) ────────── */
-.cta-block {
-  text-align: center;
-  margin-top: 25px;
-}
-
-
-/* ── Event cards ──────────────────────────────────────────── */
 .event-card {
-  display: flex;                             /* side-by-side layout */
-  gap: 15px;                                 /* space between date and text */
+  display: flex;
+  gap: 20px;
   align-items: flex-start;
-  padding: 15px;
+  padding: 20px;
   background: white;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   margin-bottom: 15px;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .event-card:hover {
   transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* Date badge (coloured box with day and month) */
 .event-date {
   text-align: center;
   color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  min-width: 60px;
-  flex-shrink: 0;                            /* date box doesn't shrink */
+  padding: 14px 18px;
+  border-radius: 10px;
+  min-width: 72px;
+  flex-shrink: 0;
 }
 
-.event-date-orange { background-color: var(--primary); }
-.event-date-purple { background-color: #6D28D9; }
+.event-date-orange { background-color: #FF6B35; }
+.event-date-purple { background-color: #7C3AED; }
+.event-date-teal   { background-color: #0D9488; }
+.event-date-green  { background-color: #059669; }
 
 .event-day {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 800;
   line-height: 1;
 }
@@ -899,30 +489,33 @@ a {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-top: 4px;
 }
 
-/* Event text content */
 .event-details {
-  flex: 1;                                   /* takes remaining space */
+  flex: 1;
 }
 
 .event-tag {
   display: inline-block;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 700;
   color: white;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .event-tag-weekend { background-color: #dc3545; }
-.event-tag-special { background-color: #ffc107; color: #333; }
+.event-tag-special { background-color: #f59e0b; color: #333; }
+.event-tag-school  { background-color: #0ea5e9; }
+.event-tag-weekly  { background-color: #10b981; }
 
 .event-title {
   font-weight: 700;
   color: var(--dark);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  font-size: 1.2rem;
 }
 
 .event-meta {
@@ -931,7 +524,13 @@ a {
   margin-bottom: 10px;
 }
 
-/* Event link buttons */
+.event-description {
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
 .btn-event-link {
   display: inline-block;
   padding: 5px 14px;
@@ -946,6 +545,7 @@ a {
   border: 1px solid #dc3545;
   color: #dc3545;
 }
+
 .btn-event-link-red:hover {
   background-color: #dc3545;
   color: white;
@@ -955,131 +555,211 @@ a {
   border: 1px solid #ffc107;
   color: #c08500;
 }
+
 .btn-event-link-yellow:hover {
   background-color: #ffc107;
   color: #333;
 }
 
-
-/* ── Footer (replaces Bootstrap row/col) ──────────────────── */
-.footer-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);     /* 3 equal columns */
-  gap: 30px;
-}
-
-@media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr;              /* stack on phones */
-  }
-}
-
-.footer-heading {
-  color: var(--yellow);
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-
-.footer-text {
-  color: rgba(255, 255, 255, 0.80);
-  font-size: 0.9rem;
-  line-height: 1.8;
-}
-
-.footer-link {
-  color: rgba(255, 255, 255, 0.60);
-  text-decoration: none;
-  display: block;
-  line-height: 2.2;
-  font-size: 0.9rem;
-  transition: color 0.3s;
-}
-
-.footer-link:hover {
-  color: var(--primary);
-}
-
-.footer-divider {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
-  margin: 18px 0;
-}
-
-.footer-copyright {
+.events-note {
+  margin-top: 40px;
+  padding: 30px;
+  background-color: var(--light-bg);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--primary);
   text-align: center;
-  color: rgba(255, 255, 255, 0.40);
-  font-size: 0.82rem;
-  margin: 0;
 }
 
-/* ================================================================
-   ATTRACTIONS PAGE — Custom classes
-   ================================================================ */
+.events-note-title {
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.events-note-text {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 16px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
-/* ── Filter bar layout ────────────────────────────────────── */
-/* Already have .filter-bar, .filter-label, .filter-btn in existing CSS */
-/* Adding the inner layout for the two filter groups */
+/* ── 14. FILTER BAR (attractions) ─────────────────────────── */
+.filter-bar {
+  background-color: var(--light-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+}
 
 .filter-group {
-  margin-bottom: 12px;                       /* space between the two groups */
+  margin-bottom: 12px;
 }
 
 .filter-group:last-child {
   margin-bottom: 0;
 }
 
+.filter-label {
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--dark);
+  display: block;
+  margin-bottom: 8px;
+}
+
 .filter-buttons {
-  display: flex;                             /* buttons in a row */
-  flex-wrap: wrap;                           /* wraps to next line on small screens */
-  gap: 6px;                                  /* small space between buttons */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filter-btn {
+  border: 2px solid var(--border);
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 5px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 3px;
+  transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.filter-instruction {
+  color: var(--dark);
+  font-weight: 700;
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+
+.ride-card {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.ride-card.hidden {
+  display: none;
+}
+
+#no-results {
+  display: none;
+  text-align: center;
+  padding: 40px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.ride-count {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  padding: 6px 14px;
+  background-color: var(--light-bg);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.filter-reset {
+  margin-top: 12px;
+  text-align: right;
+}
+
+.filter-btn-reset {
+  background: none;
+  border: 1px solid var(--muted);
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 4px 14px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn-reset:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 
-/* ── Attractions grid (replaces Bootstrap row + col-lg-4) ── */
+/* ── 15. THRILL-LEVEL BADGES ──────────────────────────────── */
+.badge-mild {
+  background-color: #10B981;
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-moderate {
+  background-color: #F59E0B;
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-extreme {
+  background-color: #EF4444;
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-type {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+}
+
+.badge-type-coaster { background-color: #6b7280; }
+.badge-type-water   { background-color: #3b82f6; }
+.badge-type-family  { background-color: #10b981; }
+.badge-type-thrill  { background-color: #f59e0b; color: #333; }
+
+
+/* ── 16. ATTRACTION CARDS ─────────────────────────────────── */
 .attractions-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);     /* 3 equal columns */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-/* 2 columns on tablets */
-@media (max-width: 992px) {
-  .attractions-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* 1 column on phones */
-@media (max-width: 576px) {
-  .attractions-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* ── Individual attraction card ───────────────────────────── */
 .attraction-card {
-  overflow: hidden;                          /* clips image to card border-radius */
-  padding: 0;                               /* image goes edge-to-edge */
-  position: relative;                        /* needed for the "coming soon" ribbon */
+  overflow: hidden;
+  padding: 0;
+  position: relative;
 }
 
-/* The ride image at the top of each card */
 .attraction-img {
-  width: 100%;                               /* fills the card width */
-  height: 180px;                             /* consistent height across cards */
-  object-fit: cover;                         /* crops to fill without distortion */
-  display: block;                            /* removes gap below image */
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
 }
 
-/* Text content below the image */
+.attraction-card:hover .attraction-img {
+  transform: scale(1.05);
+}
+
 .attraction-body {
   padding: 16px;
   text-align: center;
@@ -1091,10 +771,9 @@ a {
   margin-bottom: 10px;
 }
 
-/* Row of badges (thrill level + ride type) */
 .attraction-badges {
   display: flex;
-  justify-content: center;                   /* centres the badges */
+  justify-content: center;
   gap: 6px;
   margin-bottom: 12px;
 }
@@ -1106,108 +785,84 @@ a {
   text-align: left;
 }
 
-/* Bottom info row (height + zone) */
 .attraction-info {
   display: flex;
-  justify-content: space-between;            /* pushes items to opposite ends */
+  justify-content: space-between;
   color: var(--muted);
   font-size: 0.8rem;
   padding-top: 10px;
-  border-top: 1px solid var(--border);       /* thin line above the info */
+  border-top: 1px solid var(--border);
 }
 
-
-/* ── Ride type badges (the second badge on each card) ─────── */
-.badge-type {
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: white;
-}
-
-.badge-type-coaster { background-color: #6b7280; }   /* grey */
-.badge-type-water   { background-color: #3b82f6; }   /* blue */
-.badge-type-family  { background-color: #10b981; }   /* green */
-.badge-type-thrill  { background-color: #f59e0b; color: #333; }  /* amber */
-
-
-/* ── "Coming Soon" ribbon for Sky Rocket ──────────────────── */
 .attraction-coming-soon {
-  opacity: 0.85;                             /* slightly faded to show it's not open yet */
+  opacity: 0.85;
 }
 
 .coming-soon-ribbon {
-  position: absolute;                        /* floats over the card */
+  position: absolute;
   top: 14px;
   right: -30px;
-  background-color: #f59e0b;                /* amber/gold */
+  background-color: #f59e0b;
   color: #333;
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   padding: 5px 40px;
-  transform: rotate(30deg);                  /* angled ribbon effect */
+  transform: rotate(30deg);
+}
+
+.attract-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  padding: 25px;
+  background-color: var(--dark);
+  border-radius: var(--radius);
+}
+
+.attract-stat {
+  text-align: center;
+}
+
+.attract-stat-number {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.attract-stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 
-/* ── CTA block below the grid ─────────────────────────────── */
-.cta-text {
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-/* ================================================================
-   ATTRACTIONS PAGE — Intro & Zone Cards
-   ================================================================ */
-
-/* ── Intro section at the top of attractions page ─────────── */
+/* ── 17. ZONE CARDS ───────────────────────────────────────── */
 .attract-intro {
   margin-bottom: 35px;
 }
 
 .attract-intro .section-sub {
-  text-align: left;                          /* paragraph reads better left-aligned */
+  text-align: left;
   max-width: 800px;
   line-height: 1.8;
 }
 
-/* Instruction text above the filter bar */
-.filter-instruction {
-  color: var(--dark);
-  font-weight: 700;
-  margin-top: 25px;
-  margin-bottom: 0;
-}
-
-
-/* ── Zone cards grid (the 5 themed areas) ─────────────────── */
 .zone-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);     /* 5 equal columns */
+  grid-template-columns: repeat(5, 1fr);
   gap: 12px;
   margin-top: 25px;
 }
 
-/* Stack on tablets (2-3 columns) */
-@media (max-width: 992px) {
-  .zone-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Stack on phones (1 column) */
-@media (max-width: 576px) {
-  .zone-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Individual zone card */
 .zone-card {
   padding: 16px;
   border-radius: var(--radius);
-  border-left: 4px solid transparent;        /* coloured left border */
+  border-left: 4px solid transparent;
 }
 
 .zone-title {
@@ -1223,54 +878,23 @@ a {
   line-height: 1.5;
 }
 
-/* Each zone gets its own colour scheme */
-.zone-card-adventure {
-  background-color: #fef3c7;                /* warm amber tint */
-  border-left-color: #f59e0b;
-}
+.zone-card-adventure { background-color: #fef3c7; border-left-color: #f59e0b; }
 .zone-card-adventure .zone-title { color: #b45309; }
 
-.zone-card-splash {
-  background-color: #dbeafe;                /* cool blue tint */
-  border-left-color: #3b82f6;
-}
+.zone-card-splash { background-color: #dbeafe; border-left-color: #3b82f6; }
 .zone-card-splash .zone-title { color: #1d4ed8; }
 
-.zone-card-kids {
-  background-color: #d1fae5;                /* soft green tint */
-  border-left-color: #10b981;
-}
+.zone-card-kids { background-color: #d1fae5; border-left-color: #10b981; }
 .zone-card-kids .zone-title { color: #047857; }
 
-.zone-card-thrill {
-  background-color: #fee2e2;                /* light red tint */
-  border-left-color: #ef4444;
-}
+.zone-card-thrill { background-color: #fee2e2; border-left-color: #ef4444; }
 .zone-card-thrill .zone-title { color: #b91c1c; }
 
-.zone-card-main {
-  background-color: #f3e8ff;                /* light purple tint */
-  border-left-color: #8b5cf6;
-}
+.zone-card-main { background-color: #f3e8ff; border-left-color: #8b5cf6; }
 .zone-card-main .zone-title { color: #6d28d9; }
 
-/* ── Smooth filter animation ─────────────────────────────── */
-/* Cards fade in smoothly instead of just appearing */
-.ride-card {
-  transition: opacity 0.3s, transform 0.3s;
-}
 
-/* When JS adds .hidden, the card fades out then disappears */
-.ride-card.hidden {
-  display: none;
-}
-
-/* ================================================================
-   EVENTS PAGE — Visual Upgrades
-   ================================================================ */
-
-
-/* ── COUNTDOWN TIMER BAR ──────────────────────────────────── */
+/* ── 18. COUNTDOWN TIMER ──────────────────────────────────── */
 .countdown-bar {
   background-color: var(--dark);
   border-radius: var(--radius);
@@ -1332,19 +956,8 @@ a {
   margin-top: 14px;
 }
 
-@media (max-width: 480px) {
-  .countdown-number {
-    font-size: 1.6rem;
-    padding: 6px 10px;
-    min-width: 50px;
-  }
-  .countdown-separator {
-    font-size: 1.4rem;
-  }
-}
 
-
-/* ── CALENDAR STRIP ───────────────────────────────────────── */
+/* ── 19. CALENDAR STRIP ───────────────────────────────────── */
 .calendar-strip {
   background: white;
   border: 1px solid var(--border);
@@ -1365,12 +978,6 @@ a {
 .calendar-months {
   display: flex;
   gap: 20px;
-}
-
-@media (max-width: 576px) {
-  .calendar-months {
-    flex-direction: column;
-  }
 }
 
 .calendar-month {
@@ -1418,7 +1025,6 @@ a {
 .cal-day-teal   { background-color: #0D9488; }
 .cal-day-green  { background-color: #059669; }
 
-/* Calendar legend */
 .calendar-legend {
   display: flex;
   justify-content: center;
@@ -1447,7 +1053,7 @@ a {
 .legend-dot-green  { background-color: #059669; }
 
 
-/* ── FEATURED EVENT (big banner card) ─────────────────────── */
+/* ── 20. FEATURED EVENT ───────────────────────────────────── */
 .featured-event {
   position: relative;
   border-radius: var(--radius);
@@ -1493,31 +1099,13 @@ a {
   max-width: 600px;
 }
 
-@media (max-width: 576px) {
-  .featured-event-img {
-    height: 260px;
-  }
-  .featured-event-overlay {
-    padding: 20px;
-  }
-  .featured-event-title {
-    font-size: 1.3rem;
-  }
-}
 
-
-/* ── EVENTS GRID (the 3 remaining events with images) ─────── */
+/* ── 21. EVENTS GRID ──────────────────────────────────────── */
 .events-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 10px;
-}
-
-@media (max-width: 992px) {
-  .events-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .event-card-img {
@@ -1545,7 +1133,6 @@ a {
   padding: 16px;
 }
 
-/* Date badge inside the card content */
 .event-card-content .event-date {
   display: inline-flex;
   flex-direction: column;
@@ -1559,10 +1146,6 @@ a {
   font-size: 1.3rem;
 }
 
-.event-card-content .event-details {
-  flex: 1;
-}
-
 .event-card-content .event-title {
   font-size: 1.05rem;
 }
@@ -1570,12 +1153,9 @@ a {
 .event-card-content .event-description {
   font-size: 0.85rem;
 }
-/* ================================================================
-   TICKETS PAGE — Custom classes
-   ================================================================ */
 
 
-/* ── Tickets section spacing ──────────────────────────────── */
+/* ── 22. PRICING CARDS ────────────────────────────────────── */
 .tickets-section {
   margin-bottom: 50px;
 }
@@ -1586,8 +1166,6 @@ a {
   border-radius: var(--radius);
 }
 
-
-/* ── PRICING GRID (replaces Bootstrap row + col) ──────────── */
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1595,20 +1173,6 @@ a {
   margin-top: 10px;
 }
 
-@media (max-width: 992px) {
-  .pricing-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 576px) {
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* ── Individual pricing card ──────────────────────────────── */
 .pricing-card {
   background: white;
   border: 1px solid var(--border);
@@ -1625,13 +1189,10 @@ a {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* Featured card (Adult — highlighted with orange border) */
 .pricing-card-featured {
   border: 2px solid var(--primary);
 }
 
-
-/* ── "Most Popular" ribbon ────────────────────────────────── */
 .pricing-ribbon {
   position: absolute;
   top: 12px;
@@ -1646,21 +1207,14 @@ a {
   transform: rotate(35deg);
 }
 
-
-/* ── Card header (coloured top section) ───────────────────── */
 .pricing-header {
   padding: 24px 16px;
   text-align: center;
   color: white;
 }
 
-.pricing-header-dark {
-  background-color: var(--dark);
-}
-
-.pricing-header-orange {
-  background-color: var(--primary);
-}
+.pricing-header-dark   { background-color: var(--dark); }
+.pricing-header-orange { background-color: var(--primary); }
 
 .pricing-icon {
   display: block;
@@ -1674,8 +1228,6 @@ a {
   opacity: 0.75;
 }
 
-
-/* ── Card body (price and features) ───────────────────────── */
 .pricing-body {
   padding: 20px 16px 24px;
 }
@@ -1694,7 +1246,6 @@ a {
   margin-bottom: 16px;
 }
 
-/* Features list */
 .pricing-features {
   list-style: none;
   padding: 0;
@@ -1711,7 +1262,6 @@ a {
   position: relative;
 }
 
-/* Green checkmark before each feature */
 .pricing-feature::before {
   content: "✓";
   position: absolute;
@@ -1724,7 +1274,6 @@ a {
   border-bottom: none;
 }
 
-/* Select button at bottom of card */
 .pricing-cta {
   width: 100%;
   text-align: center;
@@ -1732,23 +1281,11 @@ a {
 }
 
 
-/* ── PERKS GRID (why book with us) ────────────────────────── */
+/* ── 23. PERKS GRID ───────────────────────────────────────── */
 .perks-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-}
-
-@media (max-width: 768px) {
-  .perks-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .perks-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .perk-card {
@@ -1792,17 +1329,19 @@ a {
 }
 
 
-/* ── CALCULATOR LAYOUT (replaces Bootstrap row + col-lg-6) ── */
+/* ── 24. CALCULATOR ───────────────────────────────────────── */
 .calc-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
 
-@media (max-width: 992px) {
-  .calc-layout {
-    grid-template-columns: 1fr;
-  }
+.calc-box {
+  background: #ffffff;
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--primary);
 }
 
 .calc-heading {
@@ -1852,7 +1391,6 @@ a {
   line-height: 1.5;
 }
 
-/* The blue pricing-by-age note box */
 .calc-pricing-note {
   background-color: #dbeafe;
   border: 1px solid #93c5fd;
@@ -1869,7 +1407,21 @@ a {
   color: var(--muted);
 }
 
-/* Total box */
+.total-box {
+  background-color: var(--dark);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 22px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.total-amount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--yellow);
+}
+
 .total-label {
   display: block;
   opacity: 0.7;
@@ -1884,4 +1436,235 @@ a {
   opacity: 0.7;
   font-size: 0.78rem;
   margin-top: 4px;
+}
+
+
+/* ── 25. ABOUT PAGE ───────────────────────────────────────── */
+.aboutBox {
+  background-color: #e0f2fe;
+  border: 1px solid #0361cc;
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.aboutBox:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.aboutBox-img {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 12px;
+}
+
+.aboutBox-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-top: 10px;
+}
+
+.aboutBox-text {
+  color: var(--dark);
+  font-size: 0.95rem;
+}
+
+
+/* ── 26. CONTACT FORM ─────────────────────────────────────── */
+.form-box {
+  background: #ffffff;
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--shadow);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.20);
+}
+
+.invalid-feedback {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+#successMsg {
+  display: none;
+  background: #d1fae5;
+  border: 2px solid #10b981;
+  border-radius: var(--radius);
+  padding: 30px;
+  text-align: center;
+}
+
+.input-field,
+.select-field,
+.textarea-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.input-field:focus,
+.select-field:focus,
+.textarea-field:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.20);
+  outline: none;
+}
+
+
+/* ── 27. FAQ ACCORDION ────────────────────────────────────── */
+.accordion-button {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--primary);
+  background-color: #fff5f0;
+  box-shadow: none;
+}
+
+.accordion-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius) !important;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+
+/* ── 28. FOOTER ───────────────────────────────────────────── */
+.site-footer {
+  background-color: var(--dark);
+  color: rgba(255, 255, 255, 0.80);
+  padding: 40px 0 20px;
+}
+
+.site-footer h5 {
+  color: var(--yellow);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.60);
+  text-decoration: none;
+  display: block;
+  line-height: 2.2;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.site-footer a:hover {
+  color: var(--primary);
+}
+
+.site-footer hr {
+  border-color: rgba(255, 255, 255, 0.10);
+  margin: 18px 0;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.footer-heading {
+  color: var(--yellow);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.60);
+  text-decoration: none;
+  display: block;
+  line-height: 2.2;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: var(--primary);
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  margin: 18px 0;
+}
+
+.footer-copyright {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.40);
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+
+/* ── 29. RESPONSIVE OVERRIDES ─────────────────────────────── */
+
+@media (max-width: 992px) {
+  .sidebar { width: 100%; }
+  .page-layout { flex-direction: column; }
+  .attractions-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .calc-layout { grid-template-columns: 1fr; }
+  .zone-grid { grid-template-columns: repeat(3, 1fr); }
+  .events-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 50px 0; }
+  .hero-title { font-size: 1.9rem; }
+  .section-title { font-size: 1.6rem; }
+  .ride-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .perks-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .hero-title { font-size: 1.6rem; }
+  .attractions-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .zone-grid { grid-template-columns: 1fr; }
+  .calendar-months { flex-direction: column; }
+  .perks-grid { grid-template-columns: 1fr; }
+  .attract-stats { gap: 20px; flex-wrap: wrap; }
+  .attract-stat-number { font-size: 1.4rem; }
+  .featured-event-img { height: 260px; }
+  .featured-event-overlay { padding: 20px; }
+  .featured-event-title { font-size: 1.3rem; }
+  .event-card { flex-direction: column; align-items: stretch; }
+  .event-date { display: flex; align-items: center; gap: 10px; padding: 10px 16px; min-width: auto; }
+  .event-day { font-size: 1.4rem; }
+  .event-month { margin-top: 0; }
+  .countdown-number { font-size: 1.6rem; padding: 6px 10px; min-width: 50px; }
+  .countdown-separator { font-size: 1.4rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 1.4rem; }
 }
