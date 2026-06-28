@@ -661,3 +661,62 @@ a {
   max-width: 600px;
   margin: 0 auto 12px;
 }
+/*simpler version of about us css*/
+.aboutHeader {
+  padding: 50px 0;
+  text-align: center;
+  background-color: #0d0d7c; /* navy tone */
+  color: #fff;
+}
+
+.aboutHeader-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.aboutHeader-subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 12px;
+}
+.logo {
+  height: 40px;   /* adjust size */
+  width: auto;
+}
+/* Mission, Vision, Values boxes */
+.aboutBox {
+  background-color: #e0f2fe;   /* light blue background */
+  border: 1px solid #0361cc;   /* soft blue border */
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aboutBox:hover {
+  transform: translateY(-6px);   /* lift up slightly */
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+
+.aboutBox-img {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 12px;
+}
+
+.aboutBox-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1B1B2F;   /* dark navy text */
+  margin-top: 10px;
+}
+
+.aboutBox-text {
+  color: var(--dark);
+  font-size: 0.95rem;
+}
+
+

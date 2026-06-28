@@ -12,7 +12,10 @@
   <!-- NAVBAR (same on every page — only "active" class changes) -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">SambFun Park</a>
+      <a class="navbar-brand" href="index.html">
+  <img src="images/sambfun_park_logo.png" alt="SambFun Park Logo" class="logo">
+</a>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -32,12 +35,13 @@
   </nav>
 
   <!-- HERO -->
-  <header class="hero hero-about">
-    <div class="container">
-      <h1>About SambFun Park</h1>
-      <p class="lead">Our story, our mission, and the people behind the magic.</p>
-    </div>
-  </header>
+  <header class="aboutHeader">
+  <div class="container">
+    <h1 class="aboutHeader-title">About SambFun Park</h1>
+    <p class="aboutHeader-subtitle">Our story, our mission, and the people behind the magic.</p>
+  </div>
+</header>
+
 
   <main>
 
@@ -57,7 +61,7 @@
             <p>Our founder, <strong>Deborah Lenasalon</strong>, believes that laughter and adventure should
                be accessible to everyone. That belief still drives every decision we make today — from
                the rides we build to the prices we set.</p>
-            <a href="tickets.html" class="btn-orange">Plan Your Visit</a>
+            <a href="tickets.html" class="btn-blue">Plan Your Visit</a>
           </div>
 
           <!-- Stats column: 2x2 grid of numbers -->
@@ -103,32 +107,30 @@
         <!-- Three equal columns using Bootstrap grid -->
         <div class="row g-4">
 
-          <div class="col-md-4">
-            <div class="card park-card p-4 text-center">
-              <div style="font-size: 2.5rem;">🎯</div>
-              <h4 class="fw-bold mt-3" style="color: #1B1B2F;">Our Mission</h4>
-              <p class="text-muted">To deliver world-class entertainment that brings families together
-                 in a safe, inclusive, and exciting environment.</p>
-            </div>
-          </div>
+        <div class="col-md-4">
+  <div class="aboutBox">
+    <img src="images/mission.png" alt="Mission Icon" class="aboutBox-img">
+    <h4 class="aboutBox-title">Our Mission</h4>
+    <p class="aboutBox-text">To deliver world-class entertainment that brings families together in a safe, inclusive, and exciting environment.</p>
+  </div>
+</div>
 
-          <div class="col-md-4">
-            <div class="card park-card p-4 text-center">
-              <div style="font-size: 2.5rem;">🌟</div>
-              <h4 class="fw-bold mt-3" style="color: #1B1B2F;">Our Vision</h4>
-              <p class="text-muted">To be Africa's most celebrated family adventure park — where
-                 every visit creates memories that last a lifetime.</p>
-            </div>
-          </div>
+<div class="col-md-4">
+  <div class="aboutBox">
+    <img src="images/vision.png" alt="Vision Icon" class="aboutBox-img">
+    <h4 class="aboutBox-title">Our Vision</h4>
+    <p class="aboutBox-text">To be Africa's most celebrated family adventure park — where every visit creates memories that last a lifetime.</p>
+  </div>
+</div>
 
-          <div class="col-md-4">
-            <div class="card park-card p-4 text-center">
-              <div style="font-size: 2.5rem;">💡</div>
-              <h4 class="fw-bold mt-3" style="color: #1B1B2F;">Our Values</h4>
-              <p class="text-muted">Safety first. Fun always. Inclusivity for every guest,
-                 every age, every background — no exceptions.</p>
-            </div>
-          </div>
+<div class="col-md-4">
+  <div class="aboutBox">
+    <img src="images/values.png" alt="Values Icon" class="aboutBox-img">
+    <h4 class="aboutBox-title">Our Values</h4>
+    <p class="aboutBox-text">Safety first. Fun always. Inclusivity for every guest, every age, every background — no exceptions.</p>
+  </div>
+</div>
+
 
         </div>
       </div>
