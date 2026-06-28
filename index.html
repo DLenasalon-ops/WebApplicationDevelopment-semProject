@@ -1,240 +1,220 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SambFun Park — Home</title>
-  <!-- Bootstrap 5 CSS (loaded from CDN — no installation needed) -->
+
+  <!-- Bootstrap 5 (kept only for navbar collapse on mobile) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Our custom CSS (loaded AFTER Bootstrap so it can override it) -->
+
+  <!-- Our custom CSS handles all styling -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!--
-    NAVBAR
-    Bootstrap class explanations:
-    navbar-expand-lg  = collapses into hamburger on screens smaller than 992px
-    sticky-top        = stays fixed at top when user scrolls
-    data-bs-toggle    = Bootstrap JS reads this to handle the collapse
-    Copy this exact navbar block to every page — only change the "active" class
-  -->
+  <!-- NAVBAR (Bootstrap kept here only for the hamburger menu) -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="images/sambfun_park_logo.png" alt="" height="20">
+        <img src="images/sambfun_park_logo.png" alt="SambFun Park Logo" class="brand-logo">
       </a>
       <button class="navbar-toggler" type="button"
-              data-bs-toggle="collapse" data-bs-target="#navMenu"
-              aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+              data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active"  href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link"         href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link"         href="attractions.html">Attractions</a></li>
-          <li class="nav-item"><a class="nav-link"         href="tickets.html">Tickets</a></li>
-          <li class="nav-item"><a class="nav-link"         href="events.html">Events</a></li>
-          <li class="nav-item"><a class="nav-link"         href="contactForm.html">Contact</a></li>
-          <li class="nav-item"><a class="nav-link"         href="faq.html">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link"        href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link"        href="attractions.html">Attractions</a></li>
+          <li class="nav-item"><a class="nav-link"        href="tickets.html">Tickets</a></li>
+          <li class="nav-item"><a class="nav-link"        href="events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link"        href="contactForm.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link"        href="faq.html">FAQ</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- HERO — the big banner at the top of every page -->
+
+  <!-- HERO BANNER -->
   <header class="hero hero-home">
-    <div class="container">
-      <h1>Welcome to SambFun Park</h1>
-      <p class="lead">Thrills, laughter, and memories that last a lifetime.</p>
-      <a href="tickets.html" class="btn-park">&#127903; Book Your Tickets</a>
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to SambFun Park</h1>
+      <p class="hero-subtitle">Thrills, laughter, and memories that last a lifetime.</p>
+      <a href="tickets.html" class="btn-park">Book Your Tickets</a>
     </div>
   </header>
 
-  <!-- MAIN CONTENT — uses our custom two-column layout (.page-layout) -->
-  <main class="section">
-    <div class="container">
-      <div class="page-layout">
 
-        <!-- ===== LEFT: MAIN CONTENT ===== -->
-        <div class="main-content">
+  <!-- MAIN CONTENT -->
+  <main class="page-wrapper">
+    <div class="page-layout">
 
-          <h2 class="section-title">Featured Rides</h2>
-          <p class="section-sub">A taste of the thrills waiting for you at SambFun Park.</p>
+      <!-- LEFT COLUMN -->
+      <section class="main-content">
 
-          <!--
-            Bootstrap Grid:
-            row     = starts a horizontal row of columns
-            g-4     = gap of 4 units between columns
-            col-md-6 = each card takes half the row on medium+ screens,
-                       full width on small screens (stacks automatically)
-          -->
-          <div class="row g-4">
+        <h2 class="section-title">Featured Rides</h2>
+        <p class="section-sub">A taste of the thrills waiting for you at SambFun Park.</p>
 
-            <div class="col-md-6">
-              <div class="park-card p-3">
-                <div class="text-center" style="font-size:2.8rem;">&#127922;</div>
-                <h5 class="fw-bold text-center mt-2">Thunder Loop</h5>
-                <div class="text-center mb-2"><span class="badge-extreme">Extreme</span></div>
-                <p class="text-muted small">Our flagship roller coaster — 120 km/h through three inversions and a 65-metre drop.</p>
-                <p class="small text-muted mb-1">&#128207; Min height: 140 cm</p>
-                <a href="attractions.html" class="btn btn-outline-primary btn-sm w-100">Learn More</a>
-              </div>
-            </div>
+        <!-- Ride cards in a 2-column grid (defined in CSS) -->
+        <div class="ride-grid">
 
-            <div class="col-md-6">
-              <div class="park-card p-3">
-                <div class="text-center" style="font-size:2.8rem;">&#128167;</div>
-                <h5 class="fw-bold text-center mt-2">Splash Canyon</h5>
-                <div class="text-center mb-2"><span class="badge-moderate">Moderate</span></div>
-                <p class="text-muted small">Wild river rapids through jungle-themed canyons — you will get soaked!</p>
-                <p class="small text-muted mb-1">&#128207; Min height: 110 cm</p>
-                <a href="attractions.html" class="btn btn-outline-primary btn-sm w-100">Learn More</a>
-              </div>
-            </div>
+          <!-- Ride 1: Thunder Loop -->
+          <article class="park-card ride-card-home">
+            <img src="images/thunder-loop.png" alt="Thunder Loop roller coaster" class="ride-img">
+            <h5 class="ride-title">Thunder Loop</h5>
+            <span class="badge-extreme">Extreme</span>
+            <p class="ride-description">Our flagship roller coaster — 120 km/h through three inversions and a 65-metre drop.</p>
+            <p class="ride-meta">Min height: 140 cm</p>
+            <a href="attractions.html" class="btn-learn-more">Learn More</a>
+          </article>
 
-            <div class="col-md-6">
-              <div class="park-card p-3">
-                <div class="text-center" style="font-size:2.8rem;">&#127904;</div>
-                <h5 class="fw-bold text-center mt-2">Kids' Carousel</h5>
-                <div class="text-center mb-2"><span class="badge-mild">Mild</span></div>
-                <p class="text-muted small">A beautifully decorated carousel perfect for young children and the young at heart.</p>
-                <p class="small text-muted mb-1">&#128207; All heights welcome</p>
-                <a href="attractions.html" class="btn btn-outline-primary btn-sm w-100">Learn More</a>
-              </div>
-            </div>
+          <!-- Ride 2: Splash Canyon -->
+          <article class="park-card ride-card-home">
+            <img src="images/splash-canyon.png" alt="Splash Canyon water ride" class="ride-img">
+            <h5 class="ride-title">Splash Canyon</h5>
+            <span class="badge-moderate">Moderate</span>
+            <p class="ride-description">Wild river rapids through jungle-themed canyons — you will get soaked!</p>
+            <p class="ride-meta">Min height: 110 cm</p>
+            <a href="attractions.html" class="btn-learn-more">Learn More</a>
+          </article>
 
-            <div class="col-md-6">
-              <div class="park-card p-3">
-                <div class="text-center" style="font-size:2.8rem;">&#127744;</div>
-                <h5 class="fw-bold text-center mt-2">Vortex Spinner</h5>
-                <div class="text-center mb-2"><span class="badge-moderate">Moderate</span></div>
-                <p class="text-muted small">A spinning disc ride — you will never know which way is up!</p>
-                <p class="small text-muted mb-1">&#128207; Min height: 120 cm</p>
-                <a href="attractions.html" class="btn btn-outline-primary btn-sm w-100">Learn More</a>
-              </div>
-            </div>
+          <!-- Ride 3: Kids' Carousel -->
+          <article class="park-card ride-card-home">
+            <img src="images/kids-carousel.png" alt="Kids Carousel ride" class="ride-img">
+            <h5 class="ride-title">Kids' Carousel</h5>
+            <span class="badge-mild">Mild</span>
+            <p class="ride-description">A beautifully decorated carousel perfect for young children and the young at heart.</p>
+            <p class="ride-meta">All heights welcome</p>
+            <a href="attractions.html" class="btn-learn-more">Learn More</a>
+          </article>
 
-          </div><!-- end row -->
+          <!-- Ride 4: Vortex Spinner -->
+          <article class="park-card ride-card-home">
+            <img src="images/vortex-spinner.png" alt="Vortex Spinner ride" class="ride-img">
+            <h5 class="ride-title">Vortex Spinner</h5>
+            <span class="badge-moderate">Moderate</span>
+            <p class="ride-description">A spinning disc ride — you will never know which way is up!</p>
+            <p class="ride-meta">Min height: 120 cm</p>
+            <a href="attractions.html" class="btn-learn-more">Learn More</a>
+          </article>
 
-          <div class="mt-4">
-            <a href="attractions.html" class="btn-park">View All Attractions</a>
+        </div>
+
+        <div class="cta-block">
+          <a href="attractions.html" class="btn-park">View All Attractions</a>
+        </div>
+
+
+        <!-- UPCOMING EVENTS -->
+        <h2 class="section-title section-title-spaced">Upcoming Events</h2>
+        <p class="section-sub">Something exciting is always happening at SambFun Park.</p>
+
+        <article class="event-card">
+          <div class="event-date event-date-orange">
+            <div class="event-day">21</div>
+            <div class="event-month">Jun</div>
           </div>
-
-          <!-- Upcoming events teaser -->
-          <h2 class="section-title mt-5">Upcoming Events</h2>
-          <p class="section-sub">Something exciting is always happening at SambFun Park.</p>
-
-          <div class="park-card p-3 mb-3">
-            <div class="d-flex gap-3 align-items-start">
-              <div class="text-center rounded px-3 py-2 text-white flex-shrink-0"
-                   style="background:#FF6B35; min-width:58px;">
-                <div style="font-size:1.5rem; font-weight:800; line-height:1;">21</div>
-                <div style="font-size:0.65rem; text-transform:uppercase;">Jun</div>
-              </div>
-              <div>
-                <span class="badge bg-danger mb-1">This Weekend</span>
-                <h6 class="fw-bold mb-1">Summer Splash Festival</h6>
-                <p class="text-muted small mb-1">21&ndash;22 June 2026 &middot; All day &middot; Splash Zone</p>
-                <a href="events.html" class="btn btn-sm btn-outline-danger">View Event</a>
-              </div>
-            </div>
+          <div class="event-details">
+            <span class="event-tag event-tag-weekend">This Weekend</span>
+            <h6 class="event-title">Summer Splash Festival</h6>
+            <p class="event-meta">21 - 22 June 2026 | All day | Splash Zone</p>
+            <a href="events.html" class="btn-event-link btn-event-link-red">View Event</a>
           </div>
+        </article>
 
-          <div class="park-card p-3 mb-3">
-            <div class="d-flex gap-3 align-items-start">
-              <div class="text-center rounded px-3 py-2 text-white flex-shrink-0"
-                   style="background:#6D28D9; min-width:58px;">
-                <div style="font-size:1.5rem; font-weight:800; line-height:1;">04</div>
-                <div style="font-size:0.65rem; text-transform:uppercase;">Jul</div>
-              </div>
-              <div>
-                <span class="badge bg-warning text-dark mb-1">Special Event</span>
-                <h6 class="fw-bold mb-1">Night Parade Spectacular</h6>
-                <p class="text-muted small mb-1">4 July 2026 &middot; 7 PM &middot; Main Street</p>
-                <a href="events.html" class="btn btn-sm btn-outline-warning">View Event</a>
-              </div>
-            </div>
+        <article class="event-card">
+          <div class="event-date event-date-purple">
+            <div class="event-day">04</div>
+            <div class="event-month">Jul</div>
           </div>
+          <div class="event-details">
+            <span class="event-tag event-tag-special">Special Event</span>
+            <h6 class="event-title">Night Parade Spectacular</h6>
+            <p class="event-meta">4 July 2026 | 7 PM | Main Street</p>
+            <a href="events.html" class="btn-event-link btn-event-link-yellow">View Event</a>
+          </div>
+        </article>
 
+        <div class="cta-block">
           <a href="events.html" class="btn-park">See All Events</a>
+        </div>
 
-        </div><!-- end main-content -->
+      </section>
 
 
-        <!-- ===== RIGHT: SIDEBAR ===== -->
-        <aside class="sidebar">
+      <!-- RIGHT COLUMN: SIDEBAR -->
+      <aside class="sidebar">
 
-          <!-- Today's Hours -->
-          <div class="sidebar-card">
-            <div class="sidebar-heading">&#128336; Today's Hours</div>
-            <div class="stat-row"><span>Opens</span>     <strong>9:00 AM</strong></div>
-            <div class="stat-row"><span>Last Entry</span><strong>7:00 PM</strong></div>
-            <div class="stat-row"><span>Closes</span>    <strong>9:00 PM</strong></div>
-            <div class="open-badge">&#9989; We Are Open Today!</div>
-          </div>
+        <div class="sidebar-card">
+          <div class="sidebar-heading">Today's Hours</div>
+          <div class="stat-row"><span>Opens</span>     <strong>9:00 AM</strong></div>
+          <div class="stat-row"><span>Last Entry</span><strong>7:00 PM</strong></div>
+          <div class="stat-row"><span>Closes</span>    <strong>9:00 PM</strong></div>
+          <div class="open-badge">We Are Open Today!</div>
+        </div>
 
-          <!-- Park Stats -->
-          <div class="sidebar-card">
-            <div class="sidebar-heading">&#127905; Park Stats</div>
-            <div class="stat-row"><span>Total Rides</span>     <strong>50+</strong></div>
-            <div class="stat-row"><span>Restaurants</span>     <strong>12</strong></div>
-            <div class="stat-row"><span>Park Zones</span>      <strong>5</strong></div>
-            <div class="stat-row"><span>Annual Visitors</span> <strong>1M+</strong></div>
-            <div class="stat-row"><span>Days Open</span>       <strong>365</strong></div>
-          </div>
+        <div class="sidebar-card">
+          <div class="sidebar-heading">Park Stats</div>
+          <div class="stat-row"><span>Total Rides</span>     <strong>50+</strong></div>
+          <div class="stat-row"><span>Restaurants</span>     <strong>12</strong></div>
+          <div class="stat-row"><span>Park Zones</span>      <strong>5</strong></div>
+          <div class="stat-row"><span>Annual Visitors</span> <strong>1M+</strong></div>
+          <div class="stat-row"><span>Days Open</span>       <strong>365</strong></div>
+        </div>
 
-          <!-- Quick Links -->
-          <div class="sidebar-card">
-            <div class="sidebar-heading">&#128279; Quick Links</div>
-            <a href="tickets.html"     class="quick-link">&#127903; Buy Tickets</a>
-            <a href="attractions.html" class="quick-link">&#127922; All Rides</a>
-            <a href="events.html"      class="quick-link">&#128197; Events</a>
-            <a href="contactForm.html" class="quick-link">&#128222; Contact Us</a>
-            <a href="faq.html"         class="quick-link">&#10067; FAQ</a>
-          </div>
+        <div class="sidebar-card">
+          <div class="sidebar-heading">Quick Links</div>
+          <a href="tickets.html"     class="quick-link">Buy Tickets</a>
+          <a href="attractions.html" class="quick-link">All Rides</a>
+          <a href="events.html"      class="quick-link">Events</a>
+          <a href="contactForm.html" class="quick-link">Contact Us</a>
+          <a href="faq.html"         class="quick-link">FAQ</a>
+        </div>
 
-        </aside><!-- end sidebar -->
+      </aside>
 
-      </div><!-- end page-layout -->
     </div>
   </main>
 
-  <!-- FOOTER — copy this exact block to every page -->
+
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-4">
-          <h5>&#127906; SambFun Park</h5>
-          <p>Africa's most exciting family adventure park. Thrills, laughter, and memories that last a lifetime.</p>
+    <div class="footer-container">
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h5 class="footer-heading">SambFun Park</h5>
+          <p class="footer-text">Africa's most exciting family adventure park. Thrills, laughter, and memories that last a lifetime.</p>
         </div>
-        <div class="col-md-4">
-          <h5>Quick Links</h5>
-          <a href="index.html">Home</a>
-          <a href="attractions.html">Attractions</a>
-          <a href="tickets.html">Tickets</a>
-          <a href="events.html">Events</a>
-          <a href="contactForm.html">Contact Us</a>
+
+        <div class="footer-col">
+          <h5 class="footer-heading">Quick Links</h5>
+          <a href="attractions.html" class="footer-link">Attractions</a>
+          <a href="tickets.html"     class="footer-link">Tickets</a>
+          <a href="events.html"      class="footer-link">Events</a>
+          <a href="contactForm.html" class="footer-link">Contact Us</a>
         </div>
-        <div class="col-md-4">
-          <h5>Contact Us</h5>
-          <p>&#128205; South-Horr, Samburu, Kenya<br>
-             &#128222; +254 712 345 678<br>
-             &#128231; info@sambfunpark.co.ke<br>
-             &#128336; Open daily: 9 AM &ndash; 9 PM</p>
+
+        <div class="footer-col">
+          <h5 class="footer-heading">Contact Us</h5>
+          <p class="footer-text">
+            South-Horr, Samburu, Kenya<br>
+            +254 712 345 678<br>
+            info@sambfunpark.co.ke<br>
+            Open daily: 9 AM - 9 PM
+          </p>
         </div>
+
       </div>
-      <hr>
-      <p class="text-center copyright mb-0">&copy; 2026 SambFun Park. All rights reserved.</p>
+      <hr class="footer-divider">
+      <p class="footer-copyright">&copy; 2026 SambFun Park. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Bootstrap JS (must be at the bottom, after all HTML) -->
-  <!-- Enables: hamburger menu collapse, FAQ accordion, etc.  -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Our custom JS (always loaded AFTER Bootstrap) -->
   <script src="js/script.js"></script>
 </body>
 </html>

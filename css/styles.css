@@ -718,5 +718,303 @@ a {
   color: var(--dark);
   font-size: 0.95rem;
 }
+/*index page css*/
+/* ================================================================
+   CUSTOM HOMEPAGE CLASSES
+   Replaces Bootstrap utility classes and inline styles
+   ================================================================ */
 
+
+/* ── Brand logo in navbar ─────────────────────────────────── */
+.brand-logo {
+  height: 40px;                      /* controls the logo size */
+  width: auto;                       /* keeps the aspect ratio */
+}
+
+
+/* ── Hero content wrapper ─────────────────────────────────── */
+.hero-content {
+  max-width: 1100px;                 /* limits width on big screens */
+  margin: 0 auto;                    /* centres it */
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 25px;
+}
+
+
+/* ── Page wrapper ─────────────────────────────────────────── */
+.page-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+
+/* ── Section title with extra top space ───────────────────── */
+.section-title-spaced {
+  margin-top: 50px;
+}
+
+
+/* ── Ride grid (replaces Bootstrap row + col-md-6) ────────── */
+.ride-grid {
+  display: grid;                             /* CSS Grid layout */
+  grid-template-columns: repeat(2, 1fr);     /* 2 equal columns */
+  gap: 20px;                                 /* space between cards */
+}
+
+@media (max-width: 768px) {
+  .ride-grid {
+    grid-template-columns: 1fr;              /* 1 column on mobile */
+  }
+}
+
+
+/* ── Ride card styling ────────────────────────────────────── */
+.ride-card-home {
+  padding: 0;                                /* image goes edge-to-edge */
+  overflow: hidden;                          /* clips image to card radius */
+  text-align: center;
+}
+
+/* The ride illustration image */
+.ride-img {
+  width: 100%;                               /* fills the card width */
+  height: 180px;                             /* fixed height for consistency */
+  object-fit: cover;                         /* crops to fill without stretching */
+  display: block;                            /* removes gap below image */
+}
+
+/* Text content below the image needs padding */
+.ride-card-home .ride-title,
+.ride-card-home .ride-description,
+.ride-card-home .ride-meta,
+.ride-card-home .btn-learn-more,
+.ride-card-home .badge-mild,
+.ride-card-home .badge-moderate,
+.ride-card-home .badge-extreme {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.ride-title {
+  font-weight: 700;
+  color: var(--dark);
+  margin-top: 14px;
+  margin-bottom: 8px;
+}
+
+.ride-description {
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: left;
+  margin-bottom: 6px;
+}
+
+.ride-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+
+/* ── "Learn More" button ──────────────────────────────────── */
+.btn-learn-more {
+  display: block;
+  margin: 0 16px 16px;                      /* matches card padding */
+  padding: 8px 12px;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-learn-more:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+
+/* ── CTA block (centres the button below sections) ────────── */
+.cta-block {
+  text-align: center;
+  margin-top: 25px;
+}
+
+
+/* ── Event cards ──────────────────────────────────────────── */
+.event-card {
+  display: flex;                             /* side-by-side layout */
+  gap: 15px;                                 /* space between date and text */
+  align-items: flex-start;
+  padding: 15px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Date badge (coloured box with day and month) */
+.event-date {
+  text-align: center;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  min-width: 60px;
+  flex-shrink: 0;                            /* date box doesn't shrink */
+}
+
+.event-date-orange { background-color: var(--primary); }
+.event-date-purple { background-color: #6D28D9; }
+
+.event-day {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.event-month {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Event text content */
+.event-details {
+  flex: 1;                                   /* takes remaining space */
+}
+
+.event-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.event-tag-weekend { background-color: #dc3545; }
+.event-tag-special { background-color: #ffc107; color: #333; }
+
+.event-title {
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.event-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+/* Event link buttons */
+.btn-event-link {
+  display: inline-block;
+  padding: 5px 14px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-event-link-red {
+  border: 1px solid #dc3545;
+  color: #dc3545;
+}
+.btn-event-link-red:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-event-link-yellow {
+  border: 1px solid #ffc107;
+  color: #c08500;
+}
+.btn-event-link-yellow:hover {
+  background-color: #ffc107;
+  color: #333;
+}
+
+
+/* ── Footer (replaces Bootstrap row/col) ──────────────────── */
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);     /* 3 equal columns */
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;              /* stack on phones */
+  }
+}
+
+.footer-heading {
+  color: var(--yellow);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.60);
+  text-decoration: none;
+  display: block;
+  line-height: 2.2;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: var(--primary);
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  margin: 18px 0;
+}
+
+.footer-copyright {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.40);
+  font-size: 0.82rem;
+  margin: 0;
+}
 

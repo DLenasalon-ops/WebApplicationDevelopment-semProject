@@ -344,7 +344,7 @@ function TicketCalc() {
 
     // Build the breakdown HTML (line-by-line cost details)
     var breakdown = '';
-    if (counts.adult  > 0) breakdown += makeRow(counts.adult  + ' Adult(s)',          counts.adult  * PRICES.adult);
+    if (counts.adult  > 0) breakdown += makeRow(counts.adult  + ' Adult(s)', counts.adult  * PRICES.adult);
     if (counts.child  > 0) breakdown += makeRow(counts.child  + ' Child(ren) (3–17)', counts.child  * PRICES.child);
     if (counts.senior > 0) breakdown += makeRow(counts.senior + ' Senior(s) (60+)',   counts.senior * PRICES.senior);
     if (counts.free   > 0) breakdown += makeRow(counts.free   + ' Free (under 3)',    0);
@@ -460,7 +460,7 @@ function ContactForm() {
       showError(nameField, 'Name must be at least 3 characters long.');
       allValid = false;
     }
-    else if(nameField.value.trim().length>15){
+    else if(nameField.value.trim().length>25){
       //too long 
       showError(nameField, 'Name must be less than 15 characters long.');
       allValid=false;
