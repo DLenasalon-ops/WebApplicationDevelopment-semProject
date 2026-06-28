@@ -1018,3 +1018,144 @@ a {
   margin: 0;
 }
 
+/* css for attractions
+/* ================================================================
+   ATTRACTIONS PAGE — Custom classes
+   ================================================================ */
+
+
+/* ── Filter bar layout ────────────────────────────────────── */
+/* Already have .filter-bar, .filter-label, .filter-btn in existing CSS */
+/* Adding the inner layout for the two filter groups */
+
+.filter-group {
+  margin-bottom: 12px;                       /* space between the two groups */
+}
+
+.filter-group:last-child {
+  margin-bottom: 0;
+}
+
+.filter-buttons {
+  display: flex;                             /* buttons in a row */
+  flex-wrap: wrap;                           /* wraps to next line on small screens */
+  gap: 6px;                                  /* small space between buttons */
+}
+
+
+/* ── Attractions grid (replaces Bootstrap row + col-lg-4) ── */
+.attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);     /* 3 equal columns */
+  gap: 20px;
+}
+
+/* 2 columns on tablets */
+@media (max-width: 992px) {
+  .attractions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 1 column on phones */
+@media (max-width: 576px) {
+  .attractions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ── Individual attraction card ───────────────────────────── */
+.attraction-card {
+  overflow: hidden;                          /* clips image to card border-radius */
+  padding: 0;                               /* image goes edge-to-edge */
+  position: relative;                        /* needed for the "coming soon" ribbon */
+}
+
+/* The ride image at the top of each card */
+.attraction-img {
+  width: 100%;                               /* fills the card width */
+  height: 180px;                             /* consistent height across cards */
+  object-fit: cover;                         /* crops to fill without distortion */
+  display: block;                            /* removes gap below image */
+}
+
+/* Text content below the image */
+.attraction-body {
+  padding: 16px;
+  text-align: center;
+}
+
+.attraction-title {
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+/* Row of badges (thrill level + ride type) */
+.attraction-badges {
+  display: flex;
+  justify-content: center;                   /* centres the badges */
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.attraction-text {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Bottom info row (height + zone) */
+.attraction-info {
+  display: flex;
+  justify-content: space-between;            /* pushes items to opposite ends */
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);       /* thin line above the info */
+}
+
+
+/* ── Ride type badges (the second badge on each card) ─────── */
+.badge-type {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+}
+
+.badge-type-coaster { background-color: #6b7280; }   /* grey */
+.badge-type-water   { background-color: #3b82f6; }   /* blue */
+.badge-type-family  { background-color: #10b981; }   /* green */
+.badge-type-thrill  { background-color: #f59e0b; color: #333; }  /* amber */
+
+
+/* ── "Coming Soon" ribbon for Sky Rocket ──────────────────── */
+.attraction-coming-soon {
+  opacity: 0.85;                             /* slightly faded to show it's not open yet */
+}
+
+.coming-soon-ribbon {
+  position: absolute;                        /* floats over the card */
+  top: 14px;
+  right: -30px;
+  background-color: #f59e0b;                /* amber/gold */
+  color: #333;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 40px;
+  transform: rotate(30deg);                  /* angled ribbon effect */
+}
+
+
+/* ── CTA block below the grid ─────────────────────────────── */
+.cta-text {
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
